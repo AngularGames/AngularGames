@@ -1,1 +1,14 @@
 <p>pagina-principal enrique!</p>
+<p>Juegos en gradilla, al pinchar en el juego va a la página
+  y la página muestra los datos del juego</p>
+<p>NADA DE GRADILLAS</p>
+<P>primero vamos a hacer un select en una tabla normal (bonita) y luego vemos</P>
+<p> ngfor de la lista de juegos, ordenado en tabla</p>
+<p> y un a router link. que con un (click)="articuloElegido(item.nombre)"hecho de la lista")</p>
+
+
+<table>
+  <tr *ngFor="let juego of bdJuegos"> <a [routerLink]="['/articulo']" routerLinkActive="router-link-active" (click)="juegoElegido(juego.nombre)">{{juego.nombre}}</a></tr>
+</table>
+
+<router-outlet></router-outlet>
