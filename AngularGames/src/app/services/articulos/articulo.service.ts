@@ -367,5 +367,19 @@ export class ArticuloService {
 
   }
 
+  filtrarTipo(tipo:string):Juego[]{
+    return this.baseDatosJuegos.filter(juego=>juego.tipo==tipo);
+
+  }
+
+  filtrarJugadores(jmin:string,jmax:string):Juego[]{
+    return this.baseDatosJuegos.filter(juego=>(juego.jugadoresMin>=jmin&&juego.jugadoresMax<=jmax));
+
+  }
+
+  filtrarDificultad(dificultad:number):Juego[]{
+    return this.baseDatosJuegos.filter(juegos=>(+juegos.dificultad >= dificultad))
+  }
+
 
 }

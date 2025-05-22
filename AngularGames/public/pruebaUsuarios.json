@@ -1,0 +1,33 @@
+[
+  {
+    "idUsuario":"1",
+    "nombre":"nombre1",
+    "apellido":"apellido1",
+    "nombreUsuario":"usuario1",
+    "password":"password1",
+    "correo":"correo1",
+    "direccion":"calle1",
+    "telefono":1111111
+  },
+  {
+    "idUsuario":"2",
+    "nombre":"nombre2",
+    "apellido":"apellido2",
+    "nombreUsuario":"usuario2",
+    "password":"password2",
+    "correo":"correo2",
+    "direccion":"calle2",
+    "telefono":222222
+  },
+  {
+    "idUsuario":"3",
+    "nombre":"nombre3",
+    "apellido":"apellido3",
+    "nombreUsuario":"usuario3",
+    "password":"password3",
+    "correo":"correo3",
+    "direccion":"calle3",
+    "telefono":3333333
+  }
+
+]
