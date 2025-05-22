@@ -10,14 +10,14 @@ export class Usuario{
     telefono:number;
   
     constructor(
-      idUsuario:string,
-      nombre:string,
-      apellido:string,
-      nombreUsuario:string,
-      password:string,
-      correo:string,
-      direccion:string,
-      telefono:number,
+      idUsuario?:string,
+      nombre?:string,
+      apellido?:string,
+      nombreUsuario?:string,
+      password?:string,
+      correo?:string,
+      direccion?:string,
+      telefono?:number,
     )
       {
   
