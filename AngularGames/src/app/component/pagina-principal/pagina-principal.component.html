@@ -7,8 +7,9 @@
 <p> y un a router link. que con un (click)="articuloElegido(item.nombre)"hecho de la lista")</p>
 
 
-<table>
-  <tr *ngFor="let juego of bdJuegos"> <a [routerLink]="['/articulo']" routerLinkActive="router-link-active" (click)="juegoElegido(juego.nombre)">{{juego.nombre}}</a></tr>
-</table>
+<select [(ngModel)]="seleccion" (change)="juegoElegido(seleccion)">
+  <option *ngFor="let juego of bdJuegos" value="{{juego.nombre}}">{{juego.nombre}}</option>
+</select><br>
 
-<router-outlet></router-outlet>
+
+<app-pagina-producto [articulo]="juegoSeleccionado"></app-pagina-producto>

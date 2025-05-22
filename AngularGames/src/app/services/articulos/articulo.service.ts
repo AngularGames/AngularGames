@@ -360,12 +360,10 @@ export class ArticuloService {
   }
   ];
 
-  juegoPulsado:string;
-  mostrarJuego():Juego{
-
-    console.log("el juego buscado es "+this.juegoPulsado)
-    console.log(this.baseDatosJuegos.find(juego=>juego.nombre==this.juegoPulsado));
-    return this.baseDatosJuegos.find(juego=>juego.nombre==this.juegoPulsado);
+  elegirJuego(nombre:string):Juego{
+    console.log("filtramos la BD para coger "+nombre)
+    console.log("devolvermos "+this.baseDatosJuegos.find(juego=>juego.nombre==nombre))
+    return this.baseDatosJuegos.find(juego=>juego.nombre==nombre);
 
   }
 
