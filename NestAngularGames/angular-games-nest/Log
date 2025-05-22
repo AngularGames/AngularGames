@@ -1,0 +1,12 @@
+Luis//
+He creado el nest para ir configurando el rest.
+
+he creado el servicio y el controller y enunciado los metodos. le preguntamos a antonio a ver qué opina.
+
+he puesto los mismos modelos que los del Angular que entiendo que serán los mismos.
+
+he cambiado las lineas 13 y 15 de ensilt y jsonconfig
+
+si necesitáis meter algún método en el controller o el service ponedlos.
+
+como no tenemls BD ahora pondré el json de la base de datos en el service para hacer pruebas
