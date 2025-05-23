@@ -10,6 +10,9 @@
 <select [(ngModel)]="seleccion" (change)="juegoElegido(seleccion)">
   <option *ngFor="let juego of bdJuegos" value="{{juego.nombre}}">{{juego.nombre}}</option>
 </select><br>
+<h1>buscador></h1><br>
+nombre<input [(ngModel)]="nombre">
+tipo<input [(ngModel)]="tipo"> 
 
 
 <app-pagina-producto [articulo]="juegoSeleccionado"></app-pagina-producto>
