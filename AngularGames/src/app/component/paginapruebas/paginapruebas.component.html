@@ -1,16 +1,8 @@
-<p>pagina-principal enrique!</p>
-<p>Juegos en gradilla, al pinchar en el juego va a la página
-  y la página muestra los datos del juego</p>
-<p>NADA DE GRADILLAS</p>
-<P>primero vamos a hacer un select en una tabla normal (bonita) y luego vemos</P>
-<p> ngfor de la lista de juegos, ordenado en tabla</p>
-<p> y un a router link. que con un (click)="articuloElegido(item.nombre)"hecho de la lista")</p>
-
+<p>paginapruebas works!</p>
 
 <select [(ngModel)]="seleccion" (change)="juegoElegido(seleccion)">
   <option *ngFor="let juego of bdJuegos" value="{{juego.nombre}}">{{juego.nombre}}</option>
 </select><br>
-<h1>buscador></h1><br>
 
 <!-- Lo que hacemos con esto es insertar la página de producto en este separador
  y decirle que relacione NUESTRO juego seleccionado CON LA VARIABLE ARTICULO DE LA PAGINA DEL PRODUCTO.
@@ -22,4 +14,13 @@
 
  articulo = juegoseleccionado con lo que articulo.nombre es juegoseleccionado.nombre
  -->
+
 <app-pagina-producto [articulo]="juegoSeleccionado"></app-pagina-producto>
+
+////////
+<h1>pruebas buscador</h1><br>
+////////
+
+<!--
+<input [(ngModel)]="binding">
+-->
