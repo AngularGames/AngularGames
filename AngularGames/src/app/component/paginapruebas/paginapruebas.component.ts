@@ -18,6 +18,7 @@ export class PaginapruebasComponent {
     this.bdJuegos=this.articuloService.baseDatosJuegos
   }
   bdJuegos:Juego[];
+  
 
   @Input() juegoSeleccionado:Juego;
   seleccion:string;
