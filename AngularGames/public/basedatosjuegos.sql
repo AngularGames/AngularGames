@@ -54,7 +54,8 @@ CREATE TABLE `almacen` (
   `cantidad` int NOT NULL,
   `almacencol` varchar(45) NOT NULL,
   PRIMARY KEY (`idArticulo`),
-  UNIQUE KEY `idArticulo_UNIQUE` (`idArticulo`)
+  UNIQUE KEY `idArticulo_UNIQUE` (`idArticulo`),
+  CONSTRAINT `articulo` FOREIGN KEY (`idArticulo`) REFERENCES `juegos` (`idArticulo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -103,7 +104,8 @@ CREATE TABLE `historial pedidos` (
   `numPedido` int NOT NULL,
   `fecha` datetime NOT NULL,
   PRIMARY KEY (`idPedido`),
-  UNIQUE KEY `idPedido_UNIQUE` (`idPedido`)
+  UNIQUE KEY `idPedido_UNIQUE` (`idPedido`),
+  CONSTRAINT `pedido` FOREIGN KEY (`idPedido`) REFERENCES `pedidousuario` (`idPedido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -180,7 +182,8 @@ CREATE TABLE `precios` (
   `idArticulo` varchar(20) NOT NULL,
   `precio` int NOT NULL,
   PRIMARY KEY (`idArticulo`),
-  UNIQUE KEY `idArticulo_UNIQUE` (`idArticulo`)
+  UNIQUE KEY `idArticulo_UNIQUE` (`idArticulo`),
+  CONSTRAINT `idArticulo` FOREIGN KEY (`idArticulo`) REFERENCES `articulos` (`idarticulo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -234,4 +237,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-21 18:25:54
+-- Dump completed on 2025-05-24 14:14:34
