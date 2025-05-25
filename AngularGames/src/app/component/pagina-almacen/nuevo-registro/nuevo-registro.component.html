@@ -1,0 +1,23 @@
+<p>nuevo-registro works!</p>
+<h2>INSERTA NUEVO PRODUCTO</h2>
+Tipo de producto <select [(ngModel)]="tipo">
+  <option value="juego">JUEGO</option>
+  <option value="articulo">ARTICULO</option>
+  </select><br><br>
+
+
+<div *ngIf="tipo==juego">
+  Nombre del producto <input [(ngModel)]="Nombre"><br><br>
+  Tipo de juego <input [(ngModel)]="tipoDeJuego"><br><br>
+  Jugadores Mínimos<input [(ngModel)]="jmin"><br>
+  Jugadores Máximos<input [(ngModel)]="jmax"><br><br>
+  Dificultad <input [(ngModel)]="dificultad"><br>
+  Descripcion <input [(ngModel)]="descripcion"><br><br>
+  
+</div>
+
+<div *ngIf="tipo==articulo">
+  Nombre del producto <input [(ngModel)]="Nombre"><br><br>
+  Descripcion <input [(ngModel)]="descripcion"><br><br>
+</div>
+
