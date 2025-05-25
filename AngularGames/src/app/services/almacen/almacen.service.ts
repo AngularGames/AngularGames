@@ -21,14 +21,13 @@ export class AlmacenService {
     var idArticulo:string=`Jue${nart+1}`
     nart++;
   this.articuloService.baseDatosJuegos.forEach(juego =>{
-    //crear un array almacen al que, a cada juego, le añaden el idarticulo
-    //mirar como añadir una propiedad si es con foreach o con map
-    juego:{idArticulo}
-
-    )
+    this.bdAlmacen.push(new productoAlmacen(idArticulo,juego.tipo,juego,1))
   });
 
+  console.log(this.bdAlmacen);
   }
+
+
 }
 
 

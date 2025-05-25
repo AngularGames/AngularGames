@@ -1,18 +1,18 @@
 <p>pagina-almacen works!</p>
 <h1>Almacén</h1>
-<h3>Invantario de Angular Games</h3><br>
+<h3>Inventario de Angular Games</h3><br>
 <button> AÑADIR PRODUCTO</button>
 
-<div *ngFor="let item of list">
+<div *ngFor="let articulo of baseAlmacen">
   <tr>ID PRODUCTO</tr>
   <tr>NOMBRE</tr>
   <tr>TIPO DE JUEGO</tr>
   <tr>JUG.MIN</tr>
   <tr>JUG.MAX</tr>
   <tr>DIFICULTAD</tr>
-    <td>{{articulo.id}}</td>
-    <td>{{articulo.nombre}}</td>
+    <td>{{articulo.producto}}</td>
     <td>{{articulo.tipo}}</td>
+    <td>{{articulo.producto.nombre}}</td>
     <td>{{articulo.jugadoresMin}}</td>
     <td>{{articulo.jugadoresMax}}</td>
     <td>{{articulo.dificultad}}</td>

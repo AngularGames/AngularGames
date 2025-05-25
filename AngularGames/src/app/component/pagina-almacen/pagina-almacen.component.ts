@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AlmacenService } from '../../services/almacen/almacen.service';
+import { productoAlmacen } from '../../models/productoAlmacen';
 
 @Component({
   selector: 'app-pagina-almacen',
@@ -14,9 +15,10 @@ import { AlmacenService } from '../../services/almacen/almacen.service';
 export class PaginaAlmacenComponent {
 
   constructor( private almacen:AlmacenService){
-    
+    this.baseAlmacen=this.almacen.bdAlmacen
   }
 
-
+baseAlmacen:productoAlmacen[]=[]
+nuevoProductoVisible:boolean=false;
 
 }

@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 import { PaginaProductoComponent } from '../pagina-producto/pagina-producto.component';
 import { Juego } from '../../models/Juego';
 import { ArticuloService } from '../../services/articulos/articulo.service';
+import { PaginaAlmacenComponent } from "../pagina-almacen/pagina-almacen.component";
 
 @Component({
   selector: 'app-paginapruebas',
-  imports: [RouterModule,CommonModule,FormsModule,PaginaProductoComponent],
+  imports: [RouterModule, CommonModule, FormsModule, PaginaProductoComponent, PaginaAlmacenComponent],
   templateUrl: './paginapruebas.component.html',
   styleUrl: './paginapruebas.component.css'
 })
@@ -18,7 +19,7 @@ export class PaginapruebasComponent {
     this.bdJuegos=this.articuloService.baseDatosJuegos
   }
   bdJuegos:Juego[];
-  
+
 
   @Input() juegoSeleccionado:Juego;
   seleccion:string;
