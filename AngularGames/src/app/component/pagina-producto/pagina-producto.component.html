@@ -1,9 +1,23 @@
 <h1>ESTA PAGINA DEBERIA SUSTITUIR A LA DE SELECCION</h1>
 
-<h1>nombrejuego: {{articulo.nombre}}</h1><br>
-<h1>tipo: {{articulo.tipo}}</h1><br>
-<h3>Jugadores Mínimos: {{articulo.jugadoresMin}}</h3>
-<h3>Jugadores Máximos: {{articulo.jugadoresMax}}</h3>
-<h3>Dificultad: {{articulo.dificultad}}</h3>
-
+<div class="esqueleto">
+  <div class="articulo">
+  <h1>nombrejuego: {{articulo.nombre}}</h1><br>
+  </div>
+  <div class="info">
+    <div><img src="/public/ahoy.png"></div>
+    <div class="caracteristicas">
+      <p>tipo: {{articulo.tipo}}</p><br>
+      <p>Jugadores Mínimos: {{articulo.jugadoresMin}}</p>
+      <p>Jugadores Máximos: {{articulo.jugadoresMax}}</p>
+      <p>Dificultad: {{articulo.dificultad}}</p>
+      <div class="comprar">
+        <p>49,95€ (pero aquí iría una relacion a precio de tabla)</p> <button>COMPRAR</button>
+      </div>
+  </div>
+</div>
+<div class="descripcion">
+  <p>AQUI DEBERIA IR LA INFORMACION DEL JUEGO</p>
+    </div>
 <br>
+

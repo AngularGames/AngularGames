@@ -1,0 +1,63 @@
+/*
+REPASAR TODO EL CSS PARA VER CÓMO DISTRIBUIRLO EN COLUMNAS
+PREGUNTAR GITHUB OTRA VEZ A VER
+*/
+
+
+.esqueleto {
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.articulo {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Una columna para la imagen y otra para la información */
+  gap: 20px;
+  width: 100%;
+  align-items: start;
+}
+
+.info div:first-child {
+  /* Estilo para la columna de la imagen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.info div:last-child {
+  /* Estilo para la columna de la información */
+  font-size: x-large;
+}
+
+/*.info .caracteristicas{
+
+}
+*/
+
+.info .comprar {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  border: 1px solid blue;
+  justify-content:space-evenly;
+  align-items:normal;
+  margin-top: 20px;
+
+}
+
+.descripcion{
+  font-size: x-large;
+  text-align: left;
+
+}
