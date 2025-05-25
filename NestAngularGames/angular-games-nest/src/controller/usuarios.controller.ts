@@ -1,11 +1,8 @@
 import {
-  Body,
   Controller,
-  Delete,
   Get,
-  Param,
-  Patch,
-  Post,
+  Post
+  
 } from '@nestjs/common';
 import { UsuariosService } from '../service/usuarios.service';
 
