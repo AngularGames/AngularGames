@@ -1,13 +1,23 @@
-export class Juego{
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
+@Entity("juegos")
+export class Juego{
+    @PrimaryGeneratedColumn()
+    idArticulo:number;
+    @Column()
     nombre:string;
+    @Column()
     tipo:string;
+    @Column()
     jugadoresMin:string;
+    @Column()
     jugadoresMax:string;
-    dificultad:string;
+    @Column()
+    dificultad:number;
   
-  constructor(nombre?:string,tipo?:string,jugadoresMin?:string,jugadoresMax?:string,dificultad?:string){
+  constructor(idArticulo?:number,nombre?:string,tipo?:string,jugadoresMin?:string,jugadoresMax?:string,dificultad?:number){
   
+    this.idArticulo=idArticulo;
     this.nombre=nombre;
     this.tipo=tipo;
     this.jugadoresMin=jugadoresMin;

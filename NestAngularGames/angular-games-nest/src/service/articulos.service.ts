@@ -1,9 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Juego } from 'src/Model/Juego';
+import { LessThan, LessThanOrEqual, MoreThan, MoreThanOrEqual, Repository } from 'typeorm';
 
 @Injectable()
 export class ArticulosService {
-
+constructor(@InjectRepository(Juego) private juegoRepository:Repository<Juego>){}
+  /*
   baseDatosJuegos:Juego[]=[{
     "nombre": "Boop",
     "tipo": "abstracto",
@@ -355,28 +358,39 @@ export class ArticulosService {
     "dificultad": "3"
   }
   ];
+*/
 
-  elegirJuego(nombre:string):Juego{
-    return this.baseDatosJuegos.find(juego=>juego.nombre==nombre);
+  async elegirJuego(nombre:string):Promise<Juego>{
+    const resultado= await this.juegoRepository.findOneBy({nombre:nombre})
+    return resultado;
+    
+  }
+
+  async filtrarTipo(tipo:string):Promise<Juego[]>{
+    const resultado:Juego[]= await this.juegoRepository.findBy({tipo:tipo});
+    return resultado;
 
   }
 
-  filtrarTipo(tipo:string):Juego[]{
-    return this.baseDatosJuegos.filter(juego=>juego.tipo==tipo);
+  async filtrarJugadores(jmin:string,jmax:string):Promise<Juego[]>{
+    const resultado:Juego[]= await this.juegoRepository.findBy({
+      jugadoresMin:MoreThanOrEqual(jmin),
+      jugadoresMax:LessThanOrEqual(jmax)}
+    );
+    return resultado;
+
 
   }
 
-  filtrarJugadores(jmin:string,jmax:string):Juego[]{
-    return this.baseDatosJuegos.filter(juego=>(juego.jugadoresMin>=jmin&&juego.jugadoresMax<=jmax));
-
-  }
-
-  filtrarDificultad(dificultad:number):Juego[]{
-    return this.baseDatosJuegos.filter(juegos=>(+juegos.dificultad >= dificultad))
+  async filtrarDificultad(dificultad:number):Promise<Juego[]>{
+    const resultado:Juego[]= await this.juegoRepository.findBy({dificultad:dificultad})
+    return resultado
   }
 
 
-
+  agregarJuego(juego:Juego):void{
+    this.juegoRepository.save(juego);
+  }
 
 
 }
