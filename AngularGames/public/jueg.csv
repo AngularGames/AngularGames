@@ -1,0 +1,51 @@
+nombre,tipo,jugadoresMin,jugadoresMax,dificultad
+Boop,abstracto,2,2,2
+Escape Plan,euro,1,5,4
+Catan,economico,3,4,2
+Carcassonne,familiar,2,5,2
+Manchas,familiar,1,4,1
+Faraway,filler,2,6,2
+Cubitos,familiar,2,4,2
+Heat,familiar,1,6,2
+SETI,euro,1,4,4
+Root,estrategia,2,4,4
+Skyteam,familiar,2,2,2
+Cryptid,deduccion,3,5,2
+Pnzi Scheme,economico,3,5,3
+Power Plants,estrategia,1,5,3
+Slay the Spire,cartas,1,4,3
+Pelusas Revolution,cartas,2,5,1
+Space Base,familiar,2,5,2
+Endeavor Deep Sea,euro,1,4,3
+Keep the heroes Out,familiar,1,4,3
+Captain Flip,familiar,2,5,1
+Kelp,estrategia,2,2,2
+Art Society,subasta,2,4,2
+Cascadia,familiar,1,4,2
+That time you killed me,abstracto,2,2,3
+Wavelength,party,2,12,1
+Time's Up,party,4,18,1
+Mlem,familiar,2,5,2
+Aventureros al tren,familiar,2,5,2
+Exploding Kittens,cartas,2,5,1
+Scout,cartas,2,5,2
+insider,party,4,8,1
+Piña Coladice,dados,2,4,1
+Avio,cartas,2,6,2
+Pistas cruzadas,party,2,6,1
+Llama Rock and Roll,dados,2,6,1
+Azul,familiar,2,4,2
+Junk Art,familiar,2,6,1
+Colt Express,familiar,2,6,2
+Flamecraft,familiar,1,5,2
+Pandemic,estrategia,2,4,3
+Horrified,familiar,1,5,2
+Lata,economico,1,4,3
+Harmonies,familiar,1,4,2
+Codenames,party,2,8,2
+Cat in a box,cartas,2,5,2
+Ahoy,estrategia,2,4,3
+nekojima,familiar,1,5,1
+Project L,estrategia,1,4,2
+Pocimas y brebajes,familiar,2,4,2
+Wingspan,familiar,1,5,3
