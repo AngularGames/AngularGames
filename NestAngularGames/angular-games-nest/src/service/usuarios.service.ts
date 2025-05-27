@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class UsuariosService {
+
   constructor(
     @InjectRepository(Usuario)
     private movimientosRepository: Repository<Usuario>,
@@ -17,6 +18,7 @@ export class UsuariosService {
       
     }
   }
+
     
       crearUsuario(usuario:Usuario):Promise<Usuario>{
        return this.movimientosRepository.save(usuario);
