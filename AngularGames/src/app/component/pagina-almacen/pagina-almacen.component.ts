@@ -15,8 +15,10 @@ import { productoAlmacen } from '../../models/productoAlmacen';
 export class PaginaAlmacenComponent {
 
   constructor( private almacen:AlmacenService){
-    this.baseAlmacen=this.almacen.bdAlmacen
+
   }
+
+
 
 baseAlmacen:productoAlmacen[]=[]
 nuevoProductoVisible:boolean=false;
