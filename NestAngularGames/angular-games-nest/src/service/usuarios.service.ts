@@ -10,22 +10,47 @@ export class UsuariosService {
     @InjectRepository(Usuario)
     private movimientosRepository: Repository<Usuario>,
   ) {}
-    async validarUsuario(nombreUsuario:string,password:string):Promise<boolean>{
+/*    async validarUsuario(nombreUsuario:string,password:string):Promise<boolean>{
       const validacion:Usuario = await this.movimientosRepository.findOneBy({nombreUsuario:nombreUsuario,password:password})
       if(validacion){
       return 
     }else{
       
     }
+    */
+
+  // Creo que es algo redundante, no estoy seguro. pero tengo que mirarlo. 
+    async validarUsuario(nombreUsuario:string,password:string):Promise<boolean>{
+      const usuario:Usuario = await this.usuariosRepository.findOneBy({nombreUsuario:nombreUsuario,password:password})
+      if(usuario.nombreUsuario==nombreUsuario&&usuario.password==password){ //creo que es redundante
+      return true
+    }else{ return false
+      
+    }
+  }
+
+  
   }
 
     
       crearUsuario(usuario:Usuario):Promise<Usuario>{
        return this.movimientosRepository.save(usuario);
       }
-    
+
+/*
       eliminarUsuario(usuario:string):void{
         this.movimientosRepository.map(usuarios=>usuarios.nombreUsuario!=usuario);
-
 }
+*/
+
+// He cambiado esto porque el metodo es delete y no map.
+// Lo probamos en clase que en mi Visual Studio Code ha petado el nest
+      eliminarUsuario(usuario:string):Promise<DeleteResult>{
+        //cambio el map por el delete, que el repositorio no tiene map.
+        const resultado = this.usuariosRepository.delete({nombreUsuario:usuario});
+        console.log("la eliminación ha sido "+resultado);
+        return resultado;
+      }
+
+
 }
