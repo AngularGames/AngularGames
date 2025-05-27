@@ -5,13 +5,13 @@ import { PrimaryGeneratedColumn, Entity, Column } from 'typeorm';
 @Entity("almacen")
 export class productoAlmacen{
   @PrimaryGeneratedColumn()
-  idArticulo:string;
+  idArticulo:number;
   @Column()
   tipo:string;
   @Column()
   cantidad:number;
 
-  constructor(idArticulo?:string,tipo?:string,cantidad?:number){
+  constructor(idArticulo?:number,tipo?:string,cantidad?:number){
 
     this.idArticulo=idArticulo;
     this.tipo=tipo;
