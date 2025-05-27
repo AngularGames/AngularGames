@@ -1,12 +1,23 @@
-export class Usuario{
+import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity } from 'typeorm';
 
+@Entity("usuarios")
+export class Usuario{
+    @PrimaryGeneratedColumn()
     idUsuario:string;
+    @Column()
     nombre:string;
+    @Column()
     apellido:string;
+    @Column()
     nombreUsuario:string;
+    @Column()
     password:string;
+    @Column()
     correo:string;
+    @Column()
     direccion:string;
+    @Column()
     telefono:number;
   
     constructor(
