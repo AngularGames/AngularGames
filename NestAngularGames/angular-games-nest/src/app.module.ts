@@ -20,7 +20,7 @@ import { AlmacenService } from '../../../AngularGames/angular-games-nest/src/ser
     entities: [Juego, Usuario, productoAlmacen], 
     synchronize: false, 
     }),
-    TypeOrmModule.forFeature([Juego, productoAlmacen])],
+    TypeOrmModule.forFeature([Juego, Usuario, productoAlmacen])],
   controllers: [ArticulosController,UsuariosController],
   providers: [ArticulosService,UsuariosService, AlmacenService],
 })
