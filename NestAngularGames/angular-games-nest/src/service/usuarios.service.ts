@@ -10,13 +10,13 @@ export class UsuariosService {
     @InjectRepository(Usuario)
     private usuariosRepository: Repository<Usuario>,
   ) {}
-<<<<<<< HEAD
+
     async validarUsuario(nombreUsuario:string,password:string):Promise<boolean>{
       const usuario:Usuario = await this.usuariosRepository.findOneBy({nombreUsuario:nombreUsuario,password:password})
       if(usuario.nombreUsuario==nombreUsuario&&usuario.password==password){ //creo que es redundante
       return true
     }else{ return false
-=======
+
 /*    async validarUsuario(nombreUsuario:string,password:string):Promise<boolean>{
       const validacion:Usuario = await this.movimientosRepository.findOneBy({nombreUsuario:nombreUsuario,password:password})
       if(validacion){
