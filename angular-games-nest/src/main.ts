@@ -11,7 +11,7 @@ async function bootstrap() {
 .addTag("")
 .build();
 const document = SwaggerModule.createDocument(app, config);
-SwaggerModule.setup('libros/api', app, document);
+SwaggerModule.setup('ayuda/api', app, document);
   app.enableCors()
   await app.listen(process.env.PORT ?? 3000);
 }
