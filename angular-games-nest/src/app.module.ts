@@ -19,7 +19,7 @@ import { productoAlmacen } from './Model/productoAlmacen';
     entities: [Juego, Usuario, productoAlmacen], 
     synchronize: false, 
     }),
-    TypeOrmModule.forFeature([Juego, productoAlmacen,Usuario])],
+    TypeOrmModule.forFeature([Juego, productoAlmacen, Usuario])],
   controllers: [ArticulosController,UsuariosController],
   providers: [ArticulosService,UsuariosService],
 })
