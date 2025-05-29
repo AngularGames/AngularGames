@@ -7,6 +7,8 @@ import { Juego } from './Model/Juego';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Usuario } from './Model/Usuario';
 import { productoAlmacen } from './Model/productoAlmacen';
+import { AlmacenService } from './service/almacen.service';
+import { AlmacenController } from './controller/almacen.controller';
 
 @Module({
   imports: [TypeOrmModule.forRoot({ 
@@ -20,7 +22,7 @@ import { productoAlmacen } from './Model/productoAlmacen';
     synchronize: false, 
     }),
     TypeOrmModule.forFeature([Juego, productoAlmacen, Usuario])],
-  controllers: [ArticulosController,UsuariosController],
-  providers: [ArticulosService,UsuariosService],
+  controllers: [ArticulosController,UsuariosController, AlmacenController],
+  providers: [ArticulosService,UsuariosService, AlmacenService],
 })
 export class AppModule {}
