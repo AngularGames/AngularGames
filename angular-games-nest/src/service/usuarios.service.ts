@@ -11,15 +11,14 @@ export class UsuariosService {
     private usuariosRepository: Repository<Usuario>,
   ) {}
     async validarUsuario(nombreUsuario:string,password:string):Promise<boolean>{
-      const usuario:Usuario = await this.usuariosRepository.findOneBy({nombreUsuario:nombreUsuario,password:password})
-      if(usuario.nombreUsuario==nombreUsuario&&usuario.password==password){ //creo que es redundante
+      const usuarioBuscado:Usuario = await this.usuariosRepository.findOneBy({nombreUsuario:nombreUsuario,password:password})
+      if(usuarioBuscado.nombreUsuario==nombreUsuario&&usuarioBuscado.password==password){ //creo que es redundante
       return true
     }else{ return false
       
     }
   }
 
-    
       crearUsuario(usuario:Usuario):Promise<Usuario>{
        return this.usuariosRepository.save(usuario);
       }
