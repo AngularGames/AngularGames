@@ -20,10 +20,10 @@ export class AlmacenController {
   incrementarStock(@Query("articulo") articulo:string,@Query("cantidad") cantidad:string){
     this.almacenService.agregarStockDeProducto(articulo,cantidad)
   }
+
   @Get("articulo/:articulo")
   consultarStock(@Param("articulo") articulo:string){
     this.almacenService.consultarStockArticulo(articulo)
-
   }
 
 
