@@ -21,6 +21,8 @@ export class AlmacenController {
     this.almacenService.agregarStockDeProducto(articulo,cantidad)
   }
 
+
+  //REVISAR ESTO
   @Get("articulo/:articulo")
   consultarStock(@Param("articulo") articulo:string){
     this.almacenService.consultarStockArticulo(articulo)
