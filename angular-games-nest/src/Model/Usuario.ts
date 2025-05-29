@@ -19,7 +19,7 @@ export class Usuario{
     direccion:string;
     @Column()
     telefono:number;
-  
+    
     constructor(
       idUsuario?:string,
       nombre?:string,
@@ -31,7 +31,6 @@ export class Usuario{
       telefono?:number,
     )
       {
-  
         this.idUsuario=idUsuario;
         this.nombre=nombre;
         this.apellido=apellido;
@@ -40,9 +39,5 @@ export class Usuario{
         this.correo=correo;
         this.direccion=direccion;
         this.telefono=telefono;
-  
       }
-  
-  
-  
   }

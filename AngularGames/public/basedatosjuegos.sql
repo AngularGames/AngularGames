@@ -48,11 +48,12 @@ DROP TABLE IF EXISTS `almacen`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `almacen` (
+  `idAlmacen` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
-  `tipo` varchar(45) NOT NULL,
-  `cantidad` int NOT NULL,
-  `almacencol` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `tipo` varchar(45) NOT NULL DEFAULT 'juego',
+  `cantidad` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`idAlmacen`)
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,6 +62,7 @@ CREATE TABLE `almacen` (
 
 LOCK TABLES `almacen` WRITE;
 /*!40000 ALTER TABLE `almacen` DISABLE KEYS */;
+INSERT INTO `almacen` VALUES (1,'Ahoy','juego',1),(2,'Art Society','juego',1),(3,'Aventureros al tren','juego',1),(4,'Avio','juego',1),(5,'Azul','juego',1),(6,'Boop','juego',1),(7,'Captain Flip','juego',1),(8,'Carcassonne','juego',1),(9,'Cascadia','juego',1),(10,'Cat in a box','juego',1),(11,'Catan','juego',5),(12,'Codenames','juego',1),(13,'Colt Express','juego',1),(14,'Cryptid','juego',1),(15,'Cubitos','juego',1),(16,'Endeavor Deep Sea','juego',1),(17,'Escape Plan','juego',1),(18,'Exploding Kittens','juego',1),(19,'Faraway','juego',1),(20,'Flamecraft','juego',1),(21,'Harmonies','juego',1),(22,'Heat','juego',1),(23,'Horrified','juego',1),(24,'insider','juego',1),(25,'Junk Art','juego',1),(26,'Keep the heroes Out','juego',1),(27,'Kelp','juego',1),(28,'Lata','juego',1),(29,'Llama Rock and Roll','juego',1),(30,'Manchas','juego',1),(31,'Mlem','juego',1),(32,'nekojima','juego',1),(33,'Pandemic','juego',1),(34,'Pelusas Revolution','juego',1),(35,'PiÃ±a Coladice','juego',1),(36,'Pistas cruzadas','juego',1),(37,'Pnzi Scheme','juego',1),(38,'Pocimas y brebajes','juego',1),(39,'Power Plants','juego',1),(40,'Project L','juego',1),(41,'Root','juego',1),(42,'Scout','juego',1),(43,'SETI','juego',1),(44,'Skyteam','juego',1),(45,'Slay the Spire','juego',1),(46,'Space Base','juego',1),(47,'That time you killed me','juego',1),(48,'Time\'s Up','juego',1),(49,'Wavelength','juego',1),(50,'Wingspan','juego',1),(51,'prueba','juego',1);
 /*!40000 ALTER TABLE `almacen` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,6 +130,7 @@ CREATE TABLE `juegos` (
   `jugadoresMin` varchar(3) NOT NULL,
   `jugadoresMax` varchar(3) NOT NULL,
   `dificultad` varchar(3) NOT NULL,
+  `descripcion` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`idArticulo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -138,7 +141,7 @@ CREATE TABLE `juegos` (
 
 LOCK TABLES `juegos` WRITE;
 /*!40000 ALTER TABLE `juegos` DISABLE KEYS */;
-INSERT INTO `juegos` VALUES (1,'Ahoy','estrategia','2','4','3'),(2,'Art Society','subasta','2','4','2'),(3,'Aventureros al tren','familiar','2','5','2'),(4,'Avio','cartas','2','6','2'),(5,'Azul','familiar','2','4','2'),(6,'Boop','abstracto','2','2','2'),(7,'Captain Flip','familiar','2','5','1'),(8,'Carcassonne','familiar','2','5','2'),(9,'Cascadia','familiar','1','4','2'),(10,'Cat in a box','cartas','2','5','2'),(11,'Catan','economico','3','4','2'),(12,'Codenames','party','2','8','2'),(13,'Colt Express','familiar','2','6','2'),(14,'Cryptid','deduccion','3','5','2'),(15,'Cubitos','familiar','2','4','2'),(16,'Endeavor Deep Sea','euro','1','4','3'),(17,'Escape Plan','euro','1','5','4'),(18,'Exploding Kittens','cartas','2','5','1'),(19,'Faraway','filler','2','6','2'),(20,'Flamecraft','familiar','1','5','2'),(21,'Harmonies','familiar','1','4','2'),(22,'Heat','familiar','1','6','2'),(23,'Horrified','familiar','1','5','2'),(24,'insider','party','4','8','1'),(25,'Junk Art','familiar','2','6','1'),(26,'Keep the heroes Out','familiar','1','4','3'),(27,'Kelp','estrategia','2','2','2'),(28,'Lata','economico','1','4','3'),(29,'Llama Rock and Roll','dados','2','6','1'),(30,'Manchas','familiar','1','4','1'),(31,'Mlem','familiar','2','5','2'),(32,'nekojima','familiar','1','5','1'),(33,'Pandemic','estrategia','2','4','3'),(34,'Pelusas Revolution','cartas','2','5','1'),(35,'PiÃ±a Coladice','dados','2','4','1'),(36,'Pistas cruzadas','party','2','6','1'),(37,'Pnzi Scheme','economico','3','5','3'),(38,'Pocimas y brebajes','familiar','2','4','2'),(39,'Power Plants','estrategia','1','5','3'),(40,'Project L','estrategia','1','4','2'),(41,'Root','estrategia','2','4','4'),(42,'Scout','cartas','2','5','2'),(43,'SETI','euro','1','4','4'),(44,'Skyteam','familiar','2','2','2'),(45,'Slay the Spire','cartas','1','4','3'),(46,'Space Base','familiar','2','5','2'),(47,'That time you killed me','abstracto','2','2','3'),(48,'Time\'s Up','party','4','18','1'),(49,'Wavelength','party','2','12','1'),(50,'Wingspan','familiar','1','5','3'),(51,'prueba','tipoprueba','8','10','6');
+INSERT INTO `juegos` VALUES (1,'Ahoy','estrategia','2','4','3','Aqui viene la descripcion del juego'),(2,'Art Society','subasta','2','4','2','Aqui viene la descripcion del juego'),(3,'Aventureros al tren','familiar','2','5','2','Aqui viene la descripcion del juego'),(4,'Avio','cartas','2','6','2','Aqui viene la descripcion del juego'),(5,'Azul','familiar','2','4','2','Aqui viene la descripcion del juego'),(6,'Boop','abstracto','2','2','2','Aqui viene la descripcion del juego'),(7,'Captain Flip','familiar','2','5','1','Aqui viene la descripcion del juego'),(8,'Carcassonne','familiar','2','5','2','Aqui viene la descripcion del juego'),(9,'Cascadia','familiar','1','4','2','Aqui viene la descripcion del juego'),(10,'Cat in a box','cartas','2','5','2','Aqui viene la descripcion del juego'),(11,'Catan','economico','3','4','2','Aqui viene la descripcion del juego'),(12,'Codenames','party','2','8','2','Aqui viene la descripcion del juego'),(13,'Colt Express','familiar','2','6','2','Aqui viene la descripcion del juego'),(14,'Cryptid','deduccion','3','5','2','Aqui viene la descripcion del juego'),(15,'Cubitos','familiar','2','4','2','Aqui viene la descripcion del juego'),(16,'Endeavor Deep Sea','euro','1','4','3','Aqui viene la descripcion del juego'),(17,'Escape Plan','euro','1','5','4','Aqui viene la descripcion del juego'),(18,'Exploding Kittens','cartas','2','5','1','Aqui viene la descripcion del juego'),(19,'Faraway','filler','2','6','2','Aqui viene la descripcion del juego'),(20,'Flamecraft','familiar','1','5','2','Aqui viene la descripcion del juego'),(21,'Harmonies','familiar','1','4','2','Aqui viene la descripcion del juego'),(22,'Heat','familiar','1','6','2','Aqui viene la descripcion del juego'),(23,'Horrified','familiar','1','5','2','Aqui viene la descripcion del juego'),(24,'insider','party','4','8','1','Aqui viene la descripcion del juego'),(25,'Junk Art','familiar','2','6','1','Aqui viene la descripcion del juego'),(26,'Keep the heroes Out','familiar','1','4','3','Aqui viene la descripcion del juego'),(27,'Kelp','estrategia','2','2','2','Aqui viene la descripcion del juego'),(28,'Lata','economico','1','4','3','Aqui viene la descripcion del juego'),(29,'Llama Rock and Roll','dados','2','6','1','Aqui viene la descripcion del juego'),(30,'Manchas','familiar','1','4','1','Aqui viene la descripcion del juego'),(31,'Mlem','familiar','2','5','2','Aqui viene la descripcion del juego'),(32,'nekojima','familiar','1','5','1','Aqui viene la descripcion del juego'),(33,'Pandemic','estrategia','2','4','3','Aqui viene la descripcion del juego'),(34,'Pelusas Revolution','cartas','2','5','1','Aqui viene la descripcion del juego'),(35,'PiÃ±a Coladice','dados','2','4','1','Aqui viene la descripcion del juego'),(36,'Pistas cruzadas','party','2','6','1','Aqui viene la descripcion del juego'),(37,'Pnzi Scheme','economico','3','5','3','Aqui viene la descripcion del juego'),(38,'Pocimas y brebajes','familiar','2','4','2','Aqui viene la descripcion del juego'),(39,'Power Plants','estrategia','1','5','3','Aqui viene la descripcion del juego'),(40,'Project L','estrategia','1','4','2','Aqui viene la descripcion del juego'),(41,'Root','estrategia','2','4','4','Aqui viene la descripcion del juego'),(42,'Scout','cartas','2','5','2','Aqui viene la descripcion del juego'),(43,'SETI','euro','1','4','4','Aqui viene la descripcion del juego'),(44,'Skyteam','familiar','2','2','2','Aqui viene la descripcion del juego'),(45,'Slay the Spire','cartas','1','4','3','Aqui viene la descripcion del juego'),(46,'Space Base','familiar','2','5','2','Aqui viene la descripcion del juego'),(47,'That time you killed me','abstracto','2','2','3','Aqui viene la descripcion del juego'),(48,'Time\'s Up','party','4','18','1','Aqui viene la descripcion del juego'),(49,'Wavelength','party','2','12','1','Aqui viene la descripcion del juego'),(50,'Wingspan','familiar','1','5','3','Aqui viene la descripcion del juego'),(51,'prueba','tipoprueba','8','10','6','Aqui viene la descripcion del juego');
 /*!40000 ALTER TABLE `juegos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,7 +202,7 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
-  `idUsuario` varchar(45) NOT NULL,
+  `idUsuario` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
   `nombreUsuario` varchar(45) NOT NULL,
@@ -211,7 +214,7 @@ CREATE TABLE `usuarios` (
   UNIQUE KEY `idUsuario_UNIQUE` (`idUsuario`),
   UNIQUE KEY `nombreUsuario_UNIQUE` (`nombreUsuario`),
   UNIQUE KEY `correo_UNIQUE` (`correo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -220,6 +223,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (6,'nombre1','apellido1','usuario1','11111','1','1',1111),(7,'nombre2','apellido2','usuario2','22222','2','2',2222),(8,'nombre3','apellido3','usuario3','33333','3','3',3333),(9,'nombre4','apellido4','usuairo4','44444','4','4',4444);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -232,4 +236,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-27  0:45:41
+-- Dump completed on 2025-05-29  8:07:57

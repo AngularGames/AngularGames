@@ -7,7 +7,8 @@ import { Juego } from './Model/Juego';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Usuario } from './Model/Usuario';
 import { productoAlmacen } from './Model/productoAlmacen';
-import { AlmacenService } from '../../../AngularGames/angular-games-nest/src/service/almacen.service';
+import { AlmacenService } from './service/almacen.service';
+import { AlmacenController } from './controller/almacen.controller';
 
 @Module({
   imports: [TypeOrmModule.forRoot({ 
@@ -20,8 +21,8 @@ import { AlmacenService } from '../../../AngularGames/angular-games-nest/src/ser
     entities: [Juego, Usuario, productoAlmacen], 
     synchronize: false, 
     }),
-    TypeOrmModule.forFeature([Juego, Usuario, productoAlmacen])],
-  controllers: [ArticulosController,UsuariosController],
+    TypeOrmModule.forFeature([Juego, productoAlmacen, Usuario])],
+  controllers: [ArticulosController,UsuariosController, AlmacenController],
   providers: [ArticulosService,UsuariosService, AlmacenService],
 })
 export class AppModule {}
