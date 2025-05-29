@@ -5,7 +5,7 @@ import { PrimaryGeneratedColumn, Entity, Column } from 'typeorm';
 @Entity("almacen")
 export class productoAlmacen{
   @PrimaryGeneratedColumn()
-  idArticulo:number;
+  idAlmacen:number;
   @Column()
   nombre:string;
   @Column()
@@ -13,9 +13,9 @@ export class productoAlmacen{
   @Column()
   cantidad:number;
 
-  constructor(idArticulo?:number,nombre?:string,tipo?:string,cantidad?:number){
+  constructor(idAlmacen?:number,nombre?:string,tipo?:string,cantidad?:number){
 
-    this.idArticulo=idArticulo;
+    this.idAlmacen=this.idAlmacen;
     this.nombre=nombre;
     this.tipo=tipo;
     this.cantidad=cantidad;
