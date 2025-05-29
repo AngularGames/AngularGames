@@ -7,8 +7,7 @@ import {
   
 } from '@nestjs/common';
 import { UsuariosService } from '../service/usuarios.service';
-import { Response } from "express"
-
+import { Response } from 'express';
 @Controller('usuarios')
 export class UsuariosController {
   constructor(private readonly usuariosService:UsuariosService) {}

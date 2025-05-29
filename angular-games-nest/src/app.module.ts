@@ -17,7 +17,7 @@ import { AlmacenController } from './controller/almacen.controller';
     port: 3306, 
     username: 'nestuser', 
     password: 'nestpass', 
-    database: 'juegosdemesa', 
+    database: 'basedejuegos', 
     entities: [Juego, Usuario, productoAlmacen], 
     synchronize: false, 
     }),
