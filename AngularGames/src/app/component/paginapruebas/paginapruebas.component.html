@@ -1,25 +1,9 @@
 <p>paginapruebas works!</p>
 
-<select [(ngModel)]="seleccion" (change)="juegoElegido(seleccion)">
-  <option *ngFor="let juego of bdJuegos" value="{{juego.nombre}}">{{juego.nombre}}</option>
-</select><br>
-
-<!-- Lo que hacemos con esto es insertar la página de producto en este separador
- y decirle que relacione NUESTRO juego seleccionado CON LA VARIABLE ARTICULO DE LA PAGINA DEL PRODUCTO.
- Por eso, al elegir un artículo que en nuestra página se queda en "juego seleccionado"
- traemos la página de articulo y al cambiar las variables accedemos a las propiedades.
-
- JUEGOSELECCIONADO se convierte en artículo con lo que en la página de articulo
- es como si hiciéramos esto:
-
- articulo = juegoseleccionado con lo que articulo.nombre es juegoseleccionado.nombre
- -->
-
-<app-pagina-producto [articulo]="juegoSeleccionado"></app-pagina-producto>
 
 ////////
 <h1>pruebas buscador</h1><br>
-////////
+////////<br><br>
 
 <!--
 
@@ -37,8 +21,8 @@ USUARIOS
 /////
 -->
 
-
-<app-pagina-almacen></app-pagina-almacen>
+<a routerLink="articulo"><button>ARTICULO</button></a>
+<router-outlet></router-outlet>
 
 
 

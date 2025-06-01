@@ -32,13 +32,13 @@ buscarJugadores(@Query("jmin") jmin:string,@Query("jmax")jmax:string){
 };
 
 @Get("/buscar/dificultad/:dificultad")
-buscarDificultad(@Param("dificultad")dificultad:number){
+buscarDificultad(@Param("dificultad") dificultad:number){
 return this.articulosService.filtrarDificultad(dificultad);
 
 };
 
 @Post("/alta")
-save(@Body()juego:Juego){
+save(@Body() juego:Juego){
   this.articulosService.agregarJuego(juego);
 }
 
