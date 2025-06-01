@@ -15,16 +15,21 @@ export class UsuariosService {
   ): Promise<boolean> {
     const resultado: Usuario = await this.usuariosRepository.findOneBy({
       nombreUsuario: usuarioBuscado,
-      password: password,
+      //password: password,
     });
-    if (
-      resultado.nombreUsuario == usuarioBuscado &&
-      resultado.password == password
-    ) {
-      //creo que es redundante
-      return true;
-    } else {
+    console.log(resultado);
+    if (resultado == null) {
       return false;
+    } else {
+      if (
+        resultado.nombreUsuario == usuarioBuscado &&
+        resultado.password == password
+      ) {
+        //creo que es redundante
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
