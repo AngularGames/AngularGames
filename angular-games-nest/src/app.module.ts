@@ -11,18 +11,20 @@ import { AlmacenService } from './service/almacen.service';
 import { AlmacenController } from './controller/almacen.controller';
 
 @Module({
-  imports: [TypeOrmModule.forRoot({ 
-    type: 'mysql', 
-    host: 'localhost', 
-    port: 3306, 
-    username: 'nestuser', 
-    password: 'nestpass', 
-    database: 'juegosdemesa', 
-    entities: [Juego, Usuario, productoAlmacen], 
-    synchronize: false, 
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'nestuser',
+      password: 'nestpass',
+      database: 'basedejuegos',
+      entities: [Juego, Usuario, productoAlmacen],
+      synchronize: false,
     }),
-    TypeOrmModule.forFeature([Juego, productoAlmacen, Usuario])],
-  controllers: [ArticulosController,UsuariosController, AlmacenController],
-  providers: [ArticulosService,UsuariosService, AlmacenService],
+    TypeOrmModule.forFeature([Juego, productoAlmacen, Usuario]),
+  ],
+  controllers: [ArticulosController, UsuariosController, AlmacenController],
+  providers: [ArticulosService, UsuariosService, AlmacenService],
 })
 export class AppModule {}
