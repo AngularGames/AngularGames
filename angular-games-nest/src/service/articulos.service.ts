@@ -35,8 +35,9 @@ constructor(@InjectRepository(Juego) private juegoRepository:Repository<Juego>){
   }
 
 
-  agregarJuego(juego:Juego):void{
-    this.juegoRepository.save(juego);
+  async agregarJuego(juego:Juego):Promise<boolean>{
+    const resultado = await this.juegoRepository.save(juego);
+    if (resultado) return true
   }
 
 

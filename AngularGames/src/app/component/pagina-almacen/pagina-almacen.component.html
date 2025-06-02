@@ -1,26 +1,7 @@
 <p>pagina-almacen works!</p>
 <h1>Almacén</h1>
 <h3>Inventario de Angular Games</h3><br>
-<a routerLink="articulo"><button> AÑADIR PRODUCTO</button></a>
+<a routerLink="nuevoProducto"><button> AÑADIR PRODUCTO</button></a>
 
-<div *ngFor="let articulo of baseAlmacen">
-  <tr>ID PRODUCTO</tr>
-  <tr>NOMBRE</tr>
-  <tr>TIPO DE JUEGO</tr>
-  <tr>JUG.MIN</tr>
-  <tr>JUG.MAX</tr>
-  <tr>DIFICULTAD</tr>
-  <!--
-    <td>{{articulo.producto}}</td>
-    <td>{{articulo.tipo}}</td>
-    <td>{{articulo.producto.nombre}}</td>
-    <td>{{articulo.jugadoresMin}}</td>
-    <td>{{articulo.jugadoresMax}}</td>
-    <td>{{articulo.dificultad}}</td>
-</div>
 
--->
-
-<div *ngIf="nuevoProductoVisible">
-<app-nuevo-registro></app-nuevo-registro>
-</div>
+<router-outlet name="nuevoProducto"></router-outlet>

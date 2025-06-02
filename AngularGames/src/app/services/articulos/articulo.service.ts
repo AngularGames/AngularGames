@@ -34,7 +34,9 @@ export class ArticuloService {
   }
 */
   añadirArticulo(nuevoArticulo:Juego){
-    this.http.save`${this.url}/articulos/alta`,nuevoArticulo);
+    console.log("nuevo articulo que mandamos en body es ",nuevoArticulo)
+    this.http.post(`${this.url}/articulos/alta`,nuevoArticulo);
+    console.log("ha pasado por el post al alta")
   }
 
 

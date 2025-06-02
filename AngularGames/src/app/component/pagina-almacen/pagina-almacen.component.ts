@@ -8,7 +8,7 @@ import { productoAlmacen } from '../../models/productoAlmacen';
 
 @Component({
   selector: 'app-pagina-almacen',
-  imports: [NuevoRegistroComponent,CommonModule,FormsModule,RouterModule],
+  imports: [CommonModule,FormsModule,RouterModule],
   templateUrl: './pagina-almacen.component.html',
   styleUrl: './pagina-almacen.component.css'
 })

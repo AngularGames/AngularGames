@@ -24,12 +24,22 @@ export class NuevoRegistroComponent {
   dificultad:string;
   descripcion:string;
 
+  juego:Juego
+
 
   guardarRegistro(){
-
+    console.log("entramos en guardar registro")
     let nuevoRegistro=new Juego(this.nombre,this.tipoDeJuego,this.jmin,this.jmax,this.dificultad,this.descripcion)
-    this.articuloService.añadirArticulo(nuevoRegistro);
-    console.log()
+    console.log(nuevoRegistro)
+    this.articuloService.añadirArticulo(nuevoRegistro).subscribe(data=>console.log(data));
+
+
+  }
+
+  buscar(juego:string){
+    console.log("vamos a buscar ",juego)
+    this.articuloService.elegirJuego(juego).subscribe(data=>this.juego=data)
+    console.log("hemos mandado buscar el juego")
 
   }
 
