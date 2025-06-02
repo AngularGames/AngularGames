@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 
 @Controller('articulos')
 export class ArticulosController {
-  constructor(private readonly articulosService: ArticulosService) {}
+  constructor(private articulosService: ArticulosService) {}
 
 @Get("/buscar/juego/:nombre")
  buscarJuego(@Param("nombre") nombre:string){

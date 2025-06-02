@@ -19,6 +19,18 @@ export class PaginapruebasComponent {
   }
 
 
+  productoBuscar:string;
+  resultado:Juego;
+  visible:boolean=false;
+
+  buscarProducto(productoBuscar:string):Juego{
+     this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.resultado=data);
+     this.visible=true;
+     return this.resultado;
+
+
+  }
+
 
 
   }

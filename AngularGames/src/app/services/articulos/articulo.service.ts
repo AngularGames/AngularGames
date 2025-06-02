@@ -33,9 +33,9 @@ export class ArticuloService {
     return this.baseDatosJuegos.filter(juegos=>(+juegos.dificultad >= dificultad))
   }
 */
-  añadirArticulo(nuevoArticulo:Juego){
-    console.log("nuevo articulo que mandamos en body es ",nuevoArticulo)
-    this.http.post(`${this.url}/articulos/alta`,nuevoArticulo);
+  añadirArticulo(nuevoJuego:Juego){
+    console.log("nuevo articulo que mandamos en body es ",nuevoJuego)
+    this.http.post(`${this.url}/articulos/alta`,nuevoJuego);
     console.log("ha pasado por el post al alta")
   }
 

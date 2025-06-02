@@ -1,28 +1,23 @@
-<p>paginapruebas works!</p>
+<p>PAGINA DE PRUEBAS DE ENRUTAMIENTO</p>
 
+<a routerLink="/almacen">ALMACEN</a><br>
+<p>BUSCA UN PRODUCTO</p>
+NOMBRE <input [(ngModel)]="productoBuscar">
+<br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>
+<div *ngIf="visible">
+<h1>INFORMACION DE {{resultado.nombre}}</h1>
+  NOMBRE: {{resultado.nombre}}<br>
+  TIPO: {{resultado.tipo}}<br>
+  DIFICULTAD: {{resultado.dificultad}}<br>
+  JUGADORES MINIMOS: {{resultado.jugadoresMin}}<br>
+  JUGADORES MAXIMOS: {{resultado.jugadoresMax}}<br><br>
+  DESCRIPCIÓN DEL JUEGO<BR>{{resultado.descripcion}}<br>
 
-////////
-<h1>pruebas buscador</h1><br>
-////////<br><br>
+</div>
 
-<!--
-
-
-
-
-Buscar por nombre: <input [(ngModel)]="nombre"><br>
-Buscar por tipo: <input [(ngModel)]="tipo"><br>
-Buscar por jugadores minimos-maximos:<br>
-<input [(ngModel)]="jmin"> - <input [(ngModel)]="jmax"><br>
-Buscar por dificultad: <input [(ngModel)]="dificultad"><br>
-
-/////
-USUARIOS
-/////
--->
-
-<a routerLink="almacen"><button>ALMACEN</button></a>
 <router-outlet></router-outlet>
+
+
 
 
 

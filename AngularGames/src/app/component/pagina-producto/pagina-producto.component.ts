@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
 })
 export class PaginaProductoComponent {
 
-  //constructor(private articuloService:ArticuloService){ }
 
 //preguntar a antonio como hacer que al hacer click se ponga el juego
 @Input() articulo:Juego
