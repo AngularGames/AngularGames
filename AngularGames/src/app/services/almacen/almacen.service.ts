@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { ArticuloService } from '../articulos/articulo.service';
 import { Juego } from '../../models/Juego';
 import { productoAlmacen } from '../../models/productoAlmacen';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -9,13 +11,18 @@ import { productoAlmacen } from '../../models/productoAlmacen';
 })
 export class AlmacenService {
 
-  constructor(private articuloService:ArticuloService){
-  }
+  constructor(private http:HttpClient) { }
+
+  url="http://localhost:3000"
 
 
   cambiarStock(juego:string, cantidad:number){
 
-    
+
+  }
+
+  listaAlmacen():Observable<any>{
+    return this.http.get(`${this.url}/almacen/lista`);
 
   }
 

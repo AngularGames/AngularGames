@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { NuevoRegistroComponent } from "./nuevo-registro/nuevo-registro.component";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { AlmacenService } from '../../services/almacen/almacen.service';
 import { productoAlmacen } from '../../models/productoAlmacen';
+import { AlmacenService } from '../../services/almacen/almacen.service';
 
 @Component({
   selector: 'app-pagina-almacen',
@@ -15,12 +14,12 @@ import { productoAlmacen } from '../../models/productoAlmacen';
 export class PaginaAlmacenComponent {
 
   constructor( private almacen:AlmacenService){
-
+    this.almacen.listaAlmacen().subscribe(data=>this.almacenDB=data)
+    console.log(this.almacenDB);
   }
 
+  almacenDB:productoAlmacen[];
 
 
-baseAlmacen:productoAlmacen[]=[]
-nuevoProductoVisible:boolean=false;
 
 }

@@ -1,7 +1,18 @@
 <p>pagina-almacen works!</p>
 <h1>Almacén</h1>
 <h3>Inventario de Angular Games</h3><br>
-<a routerLink="nuevoProducto"><button> AÑADIR PRODUCTO</button></a>
+<a routerLink="nuevoProducto"><button>AÑADIR ARTICULO</button></a>
 
+
+  <table>
+    <th>ID ALMACEN</th><th>NOMBRE</th><th>TIPO</th><th>CANTIDAD</th><br>
+    <tr *ngFor="let p of almacenDB">
+      <td>{{p.idAlmacen}}</td>
+      <td>{{p.nombre}}</td>
+      <td>{{p.tipo}}</td>
+      <td>{{p.cantidad}}</td>
+    </tr>
+  </table>
 
 <router-outlet name="nuevoProducto"></router-outlet>
+

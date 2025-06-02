@@ -27,7 +27,13 @@ async agregarProducto(producto:productoAlmacen):Promise<boolean>{
 
         return resultado.cantidad
 
+       }
 
+       async mostrarInventario():Promise<productoAlmacen[]>{
+        
+        const tablaInventario:productoAlmacen[] = await this.almacenRepository.find();
+
+        return tablaInventario;
 
        }
 

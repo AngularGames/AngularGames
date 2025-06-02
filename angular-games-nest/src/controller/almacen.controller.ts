@@ -29,7 +29,10 @@ export class AlmacenController {
    return await this.almacenService.consultarStockArticulo(articulo)
     
   }
-
+@Get("lista")
+    consultarAlmacen():Promise<productoAlmacen[]>{
+      return this.almacenService.mostrarInventario();
+    }
 
   }
 
