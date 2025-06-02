@@ -91,13 +91,39 @@ LOCK TABLES `articulos` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `historial pedidos`
+-- Table structure for table `carrito`
 --
 
-DROP TABLE IF EXISTS `historial pedidos`;
+DROP TABLE IF EXISTS `carrito`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `historial pedidos` (
+CREATE TABLE `carrito` (
+  `idCarrito` int NOT NULL AUTO_INCREMENT,
+  `numPedido` int DEFAULT NULL,
+  `articulo` int DEFAULT NULL,
+  `cantidad` int DEFAULT NULL,
+  `usuario` int DEFAULT NULL,
+  PRIMARY KEY (`idCarrito`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='este es el carrito donde se van a registrar los pedidos de cada usuario.';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrito`
+--
+
+LOCK TABLES `carrito` WRITE;
+/*!40000 ALTER TABLE `carrito` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrito` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `historialpedidos`
+--
+
+DROP TABLE IF EXISTS `historialpedidos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `historialpedidos` (
   `idPedido` int NOT NULL AUTO_INCREMENT,
   `numPedido` int NOT NULL,
   `fecha` datetime NOT NULL,
@@ -108,12 +134,12 @@ CREATE TABLE `historial pedidos` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `historial pedidos`
+-- Dumping data for table `historialpedidos`
 --
 
-LOCK TABLES `historial pedidos` WRITE;
-/*!40000 ALTER TABLE `historial pedidos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `historial pedidos` ENABLE KEYS */;
+LOCK TABLES `historialpedidos` WRITE;
+/*!40000 ALTER TABLE `historialpedidos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `historialpedidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -132,7 +158,7 @@ CREATE TABLE `juegos` (
   `dificultad` varchar(3) NOT NULL,
   `descripcion` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`idArticulo`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +167,7 @@ CREATE TABLE `juegos` (
 
 LOCK TABLES `juegos` WRITE;
 /*!40000 ALTER TABLE `juegos` DISABLE KEYS */;
-INSERT INTO `juegos` VALUES (1,'Ahoy','estrategia','2','4','3','Aqui viene la descripcion del juego'),(2,'Art Society','subasta','2','4','2','Aqui viene la descripcion del juego'),(3,'Aventureros al tren','familiar','2','5','2','Aqui viene la descripcion del juego'),(4,'Avio','cartas','2','6','2','Aqui viene la descripcion del juego'),(5,'Azul','familiar','2','4','2','Aqui viene la descripcion del juego'),(6,'Boop','abstracto','2','2','2','Aqui viene la descripcion del juego'),(7,'Captain Flip','familiar','2','5','1','Aqui viene la descripcion del juego'),(8,'Carcassonne','familiar','2','5','2','Aqui viene la descripcion del juego'),(9,'Cascadia','familiar','1','4','2','Aqui viene la descripcion del juego'),(10,'Cat in a box','cartas','2','5','2','Aqui viene la descripcion del juego'),(11,'Catan','economico','3','4','2','Aqui viene la descripcion del juego'),(12,'Codenames','party','2','8','2','Aqui viene la descripcion del juego'),(13,'Colt Express','familiar','2','6','2','Aqui viene la descripcion del juego'),(14,'Cryptid','deduccion','3','5','2','Aqui viene la descripcion del juego'),(15,'Cubitos','familiar','2','4','2','Aqui viene la descripcion del juego'),(16,'Endeavor Deep Sea','euro','1','4','3','Aqui viene la descripcion del juego'),(17,'Escape Plan','euro','1','5','4','Aqui viene la descripcion del juego'),(18,'Exploding Kittens','cartas','2','5','1','Aqui viene la descripcion del juego'),(19,'Faraway','filler','2','6','2','Aqui viene la descripcion del juego'),(20,'Flamecraft','familiar','1','5','2','Aqui viene la descripcion del juego'),(21,'Harmonies','familiar','1','4','2','Aqui viene la descripcion del juego'),(22,'Heat','familiar','1','6','2','Aqui viene la descripcion del juego'),(23,'Horrified','familiar','1','5','2','Aqui viene la descripcion del juego'),(24,'insider','party','4','8','1','Aqui viene la descripcion del juego'),(25,'Junk Art','familiar','2','6','1','Aqui viene la descripcion del juego'),(26,'Keep the heroes Out','familiar','1','4','3','Aqui viene la descripcion del juego'),(27,'Kelp','estrategia','2','2','2','Aqui viene la descripcion del juego'),(28,'Lata','economico','1','4','3','Aqui viene la descripcion del juego'),(29,'Llama Rock and Roll','dados','2','6','1','Aqui viene la descripcion del juego'),(30,'Manchas','familiar','1','4','1','Aqui viene la descripcion del juego'),(31,'Mlem','familiar','2','5','2','Aqui viene la descripcion del juego'),(32,'nekojima','familiar','1','5','1','Aqui viene la descripcion del juego'),(33,'Pandemic','estrategia','2','4','3','Aqui viene la descripcion del juego'),(34,'Pelusas Revolution','cartas','2','5','1','Aqui viene la descripcion del juego'),(35,'PiÃ±a Coladice','dados','2','4','1','Aqui viene la descripcion del juego'),(36,'Pistas cruzadas','party','2','6','1','Aqui viene la descripcion del juego'),(37,'Pnzi Scheme','economico','3','5','3','Aqui viene la descripcion del juego'),(38,'Pocimas y brebajes','familiar','2','4','2','Aqui viene la descripcion del juego'),(39,'Power Plants','estrategia','1','5','3','Aqui viene la descripcion del juego'),(40,'Project L','estrategia','1','4','2','Aqui viene la descripcion del juego'),(41,'Root','estrategia','2','4','4','Aqui viene la descripcion del juego'),(42,'Scout','cartas','2','5','2','Aqui viene la descripcion del juego'),(43,'SETI','euro','1','4','4','Aqui viene la descripcion del juego'),(44,'Skyteam','familiar','2','2','2','Aqui viene la descripcion del juego'),(45,'Slay the Spire','cartas','1','4','3','Aqui viene la descripcion del juego'),(46,'Space Base','familiar','2','5','2','Aqui viene la descripcion del juego'),(47,'That time you killed me','abstracto','2','2','3','Aqui viene la descripcion del juego'),(48,'Time\'s Up','party','4','18','1','Aqui viene la descripcion del juego'),(49,'Wavelength','party','2','12','1','Aqui viene la descripcion del juego'),(50,'Wingspan','familiar','1','5','3','Aqui viene la descripcion del juego'),(51,'prueba','tipoprueba','8','10','6','Aqui viene la descripcion del juego');
+INSERT INTO `juegos` VALUES (1,'Ahoy','estrategia','2','4','3','Aqui viene la descripcion del juego'),(2,'Art Society','subasta','2','4','2','Aqui viene la descripcion del juego'),(3,'Aventureros al tren','familiar','2','5','2','Aqui viene la descripcion del juego'),(4,'Avio','cartas','2','6','2','Aqui viene la descripcion del juego'),(5,'Azul','familiar','2','4','2','Aqui viene la descripcion del juego'),(6,'Boop','abstracto','2','2','2','Aqui viene la descripcion del juego'),(7,'Captain Flip','familiar','2','5','1','Aqui viene la descripcion del juego'),(8,'Carcassonne','familiar','2','5','2','Aqui viene la descripcion del juego'),(9,'Cascadia','familiar','1','4','2','Aqui viene la descripcion del juego'),(10,'Cat in a box','cartas','2','5','2','Aqui viene la descripcion del juego'),(11,'Catan','economico','3','4','2','Aqui viene la descripcion del juego'),(12,'Codenames','party','2','8','2','Aqui viene la descripcion del juego'),(13,'Colt Express','familiar','2','6','2','Aqui viene la descripcion del juego'),(14,'Cryptid','deduccion','3','5','2','Aqui viene la descripcion del juego'),(15,'Cubitos','familiar','2','4','2','Aqui viene la descripcion del juego'),(16,'Endeavor Deep Sea','euro','1','4','3','Aqui viene la descripcion del juego'),(17,'Escape Plan','euro','1','5','4','Aqui viene la descripcion del juego'),(18,'Exploding Kittens','cartas','2','5','1','Aqui viene la descripcion del juego'),(19,'Faraway','filler','2','6','2','Aqui viene la descripcion del juego'),(20,'Flamecraft','familiar','1','5','2','Aqui viene la descripcion del juego'),(21,'Harmonies','familiar','1','4','2','Aqui viene la descripcion del juego'),(22,'Heat','familiar','1','6','2','Aqui viene la descripcion del juego'),(23,'Horrified','familiar','1','5','2','Aqui viene la descripcion del juego'),(24,'insider','party','4','8','1','Aqui viene la descripcion del juego'),(25,'Junk Art','familiar','2','6','1','Aqui viene la descripcion del juego'),(26,'Keep the heroes Out','familiar','1','4','3','Aqui viene la descripcion del juego'),(27,'Kelp','estrategia','2','2','2','Aqui viene la descripcion del juego'),(28,'Lata','economico','1','4','3','Aqui viene la descripcion del juego'),(29,'Llama Rock and Roll','dados','2','6','1','Aqui viene la descripcion del juego'),(30,'Manchas','familiar','1','4','1','Aqui viene la descripcion del juego'),(31,'Mlem','familiar','2','5','2','Aqui viene la descripcion del juego'),(32,'nekojima','familiar','1','5','1','Aqui viene la descripcion del juego'),(33,'Pandemic','estrategia','2','4','3','Aqui viene la descripcion del juego'),(34,'Pelusas Revolution','cartas','2','5','1','Aqui viene la descripcion del juego'),(35,'PiÃ±a Coladice','dados','2','4','1','Aqui viene la descripcion del juego'),(36,'Pistas cruzadas','party','2','6','1','Aqui viene la descripcion del juego'),(37,'Pnzi Scheme','economico','3','5','3','Aqui viene la descripcion del juego'),(38,'Pocimas y brebajes','familiar','2','4','2','Aqui viene la descripcion del juego'),(39,'Power Plants','estrategia','1','5','3','Aqui viene la descripcion del juego'),(40,'Project L','estrategia','1','4','2','Aqui viene la descripcion del juego'),(41,'Root','estrategia','2','4','4','Aqui viene la descripcion del juego'),(42,'Scout','cartas','2','5','2','Aqui viene la descripcion del juego'),(43,'SETI','euro','1','4','4','Aqui viene la descripcion del juego'),(44,'Skyteam','familiar','2','2','2','Aqui viene la descripcion del juego'),(45,'Slay the Spire','cartas','1','4','3','Aqui viene la descripcion del juego'),(46,'Space Base','familiar','2','5','2','Aqui viene la descripcion del juego'),(47,'That time you killed me','abstracto','2','2','3','Aqui viene la descripcion del juego'),(48,'Time\'s Up','party','4','18','1','Aqui viene la descripcion del juego'),(49,'Wavelength','party','2','12','1','Aqui viene la descripcion del juego'),(50,'Wingspan','familiar','1','5','3','Aqui viene la descripcion del juego'),(51,'prueba','tipoprueba','8','10','6','Aqui viene la descripcion del juego'),(52,'prueba1','aaa','3','6','6','con swagger');
 /*!40000 ALTER TABLE `juegos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,4 +262,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-29  8:07:57
+-- Dump completed on 2025-06-02 20:49:52
