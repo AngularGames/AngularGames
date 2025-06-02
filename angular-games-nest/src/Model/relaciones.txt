@@ -1,0 +1,22 @@
+HISTORIAL PEDIDOS
+idPedido  |  numPedido  |  fecha
+                  X
+
+CARRITO
+
+numPedido  |  articulo  |  cantidad  |  idUsuario
+    X                                        O
+
+
+USUARIOS
+
+idUsuario  |  nombre  | ............
+    O
+
+
+productosAlmacen
+
+idAlmacen | nombre | tipo  | cantidad
+
+
+relacion OneToMany de one numero de pedido many articulos
