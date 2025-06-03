@@ -42,9 +42,8 @@ export class ArticuloService {
   }
 
   mostrarTodos(){
-    this.http.get(`${this.url}/articulos/mostrar/todos`).subscribe(data=>this.listaJuegos=data);
-    console.log(this.listaJuegos)
-    return this.listaJuegos
+    return this.http.get<string[]>(`${this.url}/articulos/mostrar/todos`);
+
 
   }
 }

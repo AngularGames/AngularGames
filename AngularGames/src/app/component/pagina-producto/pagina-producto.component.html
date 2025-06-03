@@ -3,10 +3,10 @@
 NOMBRE <input [(ngModel)]="productoBuscar">
 <br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>
 
-<select [(ngModel)]="productoBuscar" (change)="buscarProducto(productoBuscar)">
+<select [(ngModel)]="select" (change)="buscarProducto(select)">
 
   <option [defaultSelected]="">Elige un juego</option>
-  <option *ngFor="let item of lista" value="{{item}}">{{item}}</option>
+  <option *ngFor="let juego of lista" value="{{juego}}">{{juego}}</option>
 
 </select>
 

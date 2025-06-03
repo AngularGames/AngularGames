@@ -1,18 +1,40 @@
-<h2>INSERTA NUEVO PRODUCTO</h2>
+<div class="form-container">
+  <h2 class="form-header">INSERTA NUEVO PRODUCTO</h2>
 
-<div>
+  <div class="form-group">
+    <label for="nombre">Nombre del producto</label>
+    <input id="nombre" [(ngModel)]="nombre" class="form-input">
+  </div>
 
-  Nombre del producto <input [(ngModel)]="nombre"><br><br>
-  Tipo de juego <input [(ngModel)]="tipoDeJuego"><br><br>
-  Jugadores Mínimos<input [(ngModel)]="jmin"><br>
-  Jugadores Máximos<input [(ngModel)]="jmax"><br><br>
-  Dificultad <input [(ngModel)]="dificultad"><br>
-  Descripcion <input [(ngModel)]="descripcion"><br><br>
-  Precio <input [(ngModel)]="precio"><br><br>
+  <div class="form-group">
+    <label for="tipoDeJuego">Tipo de juego</label>
+    <input id="tipoDeJuego" [(ngModel)]="tipoDeJuego" class="form-input">
+  </div>
 
-  <button (click)="guardarRegistro()">GUARDAR</button><br><br>
+  <div class="form-group">
+    <label for="jmin">Jugadores Mínimos</label>
+    <input id="jmin" [(ngModel)]="jmin" class="form-input">
+  </div>
 
+  <div class="form-group">
+    <label for="jmax">Jugadores Máximos</label>
+    <input id="jmax" [(ngModel)]="jmax" class="form-input">
+  </div>
 
+  <div class="form-group">
+    <label for="dificultad">Dificultad</label>
+    <input id="dificultad" [(ngModel)]="dificultad" class="form-input">
+  </div>
 
+  <div class="form-group">
+    <label for="descripcion">Descripción</label>
+    <input id="descripcion" [(ngModel)]="descripcion" class="form-input">
+  </div>
+
+  <div class="form-group">
+    <label for="precio">Precio</label>
+    <input id="precio" [(ngModel)]="precio" class="form-input">
+  </div>
+
+  <button class="btn-comprar" (click)="guardarRegistro()">GUARDAR</button>
 </div>
-

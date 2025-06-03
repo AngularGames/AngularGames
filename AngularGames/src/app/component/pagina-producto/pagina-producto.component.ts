@@ -17,15 +17,18 @@ export class PaginaProductoComponent {
     private articuloService:ArticuloService,
     private almacenService:AlmacenService
   ){
-    this.almacenService.listaAlmacen().subscribe(data=>this.lista=data.map(m=>m.nombre))
+    this.articuloService.mostrarTodos().subscribe(data=>this.lista=data)
+    console.log(this.lista)
   }
 
 lista:string[];
+select:string;
 articulo:Juego;
 productoBuscar:string;
 
 
 buscarProducto(productoBuscar:string):Juego{
+  console.log(this.lista)
   this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.articulo=data);
   return this.articulo;
 
