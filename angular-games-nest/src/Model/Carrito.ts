@@ -9,7 +9,7 @@ export class Carrito {
     @Column()
     numPedido:number;
     @Column()
-    @OneToMany(()=>productoAlmacen, (articulos)=>articulos.carrito) // llamamos a entidad productoAlmacen (que es con la que lo relacionaremos)
+   // @OneToMany(()=>productoAlmacen, (articulos)=>articulos.carrito) // llamamos a entidad productoAlmacen (que es con la que lo relacionaremos)
                                                                     // definimos articulos para ver a qué carrito pertenecen los articulos
     articulos:productoAlmacen[];
     @Column()

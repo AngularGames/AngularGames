@@ -12,6 +12,8 @@ export class ArticuloService {
 
   url="http://localhost:3000"
 
+  listaJuegos:any=[]
+
 
   elegirJuego(nombre:string):Observable<any>{
     return this.http.get(`${this.url}/articulos/buscar/juego/${nombre}`)
@@ -39,5 +41,10 @@ export class ArticuloService {
     console.log("ha pasado por el post al alta")
   }
 
+  mostrarTodos(){
+    this.http.get(`${this.url}/articulos/mostrar/todos`).subscribe(data=>this.listaJuegos=data);
+    console.log(this.listaJuegos)
+    return this.listaJuegos
 
+  }
 }

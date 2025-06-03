@@ -1,4 +1,4 @@
-import { PrimaryGeneratedColumn, Entity, Column, ManyToMany, ManyToOne } from 'typeorm';
+import { PrimaryGeneratedColumn, Entity, Column, ManyToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Carrito } from './Carrito';
 
 /// EL TYPEORM ES SOLAMENTE EN EL BACK? ///
@@ -13,9 +13,9 @@ export class productoAlmacen{
   tipo:string;
   @Column()
   cantidad:number;
-  @ManyToOne(()=>Carrito, (carrito)=>carrito.articulos)
-  @JoinColumn({name:"numPedido", referencedColumnName:"numPedido"  }) //no me queda muy claro si está bien. creo que sí pero...
-  carrito:Carrito
+ // @ManyToOne(()=>Carrito, (carrito)=>carrito.articulos)
+  //@JoinColumn({name:"numPedido", referencedColumnName:"numPedido"  }) //no me queda muy claro si está bien. creo que sí pero...
+ // carrito:Carrito
 
   constructor(idAlmacen?:number,nombre?:string,tipo?:string,cantidad?:number){
 

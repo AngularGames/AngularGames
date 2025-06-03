@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Juego } from '../../models/Juego';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ArticuloService } from '../../services/articulos/articulo.service';
 
 @Component({
   selector: 'app-pagina-producto',
@@ -10,11 +11,20 @@ import { CommonModule } from '@angular/common';
   styleUrl: './pagina-producto.component.css'
 })
 export class PaginaProductoComponent {
+  constructor(private articuloService:ArticuloService){
+      this.listaJuegos=this.articuloService.listaJuegos;
+      console.log(this.listaJuegos)
+  }
+
+listaJuegos:string[]=[];
+articulo:Juego;
+productoBuscar:string;
 
 
-//preguntar a antonio como hacer que al hacer click se ponga el juego
-@Input() articulo:Juego
+buscarProducto(productoBuscar:string):Juego{
+  this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.articulo=data);
+  return this.articulo;
 
-
+}
 
 }

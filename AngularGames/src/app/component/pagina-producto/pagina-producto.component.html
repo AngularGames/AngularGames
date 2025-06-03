@@ -1,4 +1,31 @@
 <h1>ESTA PAGINA DEBERIA SUSTITUIR A LA DE SELECCION</h1>
+<select >
+  <option *ngFor="let item of listaJuegos">{{item}}</option>
+
+</select>
+
+NOMBRE <input [(ngModel)]="productoBuscar">
+<br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>
+
+
+<div class="producto-container">
+  <div class="producto-imagen">
+    <img [src]="" alt="{{articulo.nombre}}" />
+  </div>
+  <div class="producto-detalles">
+    <h1>{{articulo.nombre}}</h1>
+    <h2>{{articulo.tipo}}</h2>
+    <p>Jugadores Mínimos: {{articulo.jugadoresMin}}</p>
+    <p>Jugadores Máximos: {{articulo.jugadoresMax}}</p>
+    <p>Dificultad: {{articulo.dificultad}}</p>
+    <p class="producto-descripcion">{{articulo.descripcion}}</p>
+    <p class="producto-precio">Precio: {{articulo.precio | currency:'EUR'}}</p>
+    <button class="btn-comprar" >Añadir al carrito</button>
+  </div>
+</div>
+
+
+<!--
 
 <div class="esqueleto">
   <div class="articulo">
@@ -20,5 +47,7 @@
   <p>AQUI DEBERIA IR LA INFORMACION DEL JUEGO</p>
     </div>
 <br>
+
+  -->
 
 

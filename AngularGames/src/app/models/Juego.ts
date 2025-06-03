@@ -5,8 +5,9 @@ export class Juego{
   jugadoresMax:string;
   dificultad:string;
   descripcion:string;
+  precio:number;
 
-constructor(nombre?:string,tipo?:string,jugadoresMin?:string,jugadoresMax?:string,dificultad?:string,descripcion?:string){
+constructor(nombre?:string,tipo?:string,jugadoresMin?:string,jugadoresMax?:string,dificultad?:string,descripcion?:string,precio?:number){
 
   this.nombre=nombre;
   this.tipo=tipo;
@@ -14,6 +15,7 @@ constructor(nombre?:string,tipo?:string,jugadoresMin?:string,jugadoresMax?:strin
   this.jugadoresMax=jugadoresMax;
   this.dificultad=dificultad;
   this.descripcion=descripcion;
+  this.precio=precio;
 
 }
 

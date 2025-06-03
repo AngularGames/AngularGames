@@ -16,10 +16,17 @@ import { Observable } from 'rxjs';
 export class ArticulosController {
   constructor(private articulosService: ArticulosService) {}
 
-@Get("/buscar/juego/:nombre")
+
+@Get("/mostrar/todos")
+async mostrarTodos():Promise<string[]>{
+return await this.articulosService.mostrarTodos()
+}
+
+  @Get("/buscar/juego/:nombre")
  buscarJuego(@Param("nombre") nombre:string){
    return this.articulosService.elegirJuego(nombre);
 };
+
 @Get("buscar/tipo/:tipo")
 buscarTipo(@Param("tipo")tipo:string){
 
