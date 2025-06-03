@@ -21,8 +21,8 @@ export class AlmacenService {
 
   }
 
-  listaAlmacen():Observable<any>{
-    return this.http.get(`${this.url}/almacen/lista`);
+  listaAlmacen():Observable<productoAlmacen[]>{
+    return this.http.get<productoAlmacen[]>(`${this.url}/almacen/lista`);
 
   }
 

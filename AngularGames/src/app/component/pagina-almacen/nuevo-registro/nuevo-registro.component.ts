@@ -17,19 +17,21 @@ export class NuevoRegistroComponent {
 
   {}
 
+  idArticulo:number;
   nombre:string;
   tipoDeJuego:string;
   jmin:string;
   jmax:string;
   dificultad:string;
   descripcion:string;
+  precio:number;
 
   juego:Juego
 
 
   guardarRegistro(){
     console.log("entramos en guardar registro")
-    let nuevoJuego=new Juego(this.nombre,this.tipoDeJuego,this.jmin,this.jmax,this.dificultad,this.descripcion)
+    const nuevoJuego=new Juego(this.idArticulo,this.nombre,this.tipoDeJuego,this.jmin,this.jmax,this.dificultad,this.descripcion,this.precio)
     console.log(nuevoJuego)
     this.articuloService.añadirArticulo(nuevoJuego)
 

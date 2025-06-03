@@ -1,6 +1,5 @@
 import { Injectable, Post } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Juego } from 'src/Model/Juego';
 import { productoAlmacen } from 'src/Model/productoAlmacen';
 import { LessThan, LessThanOrEqual, MoreThan, MoreThanOrEqual, Repository, UpdateResult } from 'typeorm';
 
@@ -29,11 +28,11 @@ async agregarProducto(producto:productoAlmacen):Promise<boolean>{
 
        }
 
-       async mostrarInventario():Promise<productoAlmacen[]>{
+       mostrarInventario():Promise<productoAlmacen[]>{
         
-        const tablaInventario:productoAlmacen[] = await this.almacenRepository.find();
+        return this.almacenRepository.find();
 
-        return tablaInventario;
+        
 
        }
 

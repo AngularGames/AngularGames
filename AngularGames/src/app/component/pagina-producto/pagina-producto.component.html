@@ -1,11 +1,14 @@
 <h1>ESTA PAGINA DEBERIA SUSTITUIR A LA DE SELECCION</h1>
-<select >
-  <option *ngFor="let item of listaJuegos">{{item}}</option>
-
-</select>
 
 NOMBRE <input [(ngModel)]="productoBuscar">
 <br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>
+
+<select [(ngModel)]="productoBuscar" (change)="buscarProducto(productoBuscar)">
+
+  <option [defaultSelected]="">Elige un juego</option>
+  <option *ngFor="let item of lista" value="{{item}}">{{item}}</option>
+
+</select>
 
 
 <div class="producto-container">

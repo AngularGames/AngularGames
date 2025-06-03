@@ -7,10 +7,12 @@ import {
   Patch,
   Post,
   Query,
+  Res,
 } from '@nestjs/common';
 import { ArticulosService } from 'src/service/articulos.service';
 import { Juego } from 'src/Model/Juego';
 import { Observable } from 'rxjs';
+import { Response } from 'express';
 
 @Controller('articulos')
 export class ArticulosController {
@@ -45,11 +47,16 @@ return this.articulosService.filtrarDificultad(dificultad);
 
 };
 
-@Post("/alta")
-guardarjuego(@Body() juego:Juego):Observable<boolean>{
+@Post("alta")
+async guardarjuego(@Body() juego:Juego, @Res() response:Response):Promise<Response>{
   console.log("ha entrado en el controller ",juego)
-  const devolucion=this.articulosService.agregarJuego(juego);
-  if (devolucion) return
+  const resultado:boolean= await this.articulosService.agregarJuego(juego);
+  if(resultado){
+    return response.status(200).send()
+  }else{
+    return response.status(409).send()
+  }
+  
 }
 
 }
