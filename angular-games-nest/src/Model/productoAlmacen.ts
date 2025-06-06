@@ -13,9 +13,10 @@ export class productoAlmacen{
   tipo:string;
   @Column()
   cantidad:number;
- // @ManyToOne(()=>Carrito, (carrito)=>carrito.articulos)
+  
+  //@ManyToOne(()=>Carrito, (carrito)=>carrito.articulos)
   //@JoinColumn({name:"numPedido", referencedColumnName:"numPedido"  }) //no me queda muy claro si está bien. creo que sí pero...
- // carrito:Carrito
+  //carrito:Carrito
 
   constructor(idAlmacen?:number,nombre?:string,tipo?:string,cantidad?:number){
 

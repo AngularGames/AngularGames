@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { ArticuloService } from '../../services/articulos/articulo.service';
 import { AlmacenService } from '../../services/almacen/almacen.service';
 import { productoAlmacen } from '../../models/productoAlmacen';
+import { Carrito } from '../../models/Carrito';
+import { CarritoService } from '../../services/carrito/carrito.service';
 
 @Component({
   selector: 'app-pagina-producto',
@@ -15,31 +17,31 @@ import { productoAlmacen } from '../../models/productoAlmacen';
 export class PaginaProductoComponent {
   constructor(
     private articuloService:ArticuloService,
-    private almacenService:AlmacenService
+    private almacenService:AlmacenService,
+    private carritoService:CarritoService
   ){
-    console.log("en teoria debería de INICIAR LA PUTA MIERDA ESTA");
-    console.log("deberia de aparecer una segunda linea")
-    this.inicio();
+    this.articuloService.mostrarTodos().subscribe(data=>this.listaCargada=data);
 
   }
 
-listaCargada:string[]=[];
+listaCargada:string[];
 select:string;
 articulo:Juego;
 productoBuscar:string;
+select2:string;
+unidades:number
 
 
 buscarProducto(productoBuscar:string):Juego{
-  console.log(this.listaCargada)
   this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.articulo=data);
   return this.articulo;
 
 }
 
-inicio():string[]{
-  console.log("ha entrado en inicio")
-  this.articuloService.mostrarTodos().subscribe(data=>this.listaCargada=data);
-  return this.listaCargada
+agregarAlCarrito(){
+  let pedido:Carrito = new Carrito(this.articulo.nombre,this.unidades)
+  console.log("el pedido es este" + pedido.cantidad+pedido.nombre)
+  this.carritoService.agregarAlCarrito(pedido)
 }
 
 

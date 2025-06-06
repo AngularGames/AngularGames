@@ -9,23 +9,26 @@ export class Carrito {
     @Column()
     numPedido:number;
     @Column()
-   // @OneToMany(()=>productoAlmacen, (articulos)=>articulos.carrito) // llamamos a entidad productoAlmacen (que es con la que lo relacionaremos)
-                                                                    // definimos articulos para ver a qué carrito pertenecen los articulos
-    articulos:productoAlmacen[];
+    idArticulo:number;
     @Column()
     cantidad:number;
     @Column()
-    usuario:number;
+    idUsuario:number;
     
-     // esta está relacionada con un filtro por pedido en la tabla historico pedidos
 
-    constructor(idCarrito:number,numPedido:number,articulos:productoAlmacen[],cantidad:number,usuario:number){
+    //@OneToMany(()=>productoAlmacen, (articulos)=>articulos.carrito) // llamamos a entidad productoAlmacen (que es con la que lo relacionaremos)
+                                                                    // definimos articulos para ver a qué carrito pertenecen los articulos
+    //articulos:productoAlmacen[];
+
+ // esta está relacionada con un filtro por pedido en la tabla historico pedidos
+
+    constructor(idCarrito:number,numPedido:number,idArticulo:number,cantidad:number,idUsuario:number){
 
     this.idCarrito=idCarrito;
     this.numPedido =numPedido;
-    this.articulos =articulos;
+    this.idArticulo=idArticulo;
     this.cantidad =cantidad;
-    this.usuario =usuario;
+    this.idUsuario=idUsuario;
 
     }
 }

@@ -9,6 +9,9 @@ import { Usuario } from './Model/Usuario';
 import { productoAlmacen } from './Model/productoAlmacen';
 import { AlmacenService } from './service/almacen.service';
 import { AlmacenController } from './controller/almacen.controller';
+import { Carrito } from './Model/Carrito';
+import { CarritoController } from './controller/carrito.controller';
+import { CarritoService } from './service/carrito.service';
 
 @Module({
   imports: [
@@ -19,12 +22,12 @@ import { AlmacenController } from './controller/almacen.controller';
       username: 'nestuser',
       password: 'nestpass',
       database: 'juegosdemesa',
-      entities: [Juego, Usuario, productoAlmacen],
+      entities: [Juego, Usuario, productoAlmacen,Carrito],
       synchronize: false,
     }),
-    TypeOrmModule.forFeature([Juego, productoAlmacen, Usuario]),
+    TypeOrmModule.forFeature([Juego, productoAlmacen, Usuario,Carrito]),
   ],
-  controllers: [ArticulosController, UsuariosController, AlmacenController],
-  providers: [ArticulosService, UsuariosService, AlmacenService],
+  controllers: [ArticulosController, UsuariosController, AlmacenController,CarritoController],
+  providers: [ArticulosService, UsuariosService, AlmacenService,CarritoService],
 })
 export class AppModule {}

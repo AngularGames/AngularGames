@@ -4,14 +4,13 @@ NOMBRE <input [(ngModel)]="productoBuscar">
 <br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>
 
 
-<select *ngIf="listaCargada.length>0" [(ngModel)]="select" (change)="buscarProducto(select)">
+<select [(ngModel)]="select" (change)="buscarProducto(select)">
   <option>Selecciona un juego</option>
-  <option  *ngFor="let juego of listaCargada" value="{{juego}}">{{juego}}</option>
-
+  <option  *ngFor="let juego of listaCargada">{{juego}}</option>
 </select>
 
 
-<div class="producto-container">
+<div *ngIf="select"  class="producto-container">
   <div class="producto-imagen">
     <img [src]="" alt="{{articulo.nombre}}" />
   </div>
@@ -23,34 +22,11 @@ NOMBRE <input [(ngModel)]="productoBuscar">
     <p>Dificultad: {{articulo.dificultad}}</p>
     <p class="producto-descripcion">{{articulo.descripcion}}</p>
     <p class="producto-precio">Precio: {{articulo.precio | currency:'EUR'}}</p>
-    <button class="btn-comprar" >Añadir al carrito</button>
   </div>
 </div>
-
-
-<!--
-
-<div class="esqueleto">
-  <div class="articulo">
-  <h1>nombrejuego: {{articulo.nombre}}</h1><br>
-  </div>
-  <div class="info">
-    <div><img src="/public/ahoy.png"></div>
-    <div class="caracteristicas">
-      <p>tipo: {{articulo.tipo}}</p><br>
-      <p>Jugadores Mínimos: {{articulo.jugadoresMin}}</p>
-      <p>Jugadores Máximos: {{articulo.jugadoresMax}}</p>
-      <p>Dificultad: {{articulo.dificultad}}</p>
-      <div class="comprar">
-        <p>49,95€ (pero aquí iría una relacion a precio de tabla)</p> <button>COMPRAR</button>
-      </div>
-  </div>
-</div>
-<div class="descripcion">
-  <p>AQUI DEBERIA IR LA INFORMACION DEL JUEGO</p>
-    </div>
 <br>
+<div>
+    Unidades <input [(ngModel)]="unidades" type="number" style="width: fit-content;"><button class="btn-comprar" (click)="agregarAlCarrito()">AÑADIR AL CARRITO</button>
+  </div>
 
-  -->
-
-
+<br>
