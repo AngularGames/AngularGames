@@ -17,21 +17,30 @@ export class PaginaProductoComponent {
     private articuloService:ArticuloService,
     private almacenService:AlmacenService
   ){
-    this.articuloService.mostrarTodos().subscribe(data=>this.lista=data)
-    console.log(this.lista)
+    console.log("en teoria debería de INICIAR LA PUTA MIERDA ESTA");
+    console.log("deberia de aparecer una segunda linea")
+    this.inicio();
+
   }
 
-lista:string[];
+listaCargada:string[]=[];
 select:string;
 articulo:Juego;
 productoBuscar:string;
 
 
 buscarProducto(productoBuscar:string):Juego{
-  console.log(this.lista)
+  console.log(this.listaCargada)
   this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.articulo=data);
   return this.articulo;
 
 }
+
+inicio():string[]{
+  console.log("ha entrado en inicio")
+  this.articuloService.mostrarTodos().subscribe(data=>this.listaCargada=data);
+  return this.listaCargada
+}
+
 
 }
