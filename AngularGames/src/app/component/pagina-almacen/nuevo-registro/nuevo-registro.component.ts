@@ -17,30 +17,34 @@ export class NuevoRegistroComponent {
 
   {}
 
-  idArticulo:number;
   nombre:string;
   tipoDeJuego:string;
   jmin:string;
   jmax:string;
-  dificultad:string;
+  dificultad:number;
   descripcion:string;
   precio:number;
 
-  juego:Juego
+  juego:Juego;
+  respuesta:string;
 
 
   guardarRegistro(){
     console.log("entramos en guardar registro")
-    const nuevoJuego=new Juego(this.idArticulo,this.nombre,this.tipoDeJuego,this.jmin,this.jmax,this.dificultad,this.descripcion,this.precio)
+    const nuevoJuego=new Juego(this.nombre,this.tipoDeJuego,this.jmin,this.jmax,this.dificultad,this.descripcion,this.precio)
     console.log(nuevoJuego)
-    this.articuloService.añadirArticulo(nuevoJuego)
+    this.articuloService.añadirArticulo(nuevoJuego).subscribe(data=>this.respuesta=data)
+    console.log("esta debería ser la respuesta "+this.respuesta)
 
 
   }
 
   buscar(juego:string){
     console.log("vamos a buscar ",juego)
-    this.articuloService.elegirJuego(juego).subscribe(data=>this.juego=data)
+    this.articuloService.elegirJuego(juego).subscribe({
+      next: data=> this.respuesta="TODO OK",
+      error: err=> this.respuesta="MALAMENTE TODO"
+    })
     console.log("hemos mandado buscar el juego")
 
   }

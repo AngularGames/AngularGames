@@ -13,6 +13,8 @@ export class ArticuloService {
   url="http://localhost:3000"
 
   listaJuegos:any=[]
+  respuesta
+
 
 
   elegirJuego(nombre:string):Observable<any>{
@@ -35,15 +37,16 @@ export class ArticuloService {
     return this.baseDatosJuegos.filter(juegos=>(+juegos.dificultad >= dificultad))
   }
 */
-  añadirArticulo(juego:Juego){
-    console.log("nuevo articulo que mandamos en body es ",juego)
-    this.http.post<Juego>(`${this.url}/articulos/alta`,juego);
-    console.log("ha pasado por el post al alta")
+  añadirArticulo(juego:Juego):Observable<any>{
+    console.log("nuevo articulo que mandamos en body es ",juego);
+    console.log("ha pasado por el post al alta");
+    return this.http.post(`${this.url}/articulos/alta`,juego);
+
   }
 
   mostrarTodos(){
-    return this.http.get<string[]>(`${this.url}/articulos/mostrar/todos`);
-
+    let respuesta = this.http.get<string[]>(`${this.url}/articulos/mostrar/todos`);
+    return respuesta
 
   }
 }

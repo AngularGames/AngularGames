@@ -52,11 +52,11 @@ async guardarjuego(@Body() juego:Juego, @Res() response:Response):Promise<Respon
   console.log("ha entrado en el controller ",juego)
   const resultado:boolean= await this.articulosService.agregarJuego(juego);
   if(resultado){
-    return response.status(200).send()
+    return response.status(200).send("Todo ok")
   }else{
-    return response.status(409).send()
+    return response.status(409).send("Meh... no")
   }
-  
+
 }
 
 }
