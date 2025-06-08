@@ -1,5 +1,6 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { productoAlmacen } from "./productoAlmacen";
+import { Juego } from "./Juego";
 
 @Entity("carrito")
 export class Carrito {
@@ -9,11 +10,13 @@ export class Carrito {
     @Column()
     numPedido:number;
     @Column()
-    idArticulo:number;
+    nombreArticulo:string;
     @Column()
     cantidad:number;
     @Column()
     idUsuario:number;
+    @Column()
+    precio:number;
     
 
     //@OneToMany(()=>productoAlmacen, (articulos)=>articulos.carrito) // llamamos a entidad productoAlmacen (que es con la que lo relacionaremos)
@@ -22,13 +25,14 @@ export class Carrito {
 
  // esta está relacionada con un filtro por pedido en la tabla historico pedidos
 
-    constructor(idCarrito:number,numPedido:number,idArticulo:number,cantidad:number,idUsuario:number){
+    constructor(idCarrito?:number,numPedido?:number,nombreArticulo?:string,cantidad?:number,idUsuario?:number,precio?:number){
 
     this.idCarrito=idCarrito;
     this.numPedido =numPedido;
-    this.idArticulo=idArticulo;
+    this.nombreArticulo=nombreArticulo;
     this.cantidad =cantidad;
     this.idUsuario=idUsuario;
+    this.precio=precio;
 
     }
 }

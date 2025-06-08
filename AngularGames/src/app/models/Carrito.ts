@@ -1,16 +1,21 @@
 export class Carrito{
 
-  nombre:string;
+  numPedido:number;
+  nombreArticulo:string;
   cantidad:number;
+  precio:number;
 
   constructor(
-      nombre:string,
-      cantidad:number,
+      numPedido?:number,
+      nombreArticulo?:string,
+      cantidad?:number,
+      precio?:number,
   ){
 
-      this.nombre=nombre;
+      this.numPedido=numPedido;
+      this.nombreArticulo=nombreArticulo;
       this.cantidad=cantidad;
-
+      this.precio=precio;
   }
 
 

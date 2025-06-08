@@ -29,7 +29,9 @@ select:string;
 articulo:Juego;
 productoBuscar:string;
 select2:string;
-unidades:number
+unidades:number;
+numpedido:number=1
+listaCompra:Carrito[]=[];
 
 
 buscarProducto(productoBuscar:string):Juego{
@@ -39,10 +41,21 @@ buscarProducto(productoBuscar:string):Juego{
 }
 
 agregarAlCarrito(){
-  let pedido:Carrito = new Carrito(this.articulo.nombre,this.unidades)
-  console.log("el pedido es este" + pedido.cantidad+pedido.nombre)
+  let total:number=this.unidades*this.articulo.precio
+  console.log("el total es "+total);
+
+  let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
+  console.log("el pedido es este" + pedido.cantidad+pedido.nombreArticulo+total)
+  console.log(pedido)
   this.carritoService.agregarAlCarrito(pedido)
 }
 
+ConfirmarCarrito(){
+
+  this.listaCompra=this.carritoService.mostrarCarrito(this.numpedido);
+
+  this.numpedido=this.numpedido+1;
+
+}
 
 }

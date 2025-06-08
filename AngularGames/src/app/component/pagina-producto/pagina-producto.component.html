@@ -27,6 +27,20 @@ NOMBRE <input [(ngModel)]="productoBuscar">
 <br>
 <div>
     Unidades <input [(ngModel)]="unidades" type="number" style="width: fit-content;"><button class="btn-comprar" (click)="agregarAlCarrito()">AÑADIR AL CARRITO</button>
+    <br>
+    <br>
+    <button class="btn-comprar" (click)="ConfirmarCarrito()">PAGAR</button>
+  </div>
+
+  <div>
+    <table>
+      <tr *ngFor="let item of listaCompra">
+        <td>{{item.numPedido}}</td>
+        <td>{{item.nombreArticulo}}</td>
+        <td>{{item.cantidad}}</td>
+        <td>{{item.precio}}</td>
+      </tr>
+    </table>
   </div>
 
 <br>

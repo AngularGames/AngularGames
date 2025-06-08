@@ -16,6 +16,8 @@ export class CarritoController {
 
 @Post("agregarCarrito")
 agregarAlCarrito(@Body() pedido:CarritoDto){
+  console.log("este pedido ha entrado"+pedido);
+  console.log(pedido.cantidad,pedido.nombreArticulo,pedido.precio)
   this.carritoService.agregarAlCarrito(pedido);
 }
 
