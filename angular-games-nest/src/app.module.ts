@@ -21,7 +21,7 @@ import { CarritoService } from './service/carrito.service';
       port: 3306,
       username: 'nestuser',
       password: 'nestpass',
-      database: 'juegosdemesa',
+      database: 'basedatosjuegos',
       entities: [Juego, Usuario, productoAlmacen,Carrito],
       synchronize: false,
     }),
