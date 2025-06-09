@@ -24,7 +24,7 @@ eliminarDelCarrito(nombreArticulo:string){
 }
 
 mostrarCarrito(numPedido:number):Promise<CarritoDto[]>{
-  return this.carritoRepository.find()
+  return this.carritoRepository.findBy({numPedido:numPedido})
 }
 
 

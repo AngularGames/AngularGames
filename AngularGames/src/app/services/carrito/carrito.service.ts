@@ -24,8 +24,8 @@ agregarAlCarrito(pedido:Carrito){
 }
 
 mostrarCarrito(numpedido:number):Carrito[]{
-  this.http.get<Carrito[]>(`${this.url}/carrito/mostrar`).subscribe(data=>this.listaCarrito=data)
-  return this.listaCarrito.filter(m=>m.numPedido==numpedido)
+  this.http.get<Carrito[]>(`${this.url}/carrito/mostrar/${numpedido}`).subscribe(data=>this.listaCarrito=data)
+  return this.listaCarrito
 }
 
 aceptarCarrito(){

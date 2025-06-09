@@ -22,7 +22,9 @@ agregarAlCarrito(@Body() pedido:CarritoDto){
 }
 
 @Get("mostrar/:pedido")
+
 async mostrarCarrito(@Param("pedido") pedido:number):Promise<CarritoDto[]>{
+  console.log("este es el numero de pedido para consultar "+pedido)
   return await this.carritoService.mostrarCarrito(pedido)
 }
 
