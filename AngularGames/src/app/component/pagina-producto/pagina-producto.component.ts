@@ -7,6 +7,7 @@ import { AlmacenService } from '../../services/almacen/almacen.service';
 import { productoAlmacen } from '../../models/productoAlmacen';
 import { Carrito } from '../../models/Carrito';
 import { CarritoService } from '../../services/carrito/carrito.service';
+import {MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-pagina-producto',
@@ -32,6 +33,7 @@ select2:string;
 unidades:number;
 numpedido:number=1
 listaCompra:Carrito[]=[];
+importeTotal:number=0;
 
 
 buscarProducto(productoBuscar:string):Juego{
@@ -47,13 +49,15 @@ agregarAlCarrito(){
   let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
   console.log("el pedido es este" + pedido.cantidad+pedido.nombreArticulo+total)
   console.log(pedido)
+
   this.carritoService.agregarAlCarrito(pedido)
+  this.listaCompra=this.carritoService.mostrarCarrito(this.numpedido);
+  this.importeTotal=this.carritoService.totalCarrito
+  console.log("este es la variable importetotal "+this.importeTotal)
 }
 
 ConfirmarCarrito(){
   console.log("mando este número de pedido "+this.numpedido)
-  const carrito:Carrito[] =  this.listaCompra=this.carritoService.mostrarCarrito(this.numpedido);
-  console.log(carrito)
 
   this.numpedido=this.numpedido+1;
 
