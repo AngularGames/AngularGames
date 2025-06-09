@@ -23,7 +23,7 @@ eliminarDelCarrito(nombreArticulo:string){
 
 }
 
-mostrarCarrito():Promise<CarritoDto[]>{
+mostrarCarrito(numPedido:number):Promise<CarritoDto[]>{
   return this.carritoRepository.find()
 }
 

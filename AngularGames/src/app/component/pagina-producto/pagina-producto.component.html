@@ -16,10 +16,10 @@ NOMBRE <input [(ngModel)]="productoBuscar">
   </div>
   <div class="producto-detalles">
     <h1>{{articulo.nombre}}</h1>
-    <h2>{{articulo.tipo}}</h2>
-    <p>Jugadores Mínimos: {{articulo.jugadoresMin}}</p>
-    <p>Jugadores Máximos: {{articulo.jugadoresMax}}</p>
-    <p>Dificultad: {{articulo.dificultad}}</p>
+    <p><b>Tipo de Juego:</b> {{articulo.tipo}}</p>
+    <p><b>Jugadores Mínimos</b>: {{articulo.jugadoresMin}}</p>
+    <p><b>Jugadores Máximos:</b> {{articulo.jugadoresMax}}</p>
+    <p><b>Dificultad:</b> {{articulo.dificultad}}</p>
     <p class="producto-descripcion">{{articulo.descripcion}}</p>
     <p class="producto-precio">Precio: {{articulo.precio | currency:'EUR'}}</p>
   </div>

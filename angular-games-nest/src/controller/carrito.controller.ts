@@ -21,9 +21,9 @@ agregarAlCarrito(@Body() pedido:CarritoDto){
   this.carritoService.agregarAlCarrito(pedido);
 }
 
-@Get("mostrar")
-async mostrarCarrito():Promise<CarritoDto[]>{
-  return await this.carritoService.mostrarCarrito()
+@Get("mostrar/:pedido")
+async mostrarCarrito(@Param("pedido") pedido:number):Promise<CarritoDto[]>{
+  return await this.carritoService.mostrarCarrito(pedido)
 }
 
 

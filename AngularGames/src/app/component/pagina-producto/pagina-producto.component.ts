@@ -51,8 +51,9 @@ agregarAlCarrito(){
 }
 
 ConfirmarCarrito(){
-
-  this.listaCompra=this.carritoService.mostrarCarrito(this.numpedido);
+  console.log("mando este número de pedido "+this.numpedido)
+  const carrito:Carrito[] =  this.listaCompra=this.carritoService.mostrarCarrito(this.numpedido);
+  console.log(carrito)
 
   this.numpedido=this.numpedido+1;
 
