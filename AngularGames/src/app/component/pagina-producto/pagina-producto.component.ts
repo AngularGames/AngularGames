@@ -4,10 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ArticuloService } from '../../services/articulos/articulo.service';
 import { AlmacenService } from '../../services/almacen/almacen.service';
-import { productoAlmacen } from '../../models/productoAlmacen';
 import { Carrito } from '../../models/Carrito';
 import { CarritoService } from '../../services/carrito/carrito.service';
-import {MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-pagina-producto',

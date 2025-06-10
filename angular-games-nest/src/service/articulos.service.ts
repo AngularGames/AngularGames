@@ -46,4 +46,10 @@ constructor(@InjectRepository(Juego) private juegoRepository:Repository<Juego>){
     const todos = await this.juegoRepository.find();
     return todos.map(m=>m.nombre);
   }
+
+  async cargarJuegos(){
+    const todos = await this.juegoRepository.find();
+    return todos
+  }
+
 }

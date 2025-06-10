@@ -1,7 +1,41 @@
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</head>
+<style>
+  .container-fluid{
+    background-color: rgb(243, 240, 224);
+  }
+</style>
+
 <p>PAGINA DE PRUEBAS DE ENRUTAMIENTO</p>
 
 <a routerLink="/almacen">ALMACEN</a><br>
 <a routerLink="/producto">PRODUCTO</a><br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div  *ngFor="let item of juegosCargados"  class="col">
+      <div   class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h3 class="card-title" style="text-align: center;">{{item.nombre}}</h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{item.tipo}}</li>
+                <li class="list-group-item">de {{item.jugadoresMin}} a {{item.jugadoresMax}} jugadores</li>
+                <li class="list-group-item">una <b>dificultad de {{item.dificultad}}</b> sobre 5</li>
+              </ul>
+              <div class="carf-body" style="align-self: center; text-align: center;">
+                <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a href="#" class="btn btn-primary">Pagina de {{item.nombre}}</a>
+
+                </div>
+              </div>
+      </div>
+    </div>
+  </div>
+
+
 <p>BUSCA UN PRODUCTO</p>
 NOMBRE <input [(ngModel)]="productoBuscar">
 <br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>

@@ -46,6 +46,10 @@ export class ArticuloService {
   mostrarTodos():Observable<string[]>{
     return this.http.get<string[]>(`${this.url}/articulos/mostrar/todos`);
 
+  }
+
+  CargarListaJuegos():Observable<Juego[]>{
+    return this.http.get<Juego[]>(`${this.url}/articulos/listaJuegos`)
 
   }
 }
