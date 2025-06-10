@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-pagina-principal',
-  imports: [RouterModule, CommonModule, FormsModule, PaginaProductoComponent],
+  imports: [RouterModule, CommonModule, FormsModule],
   templateUrl: './pagina-principal.component.html',
   styleUrl: './pagina-principal.component.css'
 })
@@ -21,13 +21,13 @@ import { Injectable } from '@angular/core';
 export class PaginaPrincipalComponent {
 
 constructor(private articuloService:ArticuloService){
-  this.bdJuegos=this.articuloService.baseDatosJuegos
+  //this.bdJuegos=this.articuloService.baseDatosJuegos
 }
 bdJuegos:Juego[];
 
 @Input() juegoSeleccionado:Juego;
 seleccion:string;
-
+/*
 juegoElegido(nombre:string){
 console.log("el juego elegido es "+nombre)
   //llamada al servicio para devolver el juego del filtro y mandarlo al componente.
@@ -36,5 +36,5 @@ console.log("el juego que hemos guardado es "+this.juegoSeleccionado);
 
 
 }
-
+*/
 }

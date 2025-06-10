@@ -8,16 +8,12 @@
   }
 </style>
 
-<p>PAGINA DE PRUEBAS DE ENRUTAMIENTO</p>
 
-<a routerLink="/almacen">ALMACEN</a><br>
-<a routerLink="/producto">PRODUCTO</a><br>
-
-<div class="container-fluid">
-  <div class="row">
-    <div  *ngFor="let item of juegosCargados"  class="col">
-      <div   class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="...">
+<div class="container">
+  <div class="row row-cols-auto">
+    <div  *ngFor="let item of juegosCargados"  class="col-auto ms-md-auto">
+      <div   class="card mb-5" style="width: 18rem;">
+              <img src="{{item.imagen}}" style="object-fit: cover;" class="img-thumbnail" alt="...">
               <div class="card-body">
                 <h3 class="card-title" style="text-align: center;">{{item.nombre}}</h3>
               </div>
@@ -27,7 +23,7 @@
                 <li class="list-group-item">una <b>dificultad de {{item.dificultad}}</b> sobre 5</li>
               </ul>
               <div class="carf-body" style="align-self: center; text-align: center;">
-                <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a href="#" class="btn btn-primary">Pagina de {{item.nombre}}</a>
+                <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a href="producto"  class="btn btn-primary">Pagina de {{item.nombre}}</a>
 
                 </div>
               </div>
@@ -35,7 +31,7 @@
     </div>
   </div>
 
-
+<!--
 <p>BUSCA UN PRODUCTO</p>
 NOMBRE <input [(ngModel)]="productoBuscar">
 <br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>
@@ -49,7 +45,7 @@ NOMBRE <input [(ngModel)]="productoBuscar">
   DESCRIPCIÓN DEL JUEGO<BR>{{resultado.descripcion}}<br>
 
 </div>
-
+-->
 <router-outlet></router-outlet>
 
 

@@ -1,10 +1,5 @@
 
 
-<h1>ESTA PAGINA DEBERIA SUSTITUIR A LA DE SELECCION</h1>
-
-NOMBRE <input [(ngModel)]="productoBuscar">
-<br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>
-
 
 <select [(ngModel)]="select" (change)="buscarProducto(select)">
   <option>Selecciona un juego</option>
@@ -13,8 +8,9 @@ NOMBRE <input [(ngModel)]="productoBuscar">
 
 
 <div *ngIf="select"  class="producto-container">
+
   <div class="producto-imagen">
-    <img src="assets/ahoy.png" alt="{{articulo.nombre}}" />
+    <img src="{{articulo.imagen}}" alt="{{articulo.nombre}}" />
   </div>
   <div class="producto-detalles">
     <h1>{{articulo.nombre}}</h1>
@@ -25,7 +21,6 @@ NOMBRE <input [(ngModel)]="productoBuscar">
     <p class="producto-descripcion">{{articulo.descripcion}}</p>
     <p class="producto-precio">Precio: {{articulo.precio | currency:'EUR'}}</p>
   </div>
-</div>
 <br>
 <div>
     Unidades <input [(ngModel)]="unidades" type="number" style="width: fit-content;"><button class="btn-comprar" (click)="agregarAlCarrito()">AÑADIR AL CARRITO</button>

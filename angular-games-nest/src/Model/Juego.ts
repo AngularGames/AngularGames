@@ -18,9 +18,12 @@ export class Juego{
     descripcion:string;
     @Column()
     precio:number;
+    @Column()
+    imagen:string;
+
 
   
-  constructor(idArticulo?:number,nombre?:string,tipo?:string,jugadoresMin?:string,jugadoresMax?:string,dificultad?:number,descripcion?:string,precio?:number){
+  constructor(idArticulo?:number,nombre?:string,tipo?:string,jugadoresMin?:string,jugadoresMax?:string,dificultad?:number,descripcion?:string,precio?:number,imagen?:string){
   
     this.idArticulo=idArticulo;
     this.nombre=nombre;
@@ -30,6 +33,7 @@ export class Juego{
     this.dificultad=dificultad;
     this.descripcion=descripcion;
     this.precio=precio;
+    this.imagen=imagen;
   
   }
 

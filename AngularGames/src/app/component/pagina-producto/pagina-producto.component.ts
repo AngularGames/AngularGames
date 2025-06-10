@@ -6,6 +6,8 @@ import { ArticuloService } from '../../services/articulos/articulo.service';
 import { AlmacenService } from '../../services/almacen/almacen.service';
 import { Carrito } from '../../models/Carrito';
 import { CarritoService } from '../../services/carrito/carrito.service';
+import { PaginaPrincipalComponent } from '../pagina-principal/pagina-principal.component';
+import { PaginapruebasComponent } from '../paginapruebas/paginapruebas.component';
 
 @Component({
   selector: 'app-pagina-producto',
@@ -17,7 +19,7 @@ export class PaginaProductoComponent {
   constructor(
     private articuloService:ArticuloService,
     private almacenService:AlmacenService,
-    private carritoService:CarritoService
+    private carritoService:CarritoService,
   ){
     this.articuloService.mostrarTodos().subscribe(data=>this.listaCargada=data);
 
@@ -35,6 +37,7 @@ importeTotal:number=0;
 
 
 buscarProducto(productoBuscar:string):Juego{
+  console.log(productoBuscar)
   this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.articulo=data);
   return this.articulo;
 

@@ -49,6 +49,7 @@ constructor(@InjectRepository(Juego) private juegoRepository:Repository<Juego>){
 
   async cargarJuegos(){
     const todos = await this.juegoRepository.find();
+    console.log(todos)
     return todos
   }
 
