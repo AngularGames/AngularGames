@@ -16,11 +16,11 @@ export class PaginaUsuarioComponent {
   constructor(private usuarioService: UsuarioService) {}
 
 
-  logIn(){
-    return this.usuarioService.()
+  logIn(user:string,password:string){
+    return this.usuarioService.validarUsuario()
   }
 
   nuevoUsuario(): Observable<Usuario> {
-    return this.usuarioService.();
+    return this.usuarioService.nuevoUsuario();
   }
 }
