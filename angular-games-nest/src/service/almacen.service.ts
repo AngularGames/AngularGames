@@ -29,11 +29,12 @@ async agregarProducto(producto:productoAlmacen):Promise<boolean>{
        }
 
        mostrarInventario():Promise<productoAlmacen[]>{
-        
+
         return this.almacenRepository.find();
+       }
 
-        
-
+       reducirStock(producto:string,pedido:number){
+        this.almacenRepository.decrement({nombre:producto},"cantidad",pedido)
        }
 
 
