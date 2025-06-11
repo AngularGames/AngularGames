@@ -15,7 +15,12 @@ export class PaginaUsuarioComponent {
   usuarios: Usuario[] = [];
   constructor(private usuarioService: UsuarioService) {}
 
+
+  logIn(){
+    return this.usuarioService.()
+  }
+
   nuevoUsuario(): Observable<Usuario> {
-    return this.usuarioService.crearUsuario();
+    return this.usuarioService.();
   }
 }

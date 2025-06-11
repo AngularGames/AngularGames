@@ -1,28 +1,28 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../../models/usuario';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
-  constructor() {}
+  constructor(private http:HttpClient) {}
+  url:"http//localhost:3000"
+  password:string
+  usuario:string
+  respuesta
 
-  validarUsuario(nombreUsuario: string, password: string): boolean {
-    if (
-      this.bdUsuariosfind(
-        (usuario) =>
-          usuario.nombreUsuario == nombreUsuario && usuario.password == password
-      )
-    ) {
-      return true;
-    } else return false;
+  validarUsuario(password:string,usuario:string):Observable<boolean>{
+      this.http.get<boolean>(`${this.url}/usuario/validar?usuario=${usuario},?password=${password}`)
+       .subscribe(data=>this.respuesta=data)
+       console.log(this.respuesta)
+       return this.respuesta
+       
   }
 
-  crearUsuario(usuario: Usuario): void {
-    this.bdUsuarios.push(usuario);
+  nuevoUsuario(){
+
   }
 
-  eliminarUsuario(usuario: string): void {
-    this.bdUsuarios.map((usuarios) => usuarios.nombreUsuario != usuario);
-  }
 }
