@@ -1,4 +1,22 @@
-<input type="text" [(ngModel)]="nombre"/>
-<input type="text" [(ngModel)]="password" >
-<button (click)="logIn()">Log In</button>
-<input />
+<div class="login-container">
+  <h2>Iniciar Sesion</h2>
+  <form (ngSunmit)="onSubmit()" #loginForm="ngForm">
+    <input
+    type="text"
+    name="userName"
+    [(ngModel)]="userName"
+    placeholder="Usuario"
+    required/>
+    <input
+    type="password"
+    name="password"
+    [(ngModel)]="password"
+    placeholder="Contraseña"
+    required/>
+    <button type="submit">Ingresar</button>
+    </form>
+
+    <p **ngIf="error"
+    class="error">{{error}}</p>
+
+</div>
