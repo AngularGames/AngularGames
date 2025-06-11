@@ -7,7 +7,6 @@ import { ArticuloService } from '../../services/articulos/articulo.service';
 import { AlmacenService } from '../../services/almacen/almacen.service';
 import { Carrito } from '../../models/Carrito';
 import { CarritoService } from '../../services/carrito/carrito.service';
-import { PaginaPrincipalComponent } from '../pagina-principal/pagina-principal.component';
 
 @Component({
   selector: 'app-pagina-producto',
@@ -20,23 +19,23 @@ export class PaginaProductoComponent {
     private articuloService:ArticuloService,
     private almacenService:AlmacenService,
     private carritoService:CarritoService,
-    private paginaPrueba:PaginapruebasComponent,
+    private paginaPruebas:PaginapruebasComponent
     //inyectar paginaprueba
   ){
     this.articuloService.mostrarTodos().subscribe(data=>this.listaCargada=data);
-    
-  //this.buscarproducto=nombreitem de pagina prueba (o asignar eso a productobuscar y llamar a la funcion)
+
   }
 
 listaCargada:string[];
 select:string;
 articulo:Juego;
 productoBuscar:string;
-select2:string;
+//select2:string;
 unidades:number;
 numpedido:number=1
-listaCompra:Carrito[]=[];
-importeTotal:number=0;
+listaCompra:Carrito[];
+importeTotal:number
+carrito:boolean=false
 
 
 buscarProducto(productoBuscar:string):Juego{
@@ -47,21 +46,24 @@ buscarProducto(productoBuscar:string):Juego{
 }
 
 agregarAlCarrito(){
+
   let total:number=this.unidades*this.articulo.precio
-  console.log("el total es "+total);
-
   let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
-  console.log("el pedido es este" + pedido.cantidad+pedido.nombreArticulo+total)
-  console.log(pedido)
+  this.carritoService.agregarAlCarrito(pedido);
 
-  this.carritoService.agregarAlCarrito(pedido)
-  this.listaCompra=this.carritoService.mostrarCarrito(this.numpedido);
-  this.importeTotal=this.carritoService.totalCarrito
-  console.log("este es la variable importetotal "+this.importeTotal)
+}
+
+mostrarCarrito(){
+  this.carrito=true
+  this.listaCompra= this.carritoService.mostrarCarrito(this.numpedido);
+  console.log(this.listaCompra)
+  let dinero:number[]=this.listaCompra.map(m=>m.precio)
+  console.log(dinero)
+  this.importeTotal=dinero.reduce((a,b)=>a+b,0)
+  console.log(this.importeTotal)
 }
 
 ConfirmarCarrito(){
-  console.log("mando este número de pedido "+this.numpedido)
 
   this.numpedido=this.numpedido+1;
 

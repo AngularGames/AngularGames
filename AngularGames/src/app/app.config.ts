@@ -4,7 +4,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { PaginaProductoComponent } from './component/pagina-producto/pagina-producto.component';
+import { PaginapruebasComponent } from './component/paginapruebas/paginapruebas.component';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(),PaginaProductoComponent]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(),PaginaProductoComponent, PaginapruebasComponent]
 };

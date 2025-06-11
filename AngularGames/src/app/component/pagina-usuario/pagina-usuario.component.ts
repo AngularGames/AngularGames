@@ -15,12 +15,4 @@ export class PaginaUsuarioComponent {
   usuarios: Usuario[] = [];
   constructor(private usuarioService: UsuarioService) {}
 
-
-  logIn(user:string,password:string){
-    return this.usuarioService.validarUsuario()
-  }
-
-  nuevoUsuario(): Observable<Usuario> {
-    return this.usuarioService.nuevoUsuario();
-  }
 }
