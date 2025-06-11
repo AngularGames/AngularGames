@@ -1,7 +1,4 @@
-<h1>ESTA PAGINA DEBERIA SUSTITUIR A LA DE SELECCION</h1>
 
-NOMBRE <input [(ngModel)]="productoBuscar">
-<br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>
 
 
 <select [(ngModel)]="select" (change)="buscarProducto(select)">
@@ -11,8 +8,9 @@ NOMBRE <input [(ngModel)]="productoBuscar">
 
 
 <div *ngIf="select"  class="producto-container">
+
   <div class="producto-imagen">
-    <img [src]="" alt="{{articulo.nombre}}" />
+    <img src="{{articulo.imagen}}" alt="{{articulo.nombre}}" />
   </div>
   <div class="producto-detalles">
     <h1>{{articulo.nombre}}</h1>
@@ -23,7 +21,6 @@ NOMBRE <input [(ngModel)]="productoBuscar">
     <p class="producto-descripcion">{{articulo.descripcion}}</p>
     <p class="producto-precio">Precio: {{articulo.precio | currency:'EUR'}}</p>
   </div>
-</div>
 <br>
 <div>
     Unidades <input [(ngModel)]="unidades" type="number" style="width: fit-content;"><button class="btn-comprar" (click)="agregarAlCarrito()">AÑADIR AL CARRITO</button>
@@ -34,13 +31,22 @@ NOMBRE <input [(ngModel)]="productoBuscar">
 
   <div>
     <table>
+      <tr>PRUEBA DE TABLA</tr>
       <tr *ngFor="let item of listaCompra">
         <td>{{item.numPedido}}</td>
         <td>{{item.nombreArticulo}}</td>
         <td>{{item.cantidad}}</td>
         <td>{{item.precio}}</td>
       </tr>
+      <tr>
+        <th>IMPORTE TOTAL</th>
+      </tr>
+      <tr>
+        <td>{{importeTotal}}</td>
+      </tr>
+
     </table>
   </div>
 
 <br>
+

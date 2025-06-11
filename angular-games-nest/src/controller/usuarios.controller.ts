@@ -7,9 +7,7 @@ export class UsuariosController {
   constructor(private readonly usuariosService: UsuariosService) {}
 
   @Get('validar')
-  async validarUsuario(
-    @Query('usuario') usuario: string,
-    @Query('password') password: string,
+  async validarUsuario(@Query('usuario') usuario: string, @Query('password') password: string,
     @Res() response: Response,
   ) {
     const resultado: boolean = await this.usuariosService.validarUsuario(

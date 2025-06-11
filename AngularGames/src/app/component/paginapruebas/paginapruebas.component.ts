@@ -15,25 +15,28 @@ import { PaginaAlmacenComponent } from "../pagina-almacen/pagina-almacen.compone
 })
 export class PaginapruebasComponent {
 
-  constructor(private articuloService:ArticuloService){
+  constructor(
+    private articuloService:ArticuloService,
+    private paginaProducto:PaginaProductoComponent,
+  ){
+    this.articuloService.CargarListaJuegos().subscribe(data=>this.juegosCargados=data)
   }
 
-
+  juegoElegido:string;
   productoBuscar:string;
   resultado:Juego;
   visible:boolean=false;
+  juegosCargados:Juego[]=[];
+
 
   buscarProducto(productoBuscar:string):Juego{
      this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.resultado=data);
      this.visible=true;
      return this.resultado;
 
-
   }
 
-
-
-  }
+}
 
 
 

@@ -56,7 +56,12 @@ async guardarjuego(@Body() juego:Juego, @Res() response:Response):Promise<Respon
   }else{
     return response.status(409).send("Meh... no")
   }
-
 }
+
+  @Get("listaJuegos")
+  async cargarLista():Promise<Juego[]>{
+    return await this.articulosService.cargarJuegos()
+  }
+
 
 }
