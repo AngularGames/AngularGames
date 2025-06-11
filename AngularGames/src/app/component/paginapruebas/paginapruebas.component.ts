@@ -17,7 +17,7 @@ export class PaginapruebasComponent {
 
   constructor(
     private articuloService:ArticuloService,
-    private paginaProducto:PaginaProductoComponent,
+    //private paginaProducto:PaginaProductoComponent,
   ){
     this.articuloService.CargarListaJuegos().subscribe(data=>this.juegosCargados=data)
   }
@@ -35,7 +35,13 @@ export class PaginapruebasComponent {
      return this.resultado;
 
   }
+/*
+  seleccionado(nombre:string){
 
+    this.juegoElegido=nombre
+
+  }
+*/
 }
 
 

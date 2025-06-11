@@ -1,3 +1,4 @@
+import { PaginapruebasComponent } from './../paginapruebas/paginapruebas.component';
 import { Component, Input } from '@angular/core';
 import { Juego } from '../../models/Juego';
 import { FormsModule } from '@angular/forms';
@@ -7,7 +8,6 @@ import { AlmacenService } from '../../services/almacen/almacen.service';
 import { Carrito } from '../../models/Carrito';
 import { CarritoService } from '../../services/carrito/carrito.service';
 import { PaginaPrincipalComponent } from '../pagina-principal/pagina-principal.component';
-import { PaginapruebasComponent } from '../paginapruebas/paginapruebas.component';
 
 @Component({
   selector: 'app-pagina-producto',
@@ -20,9 +20,12 @@ export class PaginaProductoComponent {
     private articuloService:ArticuloService,
     private almacenService:AlmacenService,
     private carritoService:CarritoService,
+    private paginaPrueba:PaginapruebasComponent,
+    //inyectar paginaprueba
   ){
     this.articuloService.mostrarTodos().subscribe(data=>this.listaCargada=data);
-
+    
+  //this.buscarproducto=nombreitem de pagina prueba (o asignar eso a productobuscar y llamar a la funcion)
   }
 
 listaCargada:string[];
