@@ -1,26 +1,36 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Usuario } from '../../models/usuario';
-import { UsuarioService } from '../../services/usuarios/usuario.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-pagina-usuario',
-  imports: [],
-  templateUrl: './pagina-usuario.component.html',
-  styleUrl: './pagina-usuario.component.css',
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class PaginaUsuarioComponent {
-  nombre: string;
-  password: string;
-  usuarios: Usuario[] = [];
-  constructor(private usuarioService: UsuarioService) {}
+  dni = '';
+  password = '';
+  error = '';
 
+  constructor(private http: HttpClient, private router: Router) {}
 
-  logIn(){
-    return this.usuarioService.()
-  }
+  onSubmit() {
+    const loginData = {
+      dni: this.dni,
+      password: this.password
+    };
 
-  nuevoUsuario(): Observable<Usuario> {
-    return this.usuarioService.();
+    this.http.post<any>('http://localhost:3000//login', loginData)
+      .subscribe({
+        next: (response) => {
+          // Guardar token u otra info
+          localStorage.setItem('token', response.token);
+          // Navegar a otra ruta o mostrar mensaje
+          this.router.navigate(['/dashboard']);
+        },
+        error: (err) => {
+          this.error = 'Credenciales inválidas';
+        }
+      });
   }
 }
