@@ -2,6 +2,7 @@
 
 <a routerLink="/almacen">ALMACEN</a><br>
 <a routerLink="/producto">PRODUCTO</a><br>
+<a [routerLink]="['/usuario']">Login</a><br>
 <p>BUSCA UN PRODUCTO</p>
 NOMBRE <input [(ngModel)]="productoBuscar">
 <br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>
