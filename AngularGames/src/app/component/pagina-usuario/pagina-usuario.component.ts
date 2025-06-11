@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: "pagina-usuario.component.html",
 })
 export class PaginaUsuarioComponent {
   dni = '';
@@ -19,7 +18,7 @@ export class PaginaUsuarioComponent {
       password: this.password
     };
 
-    this.http.post<any>('http://localhost:3000/usuarios/login', loginData)
+    this.http.post<any>('http://localhost:3000/usuarios/logIn', loginData)
       .subscribe({
         next: (response) => {
           // Guardar token u otra info
