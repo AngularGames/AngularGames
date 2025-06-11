@@ -13,14 +13,13 @@ export class PaginaUsuarioComponent {
   error = '';
 
   constructor(private http: HttpClient, private router: Router) {}
-
   onSubmit() {
     const loginData = {
       dni: this.dni,
       password: this.password
     };
 
-    this.http.post<any>('http://localhost:3000//login', loginData)
+    this.http.post<any>('http://localhost:3000/usuarios/login', loginData)
       .subscribe({
         next: (response) => {
           // Guardar token u otra info
@@ -32,5 +31,6 @@ export class PaginaUsuarioComponent {
           this.error = 'Credenciales inválidas';
         }
       });
+
+    }
   }
-}
