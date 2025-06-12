@@ -14,7 +14,6 @@ export class PaginaUsuarioComponent {
   password = '';
   error = '';
 
-<<<<<<< HEAD
   constructor(private http: HttpClient, private router: Router) {}
   onSubmit() {
     const loginData = {
@@ -37,6 +36,4 @@ export class PaginaUsuarioComponent {
 
     }
   }
-=======
-}
->>>>>>> e38a2bc1d2dbb4a96a8500379286f5c7d2512a91
+
