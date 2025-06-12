@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query, Res } from '@nestjs/common';
 import { UsuariosService } from '../service/usuarios.service';
 import { Response } from 'express';
 import { Usuario } from 'src/Model/Usuario';
@@ -11,7 +11,7 @@ export class UsuariosController {
     @Res() response: Response,
   ) {
     const resultado: boolean = await this.usuariosService.validarUsuario(
-      body
+    body.usuario,body.password
     );
     if (resultado) {
       response.status(200).send('USUARIO CORRECTO');
@@ -21,7 +21,7 @@ export class UsuariosController {
   }
 
   @Post('registro')
-  create(@Body() @Query('usuario') usuario: Usuario): void {
+  create(@Body() usuario: Usuario): void {
     this.usuariosService.crearUsuario(usuario);
   }
 }
