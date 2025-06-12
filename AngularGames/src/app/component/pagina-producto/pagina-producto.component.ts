@@ -23,6 +23,9 @@ export class PaginaProductoComponent {
     //inyectar paginaprueba
   ){
     this.articuloService.mostrarTodos().subscribe(data=>this.listaCargada=data);
+    console.log("este es el juego elegido en todos "+this.paginaPruebas.juegoElegido)
+    console.log(this.productoBuscar)
+    this.buscarProducto(this.productoBuscar)
 
   }
 
@@ -30,7 +33,6 @@ listaCargada:string[];
 select:string;
 articulo:Juego;
 productoBuscar:string;
-//select2:string;
 unidades:number;
 numpedido:number=1
 listaCompra:Carrito[];
@@ -68,5 +70,6 @@ ConfirmarCarrito(){
   this.numpedido=this.numpedido+1;
 
 }
+
 
 }

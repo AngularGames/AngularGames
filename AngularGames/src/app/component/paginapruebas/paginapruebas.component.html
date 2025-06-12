@@ -22,7 +22,7 @@
                 <li class="list-group-item">una <b>dificultad de {{item.dificultad}}</b> sobre 5</li>
               </ul>
               <div class="carf-body" style="align-self: center; text-align: center;">
-                <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a href="producto"   class="btn btn-primary">Pagina de {{item.nombre}}</a>
+                <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a href="producto" (click)="juegoElegido=item.nombre" class="btn btn-primary">Pagina de {{item.nombre}}</a>
 
                 </div>
               </div>
@@ -30,22 +30,6 @@
     </div>
   </div>
 
-<!--
->>>>>>> 135017e043dcdcb20866b22667dd47ceabe56aaf
-<p>BUSCA UN PRODUCTO</p>
-NOMBRE <input [(ngModel)]="productoBuscar">
-<br><br><button (click)="buscarProducto(productoBuscar)">BUSCAR</button>
-<div *ngIf="visible">
-<h1>INFORMACION DE {{resultado.nombre}}</h1>
-  NOMBRE: {{resultado.nombre}}<br>
-  TIPO: {{resultado.tipo}}<br>
-  DIFICULTAD: {{resultado.dificultad}}<br>
-  JUGADORES MINIMOS: {{resultado.jugadoresMin}}<br>
-  JUGADORES MAXIMOS: {{resultado.jugadoresMax}}<br><br>
-  DESCRIPCIÓN DEL JUEGO<BR>{{resultado.descripcion}}<br>
-
-</div>
--->
 <router-outlet></router-outlet>
 
 
