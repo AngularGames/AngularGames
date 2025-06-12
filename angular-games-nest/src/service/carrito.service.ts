@@ -12,8 +12,8 @@ export class CarritoService {
   {}
 
 
-agregarAlCarrito(pedido:CarritoDto){
-  this.carritoRepository.save(pedido)
+async agregarAlCarrito(pedido:CarritoDto):Promise<CarritoDto>{
+  return await this.carritoRepository.save(pedido)
 
 }
 

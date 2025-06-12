@@ -4,21 +4,41 @@
     <a class="nav-link active" aria-current="page" href="todos">JUEGOS</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="producto">PAGINA DE PRODUCTO</a>
-  </li>
-  <li>
-  <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
+    <a class="nav-link" href="producto">Producto</a>
   </li>
   <li class="nav-item">
-    BUSCAR <input type="search" placeholder="Nombre del Juego">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Dificultad
+    </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Dificultad baja</a></li>
+      <li><a class="dropdown-item" href="#">Dificultad media</a></li>
+      <li><a class="dropdown-item" href="#">Dificultad alta</a></li>
+      <li><a class="dropdown-item" href="#">...</a></li>
+    </ul>
+</li>
+<li class="nav-item">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Tipo de juego
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Estrategia</a></li>
+        <li><a class="dropdown-item" href="#">Abstracto</a></li>
+        <li><a class="dropdown-item" href="#">Familiar</a></li>
+        <li><a class="dropdown-item" href="#">...</a></li>
+      </ul>
   </li>
-</ul>
+  <li class="nav-item">
+    <a class="nav-link" href="usuarios">Usuarios</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="almacen">ALMACEN</a>
+  </li>
 
+  <li style="align-self: flex-end;" class="nav-item">
+    BUSCAR <input type="search">
+  </li>
+
+</ul>
+<br>
 <router-outlet></router-outlet>

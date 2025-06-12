@@ -25,11 +25,14 @@
 <div>
     Unidades <input [(ngModel)]="unidades" type="number" style="width: fit-content;"><button class="btn-comprar" (click)="agregarAlCarrito()">AÑADIR AL CARRITO</button>
     <br>
+    <button class="btn-comprar" (click)="mostrarCarrito()">Carrito</button>
+
     <br>
     <button class="btn-comprar" (click)="ConfirmarCarrito()">PAGAR</button>
   </div>
 
-  <div>
+  <div *ngIf="carrito">
+    ahora sale
     <table>
       <tr>PRUEBA DE TABLA</tr>
       <tr *ngFor="let item of listaCompra">
