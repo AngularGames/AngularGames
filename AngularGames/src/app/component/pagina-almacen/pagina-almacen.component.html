@@ -8,7 +8,7 @@
       <td>{{p.idAlmacen}}</td>
       <td>{{p.nombre}}</td>
       <td>{{p.tipo}}</td>
-      <td>{{p.cantidad}}</td>
+      <td [ngStyle]="{ 'background-color': p.cantidad === 0 ? 'red' : 'transparent' }">{{p.cantidad}}</td>
     </tr>
   </table>
 
