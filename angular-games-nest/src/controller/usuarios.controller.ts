@@ -5,7 +5,7 @@ import { Usuario } from 'src/Model/Usuario';
 @Controller('usuarios')
 export class UsuariosController {
   constructor(private readonly usuariosService: UsuariosService) {}
-/*
+
   @Post('validar')
   async validarUsuario(@Body() body: { usuario: string; password: string },
     @Res() response: Response,
@@ -19,7 +19,7 @@ export class UsuariosController {
       response.status(409).send('ERROR: USUARIO O CONTRASEÑA INCORRECTO');
     }
   }
-*/
+
   @Post('registro')
   create(@Body() usuario: Usuario): void {
     this.usuariosService.crearUsuario(usuario);

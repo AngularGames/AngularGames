@@ -9,7 +9,7 @@ export class UsuariosService {
     @InjectRepository(Usuario)
     private usuariosRepository: Repository<Usuario>,
   ) {}
-  /*
+  
   async validarUsuario(
     usuarioBuscado: string,
     password: string,
@@ -33,7 +33,7 @@ export class UsuariosService {
       }
     }
   }
-*/
+
   crearUsuario(usuario: Usuario): Promise<Usuario> {
     return this.usuariosRepository.save(usuario);
   }
