@@ -23,7 +23,7 @@ export class ArticuloService {
 
   }
 
-  filtrarTipo(tipo:string):Observable<Juego[]>{
+  filtrarTipo(tipo:string):Observable<any>{
     return this.http.get(`${this.url}/articulos/buscar/tipo/${tipo}`);
 ;
 
@@ -33,7 +33,7 @@ export class ArticuloService {
     return this.http.get<Juego[]>(`${this.url}/articulos/buscar/jugadores?jmin=${jmin}&jmax=${jmax}`);
   }
 
-  filtrarDificultad(dificultad:number):Observable<Juego[]>{
+  filtrarDificultad(dificultad:number):Observable<any>{
     return this.http.get(`${this.url}/articulos/buscar/dificultad/${dificultad}`);
   }
 

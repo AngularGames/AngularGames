@@ -7,10 +7,12 @@ import { ArticuloService } from '../../services/articulos/articulo.service';
 import { AlmacenService } from '../../services/almacen/almacen.service';
 import { Carrito } from '../../models/Carrito';
 import { CarritoService } from '../../services/carrito/carrito.service';
+import { routes } from '../../app.routes';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pagina-producto',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './pagina-producto.component.html',
   styleUrl: './pagina-producto.component.css'
 })
@@ -19,13 +21,13 @@ export class PaginaProductoComponent {
     private articuloService:ArticuloService,
     private almacenService:AlmacenService,
     private carritoService:CarritoService,
-    private paginaPruebas:PaginapruebasComponent
+    private paginaPruebas:PaginapruebasComponent,
+    private route:ActivatedRoute,
     //inyectar paginaprueba
   ){
     this.articuloService.mostrarTodos().subscribe(data=>this.listaCargada=data);
-    console.log("este es el juego elegido en todos "+this.paginaPruebas.juegoElegido)
-    console.log(this.productoBuscar)
-    this.buscarProducto(this.productoBuscar)
+
+
 
   }
 
@@ -39,6 +41,11 @@ listaCompra:Carrito[];
 importeTotal:number
 carrito:boolean=false
 
+ngOnInit(){
+  const nombreJuego:string = this.route.snapshot.paramMap.get('nombre');
+  console.log("el nombre del juego es "+nombreJuego)
+this.buscarProducto(nombreJuego);
+}
 
 buscarProducto(productoBuscar:string):Juego{
   console.log(productoBuscar)

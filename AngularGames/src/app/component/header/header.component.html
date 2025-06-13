@@ -11,10 +11,12 @@
       Dificultad
     </a>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Dificultad baja</a></li>
-      <li><a class="dropdown-item" href="#">Dificultad media</a></li>
-      <li><a class="dropdown-item" href="#">Dificultad alta</a></li>
-      <li><a class="dropdown-item" href="#">...</a></li>
+      <li><a class="dropdown-item" [routerLink]="['filtro',1]"> Dificultad 1 </a></li>
+      <li><a class="dropdown-item" [routerLink]="['filtro',2]"> Dificultad 2 </a></li>
+      <li><a class="dropdown-item" [routerLink]="['filtro',3]"> Dificultad 3 </a></li>
+      <li><a class="dropdown-item" [routerLink]="['filtro',4]"> Dificultad 4 </a></li>
+      <li><a class="dropdown-item" [routerLink]="['filtro',5]"> Dificultad 5 </a></li>
+
     </ul>
 </li>
 <li class="nav-item">
@@ -22,11 +24,12 @@
         Tipo de juego
       </a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Estrategia</a></li>
-        <li><a class="dropdown-item" href="#">Abstracto</a></li>
-        <li><a class="dropdown-item" href="#">Familiar</a></li>
-        <li><a class="dropdown-item" href="#">...</a></li>
-      </ul>
+        <li><a class="dropdown-item" [routerLink]="['filtro','estrategia']"> Estrategia </a></li>
+        <li><a class="dropdown-item" [routerLink]="['filtro','abstracto']"> abstracto </a></li>
+        <li><a class="dropdown-item" [routerLink]="['filtro',3]"> Dificultad 3 </a></li>
+        <li><a class="dropdown-item" [routerLink]="['filtro',4]"> Dificultad 4 </a></li>
+        <li><a class="dropdown-item" [routerLink]="['filtro',5]"> Dificultad 5 </a></li>
+        </ul>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="usuarios">Usuarios</a>

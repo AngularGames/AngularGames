@@ -1,8 +1,6 @@
-<p>filtro works!</p>
-
 <div class="container">
   <div class="row row-cols-auto">
-    <div  *ngFor="let item of listaFiltrada"  class="col-auto ms-md-auto">
+    <div  *ngFor="let item of juegosCargados"  class="col-auto ms-md-auto">
       <div   class="card mb-5" style="width: 18rem;">
               <img src="{{item.imagen}}" style="object-fit: cover;" class="img-thumbnail" alt="...">
               <div class="card-body">
@@ -14,7 +12,7 @@
                 <li class="list-group-item">una <b>dificultad de {{item.dificultad}}</b> sobre 5</li>
               </ul>
               <div class="carf-body" style="align-self: center; text-align: center;">
-                <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a href="producto" (click)="juegoElegido=item.nombre" class="btn btn-primary">Pagina de {{item.nombre}}</a>
+                <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a [routerLink]="['/producto',item.nombre]" class="btn btn-primary">Pagina de {{item.nombre}}</a>
 
                 </div>
               </div>
