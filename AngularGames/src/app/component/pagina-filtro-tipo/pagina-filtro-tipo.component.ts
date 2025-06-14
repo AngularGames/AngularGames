@@ -20,18 +20,17 @@ export class PaginaFiltroTipoComponent {
   ){}
 
 
-juegoElegido:string;
-productoBuscar:string;
-resultado:Juego;
-visible:boolean=false;
-juegosCargados:Juego[]=[];
 tipo:string;
+juegosCargados:Juego[]=[];
+
 
 ngOnInit(){
-  this.tipo = this.route.snapshot.paramMap.get('tipo');
+  let tipo:string = this.route.snapshot.paramMap.get('tipo');
   console.log("el tipo del juego es "+this.tipo)
-this.filtrarTipo(this.tipo);
+this.filtrarTipo(tipo);
 }
+
+
 
 filtrarTipo(tipo:string):Juego[]{
   this.articuloService.filtrarTipo(tipo).subscribe(data=>this.juegosCargados=data)
