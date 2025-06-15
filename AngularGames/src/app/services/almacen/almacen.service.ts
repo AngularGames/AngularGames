@@ -26,6 +26,9 @@ export class AlmacenService {
 
   }
 
+  consultarStock(nombre:string):Observable<number>{
+    return this.http.get<number>(`${this.url}/almacen/articulo/${nombre}`)
+  }
 
 
 }

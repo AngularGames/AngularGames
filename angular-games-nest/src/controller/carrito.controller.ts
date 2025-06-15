@@ -12,6 +12,7 @@ import { CarritoDto } from 'src/Dtos/CarritoDto';
 import { AlmacenService } from 'src/service/almacen.service';
 import { CarritoService } from 'src/service/carrito.service';
 import { Response } from 'express';
+import { max } from 'rxjs';
 
 @Controller('carrito')
 export class CarritoController {
@@ -49,5 +50,10 @@ async mostrarCarrito(@Param("pedido") pedido:number):Promise<CarritoDto[]>{
    return respuesta
 }
 
+@Get("numeroPedido")
+async numeroDePedido(){
+  let pedido:CarritoDto[] = await this.carritoService.numeroDeCarrito();
+  return Math.max(...pedido.map(m=>m.numPedido));
+}
 
 }

@@ -15,6 +15,7 @@ export class CarritoService {
 
 url="http://localhost:3000"
 listaCarrito:Carrito[];
+numeroPedido:number;
 
 agregarAlCarrito(pedido:Carrito){
   this.http.post(`${this.url}/carrito/agregarCarrito`,pedido).subscribe();
@@ -27,8 +28,10 @@ agregarAlCarrito(pedido:Carrito){
    return this.listaCarrito;
 }
 
-aceptarCarrito(){
-
+numeroDeCarrito():number{
+  this.http.get<any>(`${this.url}/carrito/numeroPedido`).subscribe(data=>this.numeroPedido=data);
+  console.log(this.numeroPedido)
+  return this.numeroPedido;
 
 }
 

@@ -1,62 +1,72 @@
 
-
-
-<select [(ngModel)]="select" (change)="buscarProducto(select)">
-  <option>Selecciona un juego</option>
-  <option  *ngFor="let juego of listaCargada">{{juego}}</option>
-</select>
-
-
-<div *ngIf="articulo"  class="producto-container">
-
-  <div class="producto-imagen">
-    <img src="{{articulo.imagen}}" alt="{{articulo.nombre}}" />
-  </div>
-  <div class="producto-detalles">
-    <h1>{{articulo.nombre}}</h1>
-    <p><b>Tipo de Juego:</b> {{articulo.tipo}}</p>
-    <p><b>Jugadores Mínimos</b>: {{articulo.jugadoresMin}}</p>
-    <p><b>Jugadores Máximos:</b> {{articulo.jugadoresMax}}</p>
-    <p><b>Dificultad:</b> {{articulo.dificultad}}</p>
-    <p class="producto-descripcion">{{articulo.descripcion}}</p>
-    <p class="producto-precio">Precio: {{articulo.precio | currency:'EUR'}}</p>
-  </div>
-<br>
-<div>
-    Unidades <input [(ngModel)]="unidades" type="number" style="width: fit-content;"><button class="btn-comprar" (click)="agregarAlCarrito()">AÑADIR AL CARRITO</button>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div *ngIf="articulo"  class="producto-container">
+        <div class="producto-imagen">
+          <img src="{{articulo.imagen}}" alt="{{articulo.nombre}}" />
+        </div>
+        <div class="producto-detalles">
+          <h1>{{articulo.nombre}}</h1>
+          <p><b>Tipo de Juego:</b> {{articulo.tipo}}</p>
+          <p><b>Jugadores Mínimos</b>: {{articulo.jugadoresMin}}</p>
+          <p><b>Jugadores Máximos:</b> {{articulo.jugadoresMax}}</p>
+          <p><b>Dificultad:</b> {{articulo.dificultad}}</p>
+          <p class="producto-descripcion">{{articulo.descripcion}}</p>
+          <p class="producto-precio">Precio: {{articulo.precio | currency:'EUR'}}</p>
+        </div>
+      </div>
+    </div>
     <br>
-    <button class="btn-comprar" (click)="mostrarCarrito()">Carrito</button>
+    <div class="col">
+      <div *ngIf="carrito" class="row">
+        <div class="producto-container">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>NUMERO PEDIDO</th>
+                  <th>NOMBRE ARTICULO</th>
+                  <th>CANTIDAD</th>
+                  <th>PRECIO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr scope="row" *ngFor="let item of listaCompra">
+                  <td>{{item.numPedido}}</td>
+                  <td>{{item.nombreArticulo}}</td>
+                  <td>{{item.cantidad}}</td>
+                  <td>{{item.precio}}</td>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>IMPORTE TOTAL</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>{{importeTotal}}</td>
+                </tr>
+              </tbody>
+              <button class="btn-comprar" (click)="ConfirmarCarrito()">PAGAR</button><br>
+            </table>
+            <div *ngIf="pagado" class="alert alert-success" role="alert">
+              Pedido recibido. Gracias por su compra
+            </div>
 
-    <br>
-    <button class="btn-comprar" (click)="ConfirmarCarrito()">PAGAR</button>
-</div>
-
-  <div *ngIf="carrito">
-    ahora sale
-    <table>
-      <tr>PRUEBA DE TABLA</tr>
-      <tr>
-        <th>NUMERO PEDIDO</th>
-        <th>NOMBRE ARTICULO</th>
-        <th>CANTIDAD</th>
-        <th>PRECIO</th>
-      </tr>
-      <tr *ngFor="let item of listaCompra">
-        <td>{{item.numPedido}}</td>
-        <td>{{item.nombreArticulo}}</td>
-        <td>{{item.cantidad}}</td>
-        <td>{{item.precio}}</td>
-      </tr>
-      <tr>
-        <th>IMPORTE TOTAL</th>
-      </tr>
-      <tr>
-        <td>{{importeTotal}}</td>
-      </tr>
-
-    </table>
-  </div>
-</div>
-
+          </div>
+      </div>
+    </div>
 <br>
+      <div class="row">
+        <div class="producto-container">
+          Unidades <input [(ngModel)]="unidades" type="number" style="width: fit-content;"><button class="btn-comprar" (click)="agregarAlCarrito()">AÑADIR AL CARRITO</button>
+          <br>
+          <button class="btn-comprar" (click)="mostrarCarrito()">Carrito</button>
+          <br>
+        </div>
+      </div>
 

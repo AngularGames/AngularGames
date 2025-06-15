@@ -1,40 +1,79 @@
 <div class="form-container">
-  <h2 class="form-header">INSERTA NUEVO PRODUCTO</h2>
+  <h2 class="form-header">INSERTA NUEVO PRODUCTO</h2><br>
 
-  <div class="form-group">
-    <label for="nombre">Nombre del producto</label>
-    <input id="nombre" [(ngModel)]="nombre" class="form-input">
-  </div>
-
-  <div class="form-group">
-    <label for="tipoDeJuego">Tipo de juego</label>
+  <div class="form"></div>
+    <div class="row g-2">
+      <div class="col-md-3">
+      <label for="nombre">Nombre del producto</label>
+      </div>
+      <div class="col-md-4">
+      <input id="nombre" [(ngModel)]="nombre" class="form-input">
+      </div>
+    </div>
+    <br>
+    <div class="row g-2">
+      <div class="col-md-3">
+      <label for="tipoDeJuego" >Tipo de juego</label>
+    </div>
+    <div class="col-md-4">
     <input id="tipoDeJuego" [(ngModel)]="tipoDeJuego" class="form-input">
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="jmin">Jugadores Mínimos</label>
-    <input id="jmin" [(ngModel)]="jmin" class="form-input">
+  <br>
+    <div class="row g-2">
+      <div class="col-md-3">
+      <label for="jmin" >Jugadores Mínimos</label>
+    </div>
+    <div class="col-md-4">
+      <input id="jmin" [(ngModel)]="jmin" class="form-input">
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="jmax">Jugadores Máximos</label>
-    <input id="jmax" [(ngModel)]="jmax" class="form-input">
+  <br>
+    <div class="row g-2">
+      <div class="col-md-3">
+      <label for="jmax">Jugadores Máximos</label>
+    </div>
+    <div class="col-md-4">
+  <input id="jmax" [(ngModel)]="jmax" class="form-input">
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="dificultad">Dificultad</label>
-    <input id="dificultad" [(ngModel)]="dificultad" class="form-input">
+  <br>
+    <div class="row g-2">
+      <div class="col-md-3">
+      <label for="dificultad">Dificultad</label>
+    </div>
+    <div class="col-md-4">
+  <input id="dificultad" [(ngModel)]="dificultad" class="form-input">
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="descripcion">Descripción</label>
-    <input id="descripcion" [(ngModel)]="descripcion" class="form-input">
+  <br>
+    <div class="row g-2">
+      <div class="col-md-3">
+      <label for="descripcion">Descripción</label>
+    </div>
+    <div class="col-md-4">
+  <textarea class="form-control" rows="3" [(ngModel)]="descripcion" class="form-input"></textarea>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="precio">Precio</label>
-    <input id="precio" [(ngModel)]="precio" class="form-input">
+  <br>
+    <div class="row g-2">
+      <div class="col-md-3">
+      <label for="precio">Precio</label>
+    </div>
+    <div class="col-md-4">
+  <input id="precio" [(ngModel)]="precio" class="form-input">
+    </div>
   </div>
+  <br>
+    <div class="row g-2">
+      <div class="col-md-3">
+      <label for="imagen">URL Imagen</label>
+    </div>
+    <div class="col-md-4">
+  <input id="imagen" [(ngModel)]="precio" class="form-input">
+    </div>
+  </div>
+  <br>
 
   <button class="btn-comprar" (click)="guardarRegistro()">GUARDAR</button>
   <p>aqui debajo la respuesta</p>

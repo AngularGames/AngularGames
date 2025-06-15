@@ -23,11 +23,7 @@ export class PaginaProductoComponent {
     private carritoService:CarritoService,
     private paginaPruebas:PaginapruebasComponent,
     private route:ActivatedRoute,
-    //inyectar paginaprueba
   ){
-    this.articuloService.mostrarTodos().subscribe(data=>this.listaCargada=data);
-
-
 
   }
 
@@ -36,21 +32,36 @@ select:string;
 articulo:Juego;
 productoBuscar:string;
 unidades:number;
-numpedido:number=1
+numpedido:number;
 listaCompra:Carrito[];
 importeTotal:number
 carrito:boolean=false
+stockArticulo:number;
+pagado:boolean=false;
 
 ngOnInit(){
   const nombreJuego:string = this.route.snapshot.paramMap.get('nombre');
   console.log("el nombre del juego es "+nombreJuego)
 this.buscarProducto(nombreJuego);
+this.stockProducto(nombreJuego);
+this.numpedido=this.carritoService.numeroDeCarrito();
+
 }
 
 buscarProducto(productoBuscar:string):Juego{
   console.log(productoBuscar)
   this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.articulo=data);
   return this.articulo;
+}
+
+// PREGUNTAR A ANTONIO
+
+stockProducto(nombre:string):number{
+  console.log("este es el nombre del juego para stock "+nombre)
+//  this.almacenService.consultarStock(nombre).subscribe(data=>this.stockArticulo=data)
+  this.almacenService.consultarStock(nombre).subscribe(data=>this.stockArticulo=data)
+  console.log(this.stockArticulo)
+  return this.stockArticulo
 
 }
 
@@ -75,6 +86,9 @@ mostrarCarrito(){
 ConfirmarCarrito(){
 
   this.numpedido=this.numpedido+1;
+  console.log(this.numpedido)
+  this.pagado=true
+
 
 }
 

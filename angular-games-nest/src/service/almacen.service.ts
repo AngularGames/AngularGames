@@ -21,9 +21,9 @@ async agregarProducto(producto:productoAlmacen):Promise<boolean>{
        }
     
     async consultarStockArticulo(producto:string):Promise<number>{
-
+        console.log("ha entrado "+producto+" para mirar el stock")
         const resultado= await this.almacenRepository.findOneBy({nombre:producto})
-
+        console.log("el stock es de "+resultado.cantidad+" unidades")
         return resultado.cantidad
 
        }

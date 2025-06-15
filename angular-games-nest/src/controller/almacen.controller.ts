@@ -22,10 +22,12 @@ export class AlmacenController {
     this.almacenService.agregarStockDeProducto(articulo,cantidad)
   }
 
+  
 
   //Devuelve el Stock
   @Get("articulo/:articulo")
    async consultarStock(@Param("articulo") articulo:string):Promise<number>{
+    console.log("esto sale"+await this.almacenService.consultarStockArticulo(articulo))
    return await this.almacenService.consultarStockArticulo(articulo)
     
   }

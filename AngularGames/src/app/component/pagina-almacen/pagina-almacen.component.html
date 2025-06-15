@@ -2,15 +2,31 @@
 <h1>Almacén</h1>
 <h3>Inventario de Angular Games</h3><br>
   <a routerLink="/nuevoProducto">NUEVO PRODUCTO</a>
-  <table>
-    <th>ID ALMACEN</th><th>NOMBRE</th><th>TIPO</th><th>CANTIDAD</th><br>
+  <div class="table-responsive-md">
+  <table class="table">
+    <thead>
+      <tr><th scope="col">ID ALMACEN</th><th scope="col">NOMBRE</th><th scope="col">TIPO</th><th >CANTIDAD</th><br>
+      </tr>
+    </thead>
+    <tbody>
     <tr *ngFor="let p of almacenDB">
-      <td>{{p.idAlmacen}}</td>
-      <td>{{p.nombre}}</td>
-      <td>{{p.tipo}}</td>
-      <td [ngStyle]="{ 'background-color': p.cantidad === 0 ? 'red' : 'transparent' }">{{p.cantidad}}</td>
+      <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.idAlmacen}}</td>
+      <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.idAlmacen}}</td>
+      <td *ngIf="p.cantidad>7" class="table-success">{{p.idAlmacen}}</td>
+      <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.nombre}}</td>
+        <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.nombre}}</td>
+        <td *ngIf="p.cantidad>7" class="table-success">{{p.nombre}}</td>
+        <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.tipo}}</td>
+        <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.tipo}}</td>
+        <td *ngIf="p.cantidad>7" class="table-success">{{p.tipo}}</td>
+        <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.cantidad}}</td>
+        <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.cantidad}}</td>
+        <td *ngIf="p.cantidad>7" class="table-success">{{p.cantidad}}</td>
     </tr>
+    </tbody>
   </table>
+  </div>
+
 
 
 
