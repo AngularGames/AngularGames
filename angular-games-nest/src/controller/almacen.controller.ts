@@ -27,8 +27,9 @@ export class AlmacenController {
   //Devuelve el Stock
   @Get("articulo/:articulo")
    async consultarStock(@Param("articulo") articulo:string):Promise<number>{
-    console.log("esto sale"+await this.almacenService.consultarStockArticulo(articulo))
-   return await this.almacenService.consultarStockArticulo(articulo)
+    const stock:number=await this.almacenService.consultarStockArticulo(articulo)
+    console.log("stock controller "+stock)
+   return stock
     
   }
 @Get("lista")

@@ -16,10 +16,6 @@ export class AlmacenService {
   url="http://localhost:3000"
 
 
-  cambiarStock(juego:string, cantidad:number){
-
-
-  }
 
   listaAlmacen():Observable<productoAlmacen[]>{
     return this.http.get<productoAlmacen[]>(`${this.url}/almacen/lista`);
@@ -27,6 +23,7 @@ export class AlmacenService {
   }
 
   consultarStock(nombre:string):Observable<number>{
+    console.log("stock service front "+ nombre)
     return this.http.get<number>(`${this.url}/almacen/articulo/${nombre}`)
   }
 

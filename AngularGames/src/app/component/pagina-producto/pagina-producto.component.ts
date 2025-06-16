@@ -7,7 +7,6 @@ import { ArticuloService } from '../../services/articulos/articulo.service';
 import { AlmacenService } from '../../services/almacen/almacen.service';
 import { Carrito } from '../../models/Carrito';
 import { CarritoService } from '../../services/carrito/carrito.service';
-import { routes } from '../../app.routes';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
@@ -56,20 +55,23 @@ buscarProducto(productoBuscar:string):Juego{
 
 // PREGUNTAR A ANTONIO
 
-stockProducto(nombre:string):number{
+stockProducto(nombre:string){
   console.log("este es el nombre del juego para stock "+nombre)
 //  this.almacenService.consultarStock(nombre).subscribe(data=>this.stockArticulo=data)
-  this.almacenService.consultarStock(nombre).subscribe(data=>this.stockArticulo=data)
-  console.log(this.stockArticulo)
-  return this.stockArticulo
 
+  this.almacenService.consultarStock(nombre).subscribe(data=>{
+    console.log("este es el DATA " +data)
+    this.stockArticulo=data}
+  )
 }
+
 
 agregarAlCarrito(){
 
   let total:number=this.unidades*this.articulo.precio
   let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
   this.carritoService.agregarAlCarrito(pedido);
+  this.stockProducto(this.articulo.nombre);
 
 }
 
