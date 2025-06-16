@@ -56,4 +56,10 @@ async numeroDePedido(){
   return Math.max(...pedido.map(m=>m.numPedido));
 }
 
+@Post("eliminar")
+borrarDelCarrito(nombre:string){
+  this.carritoService.eliminarDelCarrito(nombre)
+}
+
+
 }

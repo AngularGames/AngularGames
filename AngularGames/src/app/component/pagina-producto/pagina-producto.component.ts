@@ -89,7 +89,10 @@ ConfirmarCarrito(){
   console.log(this.numpedido)
   this.pagado=true
 
+}
 
+borrarDeLista(nombre:string){
+  this.carritoService.eliminarDelCarrito(nombre)
 }
 
 

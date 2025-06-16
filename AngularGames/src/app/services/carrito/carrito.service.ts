@@ -35,4 +35,8 @@ numeroDeCarrito():number{
 
 }
 
+eliminarDelCarrito(nombre:string){
+  this.http.delete
+}
+
 }
