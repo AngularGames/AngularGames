@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Carrito } from 'src/Model/Carrito';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 import { CarritoDto } from 'src/Dtos/CarritoDto';
 
 @Injectable()
@@ -17,9 +17,11 @@ async agregarAlCarrito(pedido:CarritoDto):Promise<CarritoDto>{
 
 }
 
-eliminarDelCarrito(nombreArticulo:string){
+async eliminarDelCarrito(nombreArticulo:string):Promise<boolean>{
   // Deberia de borrar el articulo en el que hace clicl
-  this.carritoRepository.delete(nombreArticulo);
+  console.log("service back nombre juego borrar es "+nombreArticulo)
+  const respuesta:DeleteResult = await this.carritoRepository.delete({nombreArticulo:nombreArticulo});
+  return respuesta.affected>0
 
 }
 

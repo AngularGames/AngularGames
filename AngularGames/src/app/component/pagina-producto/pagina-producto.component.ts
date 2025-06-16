@@ -31,7 +31,7 @@ select:string;
 articulo:Juego;
 productoBuscar:string;
 unidades:number;
-numpedido:number;
+numpedido:number=1
 listaCompra:Carrito[];
 importeTotal:number
 carrito:boolean=false
@@ -40,27 +40,23 @@ pagado:boolean=false;
 
 ngOnInit(){
   const nombreJuego:string = this.route.snapshot.paramMap.get('nombre');
-  console.log("el nombre del juego es "+nombreJuego)
 this.buscarProducto(nombreJuego);
 this.stockProducto(nombreJuego);
-this.numpedido=this.carritoService.numeroDeCarrito();
+this.numeroPedido();
 
 }
 
-buscarProducto(productoBuscar:string):Juego{
-  console.log(productoBuscar)
+buscarProducto(productoBuscar:string){
   this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.articulo=data);
-  return this.articulo;
 }
 
-// PREGUNTAR A ANTONIO
-
+numeroPedido(){
+  this.carritoService.numeroDeCarrito().subscribe(data=>{
+    console.log("este es el numero de pedido de service front "+data);
+    this.numpedido=data})
+}
 stockProducto(nombre:string){
-  console.log("este es el nombre del juego para stock "+nombre)
-//  this.almacenService.consultarStock(nombre).subscribe(data=>this.stockArticulo=data)
-
   this.almacenService.consultarStock(nombre).subscribe(data=>{
-    console.log("este es el DATA " +data)
     this.stockArticulo=data}
   )
 }
@@ -72,17 +68,14 @@ agregarAlCarrito(){
   let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
   this.carritoService.agregarAlCarrito(pedido);
   this.stockProducto(this.articulo.nombre);
+  console.log("este es el producto del que queremos actualizar stock "+ this.articulo.nombre)
 
 }
 
 mostrarCarrito(){
   this.carrito=true
-  this.listaCompra= this.carritoService.mostrarCarrito(this.numpedido);
-  console.log(this.listaCompra)
-  let dinero:number[]=this.listaCompra.map(m=>m.precio)
-  console.log(dinero)
-  this.importeTotal=dinero.reduce((a,b)=>a+b,0)
-  console.log(this.importeTotal)
+  this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.listaCompra=data)
+  this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.importeTotal=(data.map(m=>m.precio)).reduce((a,b)=>a+b,0))
 }
 
 ConfirmarCarrito(){
@@ -95,6 +88,7 @@ ConfirmarCarrito(){
 
 borrarDeLista(nombre:string){
   this.carritoService.eliminarDelCarrito(nombre)
+  this.mostrarCarrito();
 }
 
 

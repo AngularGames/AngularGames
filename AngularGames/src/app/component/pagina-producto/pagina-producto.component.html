@@ -5,6 +5,9 @@
       <div *ngIf="articulo"  class="producto-container">
         <div class="producto-imagen">
           <img src="{{articulo.imagen}}" alt="{{articulo.nombre}}" />
+          <br><br>
+          <p class="producto-precio" style="text-align: center;"> QUEDAN <b>{{stockArticulo}}</b> UNIDADES</p>
+
         </div>
         <div class="producto-detalles">
           <h1>{{articulo.nombre}}</h1>
@@ -13,7 +16,6 @@
           <p><b>Jugadores Máximos:</b> {{articulo.jugadoresMax}}</p>
           <p><b>Dificultad:</b> {{articulo.dificultad}}</p>
           <p class="producto-descripcion">{{articulo.descripcion}}</p>
-          <p class="producto-precio">{{stockArticulo}}</p>
           <p class="producto-precio">Precio: {{articulo.precio | currency:'EUR'}}</p>
         </div>
       </div>
@@ -30,6 +32,7 @@
                   <th>NOMBRE ARTICULO</th>
                   <th>CANTIDAD</th>
                   <th>PRECIO</th>
+                  <th>BORRAR</th>
                 </tr>
               </thead>
               <tbody>
@@ -45,15 +48,19 @@
                   <th></th>
                   <th></th>
                   <th>IMPORTE TOTAL</th>
+                  <th></th>
+
                 </tr>
                 <tr>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td>{{importeTotal}}</td>
+                  <td></td>
+
                 </tr>
               </tbody>
-              <button class="btn-comprar" (click)="ConfirmarCarrito()">PAGAR</button><br>
+              <button class="btn-comprar"  (click)="ConfirmarCarrito()">PAGAR</button><br>
             </table>
             <div *ngIf="pagado" class="alert alert-success" role="alert">
               Pedido recibido. Gracias por su compra
@@ -65,8 +72,11 @@
 <br>
       <div class="row">
         <div class="producto-container">
+          Tu número de pedido es el <b>{{numpedido}}</b><br><br>
+          <div>
           Unidades <input [(ngModel)]="unidades" type="number" style="width: fit-content;"><button class="btn-comprar" (click)="agregarAlCarrito()">AÑADIR AL CARRITO</button>
           <br>
+          </div>
           <button class="btn-comprar" (click)="mostrarCarrito()">Carrito</button>
           <br>
         </div>

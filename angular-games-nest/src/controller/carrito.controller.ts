@@ -51,14 +51,22 @@ async mostrarCarrito(@Param("pedido") pedido:number):Promise<CarritoDto[]>{
 }
 
 @Get("numeroPedido")
-async numeroDePedido(){
+async numeroDePedido():Promise<number>{
   let pedido:CarritoDto[] = await this.carritoService.numeroDeCarrito();
-  return Math.max(...pedido.map(m=>m.numPedido));
+  let numeroPedido:number = Math.max(...pedido.map(m=>m.numPedido));
+  console.log("el numero de pedido del controller es "+ numeroPedido)
+  return numeroPedido
 }
 
-@Post("eliminar")
-borrarDelCarrito(nombre:string){
-  this.carritoService.eliminarDelCarrito(nombre)
+@Post("eliminarCarrito/:nombre")
+async borrarDelCarrito(@Body() nombre:string, @Res() response:Response){
+  console.log("controller post carrito a borrar "+nombre)
+  const respuesta:boolean = await this.carritoService.eliminarDelCarrito(nombre);
+  if(respuesta){
+    return true
+  }else {
+    return false
+  }
 }
 
 
