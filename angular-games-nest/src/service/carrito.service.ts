@@ -17,20 +17,20 @@ async agregarAlCarrito(pedido:CarritoDto):Promise<CarritoDto>{
 
 }
 
-async eliminarDelCarrito(nombreArticulo:string):Promise<boolean>{
+async eliminarDelCarrito(nombre:string):Promise<boolean>{
   // Deberia de borrar el articulo en el que hace clicl
-  console.log("service back nombre juego borrar es "+nombreArticulo)
-  const respuesta:DeleteResult = await this.carritoRepository.delete({nombreArticulo:nombreArticulo});
+  console.log("service back nombre juego borrar es "+nombre)
+  const respuesta:DeleteResult = await this.carritoRepository.delete({nombreArticulo:nombre});
   return respuesta.affected>0
 
 }
 
-mostrarCarrito(numPedido:number):Promise<CarritoDto[]>{
-  return this.carritoRepository.findBy({numPedido:numPedido});
+async mostrarCarrito(numPedido:number):Promise<CarritoDto[]>{
+  return await this.carritoRepository.findBy({numPedido:numPedido});
 }
 
-numeroDeCarrito():Promise<CarritoDto[]>{
-  return this.carritoRepository.find();
+async numeroDeCarrito():Promise<CarritoDto[]>{
+  return await this.carritoRepository.find();
 }
 
 

@@ -32,9 +32,11 @@ numeroDeCarrito():Observable<number>{
 
 }
 
-eliminarDelCarrito(nombre:string){
+eliminarDelCarrito(nombre:string):Observable<any>{
   console.log("este es el nombre para borrar del carrito "+nombre)
-  this.http.post<string>(`${this.url}/eliminarCarrito/`,{nombre})
+  return this.http.delete(`${this.url}/carrito/eliminarCarrito/${nombre}`)
+  
+
 }
 
 }

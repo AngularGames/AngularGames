@@ -1,5 +1,5 @@
 import { PaginapruebasComponent } from './../paginapruebas/paginapruebas.component';
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChange, SimpleChanges } from '@angular/core';
 import { Juego } from '../../models/Juego';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -26,6 +26,7 @@ export class PaginaProductoComponent {
 
   }
 
+
 listaCargada:string[];
 select:string;
 articulo:Juego;
@@ -46,6 +47,7 @@ this.numeroPedido();
 
 }
 
+
 buscarProducto(productoBuscar:string){
   this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.articulo=data);
 }
@@ -53,7 +55,7 @@ buscarProducto(productoBuscar:string){
 numeroPedido(){
   this.carritoService.numeroDeCarrito().subscribe(data=>{
     console.log("este es el numero de pedido de service front "+data);
-    this.numpedido=data})
+    this.numpedido=data+1})
 }
 stockProducto(nombre:string){
   this.almacenService.consultarStock(nombre).subscribe(data=>{
@@ -62,17 +64,18 @@ stockProducto(nombre:string){
 }
 
 
-agregarAlCarrito(){
-
+ agregarAlCarrito(){
+// Antonio
   let total:number=this.unidades*this.articulo.precio
   let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
   this.carritoService.agregarAlCarrito(pedido);
   this.stockProducto(this.articulo.nombre);
-  console.log("este es el producto del que queremos actualizar stock "+ this.articulo.nombre)
+  this.mostrarCarrito();
 
 }
 
 mostrarCarrito(){
+  console.log("MOSTRAR CARRITO MUESTRA CARRITO")
   this.carrito=true
   this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.listaCompra=data)
   this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.importeTotal=(data.map(m=>m.precio)).reduce((a,b)=>a+b,0))
@@ -80,16 +83,15 @@ mostrarCarrito(){
 
 ConfirmarCarrito(){
 
-  this.numpedido=this.numpedido+1;
-  console.log(this.numpedido)
   this.pagado=true
 
 }
 
 borrarDeLista(nombre:string){
-  this.carritoService.eliminarDelCarrito(nombre)
+  this.carritoService.eliminarDelCarrito(nombre).subscribe()
   this.mostrarCarrito();
 }
 
-
 }
+
+

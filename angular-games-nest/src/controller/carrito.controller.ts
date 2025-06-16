@@ -58,15 +58,10 @@ async numeroDePedido():Promise<number>{
   return numeroPedido
 }
 
-@Post("eliminarCarrito/:nombre")
-async borrarDelCarrito(@Body() nombre:string, @Res() response:Response){
+@Delete("eliminarCarrito/:nombre")
+borrarDelCarrito(@Param("nombre") nombre:string):Promise<boolean>{
   console.log("controller post carrito a borrar "+nombre)
-  const respuesta:boolean = await this.carritoService.eliminarDelCarrito(nombre);
-  if(respuesta){
-    return true
-  }else {
-    return false
-  }
+return this.carritoService.eliminarDelCarrito(nombre);
 }
 
 

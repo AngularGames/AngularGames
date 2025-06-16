@@ -27,6 +27,12 @@ export class AlmacenService {
     return this.http.get<number>(`${this.url}/almacen/articulo/${nombre}`)
   }
 
+  agregarAlmacen(nuevoJuego:productoAlmacen):Observable<any>{
+    console.log(`este juego ${nuevoJuego.nombre} entra en almacen service front`)
+    return this.http.post<productoAlmacen>(`${this.url}/almacen/agregar`,nuevoJuego)
+
+  }
+
 
 }
 

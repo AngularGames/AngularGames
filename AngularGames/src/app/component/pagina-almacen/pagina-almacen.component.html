@@ -10,9 +10,6 @@
     </thead>
     <tbody>
     <tr *ngFor="let p of almacenDB">
-      <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.idAlmacen}}</td>
-      <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.idAlmacen}}</td>
-      <td *ngIf="p.cantidad>7" class="table-success">{{p.idAlmacen}}</td>
       <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.nombre}}</td>
         <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.nombre}}</td>
         <td *ngIf="p.cantidad>7" class="table-success">{{p.nombre}}</td>

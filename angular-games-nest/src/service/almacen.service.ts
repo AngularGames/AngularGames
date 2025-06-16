@@ -1,5 +1,6 @@
 import { Injectable, Post } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { productoAlmacenDto } from 'src/Dtos/productoAlmacenDto';
 import { productoAlmacen } from 'src/Model/productoAlmacen';
 import { LessThan, LessThanOrEqual, MoreThan, MoreThanOrEqual, Repository, UpdateResult } from 'typeorm';
 
@@ -9,8 +10,8 @@ constructor(@InjectRepository(productoAlmacen) private almacenRepository:Reposit
 
 
 
-async agregarProducto(producto:productoAlmacen):Promise<boolean>{
-    
+async agregarProducto(producto:productoAlmacenDto):Promise<boolean>{
+    console.log("ha entrado en almacen serv back "+producto.nombre)
     const resultado = await this.almacenRepository.save(producto);
     if(resultado) return true
 
