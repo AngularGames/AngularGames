@@ -55,7 +55,7 @@ buscarProducto(productoBuscar:string){
 numeroPedido(){
   this.carritoService.numeroDeCarrito().subscribe(data=>{
     console.log("este es el numero de pedido de service front "+data);
-    this.numpedido=data+1})
+    this.numpedido=data})
 }
 stockProducto(nombre:string){
   this.almacenService.consultarStock(nombre).subscribe(data=>{
@@ -65,12 +65,13 @@ stockProducto(nombre:string){
 
 
  agregarAlCarrito(){
-// Antonio
+// Antonio. Todo lo hace UN CLICK POR DETRÁS. No sé cómo hacerlo. timer? meter todo en una función y cuando esté entonces que haga el resto? no sé
   let total:number=this.unidades*this.articulo.precio
   let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
-  this.carritoService.agregarAlCarrito(pedido);
-  this.stockProducto(this.articulo.nombre);
-  this.mostrarCarrito();
+  this.carritoService.agregarAlCarrito(pedido).subscribe();
+  this.almacenService.consultarStock(this.articulo.nombre).subscribe(data=>
+  this.stockArticulo=data)
+  this.mostrarCarrito()
 
 }
 

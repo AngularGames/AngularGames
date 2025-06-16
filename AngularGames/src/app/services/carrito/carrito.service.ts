@@ -18,7 +18,7 @@ url="http://localhost:3000"
 numeroPedido:any;
 
 agregarAlCarrito(pedido:Carrito){
-  this.http.post(`${this.url}/carrito/agregarCarrito`,pedido).subscribe();
+  return this.http.post(`${this.url}/carrito/agregarCarrito`,pedido)
 
 
 }
@@ -35,7 +35,7 @@ numeroDeCarrito():Observable<number>{
 eliminarDelCarrito(nombre:string):Observable<any>{
   console.log("este es el nombre para borrar del carrito "+nombre)
   return this.http.delete(`${this.url}/carrito/eliminarCarrito/${nombre}`)
-  
+
 
 }
 
