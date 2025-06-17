@@ -30,20 +30,20 @@ return await this.articulosService.mostrarTodos()
 };
 
 @Get("buscar/tipo/:tipo")
-buscarTipo(@Param("tipo")tipo:string){
+async buscarTipo(@Param("tipo") tipo:string):Promise<Juego[]>{
 
-  return this.articulosService.filtrarTipo(tipo);
+  return await this.articulosService.filtrarTipo(tipo);
 };
 
 @Get("/buscar/jugadores")
-buscarJugadores(@Query("jmin") jmin:string,@Query("jmax")jmax:string){
-  return this.articulosService.filtrarJugadores(jmin,jmax);
+async buscarJugadores(@Query("jmin") jmin:string,@Query("jmax") jmax:string):Promise<Juego[]>{
+  return await this.articulosService.filtrarJugadores(jmin,jmax);
 
 };
 
 @Get("/buscar/dificultad/:dificultad")
-buscarDificultad(@Param("dificultad") dificultad:number){
-return this.articulosService.filtrarDificultad(dificultad);
+async buscarDificultad(@Param("dificultad") dificultad:number):Promise<Juego[]>{
+return await this.articulosService.filtrarDificultad(dificultad);
 
 };
 

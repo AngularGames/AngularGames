@@ -7,9 +7,12 @@ import {
   Patch,
   Post,
   Query,
+  Res,
 } from '@nestjs/common';
 import { productoAlmacen } from 'src/Model/productoAlmacen';
 import { AlmacenService } from 'src/service/almacen.service';
+import { Response } from 'express';
+import { productoAlmacenDto } from 'src/Dtos/productoAlmacenDto';
 
 @Controller('almacen')
 export class AlmacenController {
@@ -22,16 +25,29 @@ export class AlmacenController {
     this.almacenService.agregarStockDeProducto(articulo,cantidad)
   }
 
+  
 
   //Devuelve el Stock
   @Get("articulo/:articulo")
    async consultarStock(@Param("articulo") articulo:string):Promise<number>{
-   return await this.almacenService.consultarStockArticulo(articulo)
+    const stock:number=await this.almacenService.consultarStockArticulo(articulo)
+    console.log("stock controller "+stock)
+   return stock
     
   }
 @Get("lista")
     consultarAlmacen():Promise<productoAlmacen[]>{
       return this.almacenService.mostrarInventario();
+    }
+@Post("agregar")
+    async agregarProducto(@Body() producto:any, @Res() response:Response){
+      console.log("lo que entra es "+producto.nombre)
+      const respuesta = await this.almacenService.agregarProducto(producto);
+      if (respuesta){
+        return response.status(202).json(respuesta)
+      }else{
+        return response.status(419).send()
+      }
     }
 
   }

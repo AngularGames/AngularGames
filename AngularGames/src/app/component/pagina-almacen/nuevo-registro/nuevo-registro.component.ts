@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Juego } from '../../../models/Juego';
 import { AlmacenService } from '../../../services/almacen/almacen.service';
 import { ArticuloService } from '../../../services/articulos/articulo.service';
+import { productoAlmacen } from '../../../models/productoAlmacen';
 
 @Component({
   selector: 'app-nuevo-registro',
@@ -17,6 +18,7 @@ export class NuevoRegistroComponent {
 
   {}
 
+  idAlmacen:number;
   nombre:string;
   tipoDeJuego:string;
   jmin:string;
@@ -24,6 +26,7 @@ export class NuevoRegistroComponent {
   dificultad:number;
   descripcion:string;
   precio:number;
+  imagen:string;
 
   juego:Juego;
   respuesta:string;
@@ -31,11 +34,13 @@ export class NuevoRegistroComponent {
 
   guardarRegistro(){
     console.log("entramos en guardar registro")
-    const nuevoJuego=new Juego(this.nombre,this.tipoDeJuego,this.jmin,this.jmax,this.dificultad,this.descripcion,this.precio)
+    const nuevoJuego=new Juego(this.nombre,this.tipoDeJuego,this.jmin,this.jmax,this.dificultad,this.descripcion,this.precio,this.imagen)
     console.log(nuevoJuego)
     this.articuloService.añadirArticulo(nuevoJuego).subscribe(data=>this.respuesta=data)
     console.log("esta debería ser la respuesta "+this.respuesta)
-
+    const nuevoAlmacen= new productoAlmacen(this.nombre,"juego",5);
+    console.log(nuevoAlmacen)
+    this.almacenService.agregarAlmacen(nuevoAlmacen).subscribe(data=>this.respuesta=data)
 
   }
 

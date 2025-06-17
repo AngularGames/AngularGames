@@ -1,3 +1,4 @@
+import { Query } from '@nestjs/common';
 import { Injectable } from '@angular/core';
 import { Juego } from '../../models/Juego';
 import { HttpClient } from '@angular/common/http';
@@ -21,21 +22,21 @@ export class ArticuloService {
 
 
   }
-/*
-  filtrarTipo(tipo:string):Juego[]{
-    return this.baseDatosJuegos.filter(juego=>juego.tipo==tipo);
+
+  filtrarTipo(tipo:string):Observable<any>{
+    return this.http.get(`${this.url}/articulos/buscar/tipo/${tipo}`);
+;
 
   }
 
-  filtrarJugadores(jmin:string,jmax:string):Juego[]{
-    return this.baseDatosJuegos.filter(juego=>(juego.jugadoresMin>=jmin&&juego.jugadoresMax<=jmax));
-
+  filtrarJugadores(jmin:string,jmax:string):Observable<Juego[]>{
+    return this.http.get<Juego[]>(`${this.url}/articulos/buscar/jugadores?jmin=${jmin}&jmax=${jmax}`);
   }
 
-  filtrarDificultad(dificultad:number):Juego[]{
-    return this.baseDatosJuegos.filter(juegos=>(+juegos.dificultad >= dificultad))
+  filtrarDificultad(dificultad:number):Observable<any>{
+    return this.http.get(`${this.url}/articulos/buscar/dificultad/${dificultad}`);
   }
-*/
+
   añadirArticulo(juego:Juego):Observable<any>{
     console.log("nuevo articulo que mandamos en body es ",juego);
     console.log("ha pasado por el post al alta");

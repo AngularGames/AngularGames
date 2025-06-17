@@ -10,6 +10,7 @@ export class UsuariosService {
     @InjectRepository(Usuario)
     private usuariosRepository: Repository<Usuario>,
   ) {}
+  
   async validarUsuario(
     usuarioBuscado: string,
     password: string,

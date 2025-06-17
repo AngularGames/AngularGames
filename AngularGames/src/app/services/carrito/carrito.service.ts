@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Carrito } from '../../models/Carrito';
 import { Observable } from 'rxjs';
+import { CarritoDto } from '../../../../../angular-games-nest/src/Dtos/CarritoDto';
 
 @Injectable({
   providedIn: 'root'
@@ -14,20 +15,26 @@ export class CarritoService {
   ) { }
 
 url="http://localhost:3000"
-listaCarrito:Carrito[];
+numeroPedido:any;
 
 agregarAlCarrito(pedido:Carrito){
-  this.http.post(`${this.url}/carrito/agregarCarrito`,pedido).subscribe();
+  return this.http.post(`${this.url}/carrito/agregarCarrito`,pedido)
 
 
 }
 
-   mostrarCarrito(numpedido:number):Carrito[]{
-   this.http.get<any>(`${this.url}/carrito/mostrar/${numpedido}`).subscribe(data=>this.listaCarrito=data)
-   return this.listaCarrito;
+mostrarCarrito(numpedido:number):Observable<Carrito[]>{
+return this.http.get<Carrito[]>(`${this.url}/carrito/mostrar/${numpedido}`)
 }
 
-aceptarCarrito(){
+numeroDeCarrito():Observable<number>{
+  return this.http.get<number>(`${this.url}/carrito/numeroPedido`);
+
+}
+
+eliminarDelCarrito(nombre:string):Observable<any>{
+  console.log("este es el nombre para borrar del carrito "+nombre)
+  return this.http.delete(`${this.url}/carrito/eliminarCarrito/${nombre}`)
 
 
 }

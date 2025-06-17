@@ -16,16 +16,22 @@ export class AlmacenService {
   url="http://localhost:3000"
 
 
-  cambiarStock(juego:string, cantidad:number){
-
-
-  }
 
   listaAlmacen():Observable<productoAlmacen[]>{
     return this.http.get<productoAlmacen[]>(`${this.url}/almacen/lista`);
 
   }
 
+  consultarStock(nombre:string):Observable<number>{
+    console.log("stock service front "+ nombre)
+    return this.http.get<number>(`${this.url}/almacen/articulo/${nombre}`)
+  }
+
+  agregarAlmacen(nuevoJuego:productoAlmacen):Observable<any>{
+    console.log(`este juego ${nuevoJuego.nombre} entra en almacen service front`)
+    return this.http.post<productoAlmacen>(`${this.url}/almacen/agregar`,nuevoJuego)
+
+  }
 
 
 }
