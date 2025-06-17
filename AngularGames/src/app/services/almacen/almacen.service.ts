@@ -33,11 +33,11 @@ export class AlmacenService {
   }
 
   agregarStock(stock:Stock){
-    console.log(stock)
+    console.log("agregar stock ",stock)
     let heads = new HttpHeaders()
     heads=heads.set("Content-Type","application/json")
-    //this.http.patch(`${this.url}/almacen/stock`,stock,{headers:heads})
-    this.http.patch(`${this.url}/almacen/stock?articulo=${stock.nombre}&cantidad=${stock.cantidad}`,stock)
+    this.http.post(`${this.url}/almacen/stock`,stock)
+    //this.http.patch(`${this.url}/almacen/stock?articulo=${stock.nombre}&cantidad=${stock.cantidad}`,stock)
   }
 }
 

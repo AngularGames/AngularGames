@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 import { IsNumber, IsString, isString } from "class-validator";
 
 export class CarritoDto{
     @IsNumber()
-=======
-export class CarritoDto{
     idCarrito:number;
->>>>>>> 3aeb0f5ddb19e7dd0d2e233b3d660f4173885e41
     numPedido:number;
     @IsString()
     nombreArticulo:string;

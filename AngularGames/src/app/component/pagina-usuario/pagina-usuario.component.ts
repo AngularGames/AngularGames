@@ -20,6 +20,7 @@ export class PaginaUsuarioComponent {
   correo = ""
   direccion = ""
   telefono = 0
+  error;
 
   constructor(private usuarioService: UsuarioService, private router: Router) {}
   validarUsuario() {

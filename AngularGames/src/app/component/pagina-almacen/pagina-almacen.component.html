@@ -9,12 +9,12 @@
     <div class="grid-container">
     <div class="row">
       <div class="col">
-    <select [(ngModel)]="nombreJuego">
+    Elige el juego <select [(ngModel)]="nombreJuego">
       <option *ngFor="let item of almacenDB" value="{{item.nombre}}">{{item.nombre}}</option>
     </select>
     </div>
     <div class="col">
-    Cantidad a añadir <input type="number" [(ngModel)]="cantidad"><button (click)="addStock(nombreJuego,cantidad)">Añadir</button>
+    Cantidad a añadir <input type="number" [(ngModel)]="cantidad"><button (click)="addStock()">Añadir</button><button >Actualizar</button>
     </div>
     </div>
   </div>

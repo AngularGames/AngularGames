@@ -32,7 +32,7 @@ select:string;
 articulo:Juego;
 productoBuscar:string;
 unidades:number;
-numpedido:number=1
+numpedido:number;
 listaCompra:Carrito[];
 importeTotal:number
 carrito:boolean=false
@@ -55,7 +55,7 @@ buscarProducto(productoBuscar:string){
 numeroPedido(){
   this.carritoService.numeroDeCarrito().subscribe(data=>{
     console.log("este es el numero de pedido de service front "+data);
-    this.numpedido=data})
+    this.numpedido=data+1})
 }
 stockProducto(nombre:string){
   this.almacenService.consultarStock(nombre).subscribe(data=>{
@@ -82,7 +82,7 @@ mostrarCarrito(){
 }
 
 ConfirmarCarrito(){
-  this.numpedido=1
+  this.numpedido+=1
   this.pagado=true
 
 }

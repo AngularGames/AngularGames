@@ -19,11 +19,12 @@ export class AlmacenController {
 
 
 // Funciona. sube el stock X
+/*
   @Patch('stock')
   incrementarStock(@Query("articulo") articulo:string, @Query("cantidad") cantidad:number){
     this.almacenService.agregarStockDeProducto(articulo,cantidad)
   }
-
+*/
   
 
   //Devuelve el Stock

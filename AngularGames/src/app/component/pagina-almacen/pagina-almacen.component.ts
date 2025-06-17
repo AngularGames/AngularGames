@@ -15,6 +15,9 @@ import { Stock } from '../../models/stock';
 export class PaginaAlmacenComponent {
 
   constructor( private almacen:AlmacenService){
+  }
+
+  ngOnInit(){
     this.almacen.listaAlmacen().subscribe(data=>this.almacenDB=data)
     console.log(this.almacenDB);
   }
@@ -29,11 +32,11 @@ export class PaginaAlmacenComponent {
     console.log(this.stock)
   }
 
-  addStock(nombre:string, cantidad:number){
-    let stock:Stock= new Stock(this.nombreJuego,this.cantidad)
+  addStock(){
+    let pedidostock:Stock= new Stock(this.nombreJuego,this.cantidad)
     console.log(this.nombreJuego)
     console.log(this.cantidad)
-    this.almacen.agregarStock(stock)
+    this.almacen.agregarStock(pedidostock)
   }
 
 
