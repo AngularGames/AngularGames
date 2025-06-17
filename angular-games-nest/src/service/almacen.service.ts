@@ -22,9 +22,9 @@ async agregarProducto(producto:productoAlmacenDto):Promise<boolean>{
        return await this.almacenRepository.increment({nombre:articulo},"cantidad",cantidad)
        }
 
-    async actualizarStock(stock:any):Promise<any>{
-        console.log("va a buscar el nombre")
-        let resultado:StockDto = await this.almacenRepository.findOneBy({nombre:stock.nombre});
+    async actualizarStock(stock:StockDto):Promise<any>{
+        console.log("va a buscar el nombre ",stock.nombre)
+        let resultado:any = await this.almacenRepository.findOneBy({nombre:stock.nombre});
         if (resultado){
             resultado.cantidad=stock.cantidad;
             this.almacenRepository.save(resultado)

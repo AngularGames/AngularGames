@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { productoAlmacen } from '../../models/productoAlmacen';
+import { Stock } from '../../models/Stock';
 import { AlmacenService } from '../../services/almacen/almacen.service';
-import { Stock } from '../../models/stock';
+
 
 @Component({
   selector: 'app-pagina-almacen',
