@@ -1,8 +1,13 @@
-export class CarritoDto{
+import { IsNumber, IsString, isString } from "class-validator";
 
+export class CarritoDto{
+    @IsNumber()
     numPedido:number;
+    @IsString()
     nombreArticulo:string;
+    @IsNumber()
     cantidad:number;
+    @IsNumber()
     precio:number;
 
     constructor(

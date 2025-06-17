@@ -2,6 +2,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
 import { Usuario } from 'src/Model/Usuario';
 import { DeleteResult, Repository } from 'typeorm';
+import { UsuarioDto } from 'src/Dtos/UsuarioDto';
 
 @Injectable()
 export class UsuariosService {
@@ -32,8 +33,7 @@ export class UsuariosService {
       }
     }
   }
-
-  crearUsuario(usuario: Usuario): Promise<Usuario> {
+    nuevoUsuario(usuario: UsuarioDto): Promise<UsuarioDto> {
     return this.usuariosRepository.save(usuario);
   }
 
