@@ -12,7 +12,6 @@ import {
 import { productoAlmacen } from 'src/Model/productoAlmacen';
 import { AlmacenService } from 'src/service/almacen.service';
 import { Response } from 'express';
-import { productoAlmacenDto } from 'src/Dtos/productoAlmacenDto';
 
 @Controller('almacen')
 export class AlmacenController {
@@ -21,7 +20,7 @@ export class AlmacenController {
 
 // Funciona. sube el stock X
   @Patch('stock')
-  incrementarStock(@Query("articulo") articulo:string,@Query("cantidad") cantidad:string){
+  incrementarStock(@Query("articulo") articulo:string, @Query("cantidad") cantidad:number){
     this.almacenService.agregarStockDeProducto(articulo,cantidad)
   }
 

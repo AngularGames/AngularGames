@@ -69,9 +69,6 @@ stockProducto(nombre:string){
   let total:number=this.unidades*this.articulo.precio
   let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
   this.carritoService.agregarAlCarrito(pedido).subscribe();
-  this.almacenService.consultarStock(this.articulo.nombre).subscribe(data=>
-  this.stockArticulo=data)
-  this.mostrarCarrito()
 
 }
 
@@ -80,17 +77,18 @@ mostrarCarrito(){
   this.carrito=true
   this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.listaCompra=data)
   this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.importeTotal=(data.map(m=>m.precio)).reduce((a,b)=>a+b,0))
+  this.almacenService.consultarStock(this.articulo.nombre).subscribe(data=>this.stockArticulo=data)
+
 }
 
 ConfirmarCarrito(){
-
+  this.numpedido=1
   this.pagado=true
 
 }
 
 borrarDeLista(nombre:string){
   this.carritoService.eliminarDelCarrito(nombre).subscribe()
-  this.mostrarCarrito();
 }
 
 }

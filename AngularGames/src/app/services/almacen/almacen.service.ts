@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ArticuloService } from '../articulos/articulo.service';
-import { Juego } from '../../models/Juego';
 import { productoAlmacen } from '../../models/productoAlmacen';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Stock } from '../../models/stock';
 
 
 @Injectable({
@@ -33,7 +32,13 @@ export class AlmacenService {
 
   }
 
-
+  agregarStock(stock:Stock){
+    console.log(stock)
+    let heads = new HttpHeaders()
+    heads=heads.set("Content-Type","application/json")
+    //this.http.patch(`${this.url}/almacen/stock`,stock,{headers:heads})
+    this.http.patch(`${this.url}/almacen/stock?articulo=${stock.nombre}&cantidad=${stock.cantidad}`,stock)
+  }
 }
 
 

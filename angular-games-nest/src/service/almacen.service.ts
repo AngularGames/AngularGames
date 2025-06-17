@@ -17,8 +17,8 @@ async agregarProducto(producto:productoAlmacenDto):Promise<boolean>{
 
 }
 
-    async agregarStockDeProducto(producto:string,cantidadStock:string):Promise<UpdateResult>{
-       return await this.almacenRepository.increment({nombre:producto},"cantidad",cantidadStock)
+    async agregarStockDeProducto(articulo:string, cantidad:number):Promise<UpdateResult>{
+       return await this.almacenRepository.increment({nombre:articulo},"cantidad",cantidad)
        }
     
     async consultarStockArticulo(producto:string):Promise<number>{

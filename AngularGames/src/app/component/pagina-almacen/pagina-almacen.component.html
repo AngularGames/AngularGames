@@ -1,11 +1,28 @@
-<p>pagina-almacen works!</p>
+<div style="text-align: center;">
 <h1>Almacén</h1>
-<h3>Inventario de Angular Games</h3><br>
-  <a routerLink="/nuevoProducto">NUEVO PRODUCTO</a>
-  <div class="table-responsive-md">
+<h3>Inventario de Angular Games</h3>
+
+<br>
+
+  <button routerLink="/nuevoProducto">NUEVO PRODUCTO</button><button (click)="cambiarStock()">STOCK</button>
+  <div *ngIf="stock">
+    <div class="grid-container">
+    <div class="row">
+      <div class="col">
+    <select [(ngModel)]="nombreJuego">
+      <option *ngFor="let item of almacenDB" value="{{item.nombre}}">{{item.nombre}}</option>
+    </select>
+    </div>
+    <div class="col">
+    Cantidad a añadir <input type="number" [(ngModel)]="cantidad"><button (click)="addStock(nombreJuego,cantidad)">Añadir</button>
+    </div>
+    </div>
+  </div>
+  </div>
+  <div class="table-responsive-sm">
   <table class="table">
     <thead>
-      <tr><th scope="col">ID ALMACEN</th><th scope="col">NOMBRE</th><th scope="col">TIPO</th><th >CANTIDAD</th><br>
+      <tr><th scope="col">NOMBRE</th><th scope="col">TIPO</th><th >CANTIDAD</th><br>
       </tr>
     </thead>
     <tbody>
@@ -16,8 +33,8 @@
         <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.tipo}}</td>
         <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.tipo}}</td>
         <td *ngIf="p.cantidad>7" class="table-success">{{p.tipo}}</td>
-        <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.cantidad}}</td>
-        <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.cantidad}}</td>
+        <td *ngIf="p.cantidad<=3" class="table-danger">{{p.cantidad}}</td>
+        <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" style="width:min-content;">{{p.cantidad}}</td>
         <td *ngIf="p.cantidad>7" class="table-success">{{p.cantidad}}</td>
     </tr>
     </tbody>

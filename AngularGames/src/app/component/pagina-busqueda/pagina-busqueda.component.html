@@ -1,35 +1,31 @@
-<p>pagina-busqueda works!</p>
 <div class="container">
   <div class="row row-cols-auto">
     <div class="card" style="width: 18rem;">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/D4_-_game-icons.svg/768px-D4_-_game-icons.svg.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">TIPO</h5>
-        <p class="card-text">BUSCAR POR TIPO.</p>
-        <a (click)="seleccion('tipo')" class="btn btn-primary">Juegos Abstractos</a>
+        <p class="card-text">¿Quieres un juego de un tipo concreto? Te ofrecemos unas cuantas opciones</p>
+        <a (click)="seleccion('tipo')" class="btn btn-primary">BUSCAR POR TIPO</a>
       </div>
     </div>
     <div class="card" style="width: 18rem;">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Noun_Project_people_icon_3376085.svg/768px-Noun_Project_people_icon_3376085.svg.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">DIFICULTAD</h5>
-        <p class="card-text">Cartones con dibujos y números. Lo mejor del mundo.</p>
-        <a (click)="seleccion('dificultad')" class="btn btn-primary">Juegos Abstractos</a>
+        <p class="card-text">¿Buscas algo fácil? ¿Quieres un reto? Elige tu dificultad</p>
+        <a (click)="seleccion('dificultad')" class="btn btn-primary">BUSCAR POR DIFICULTAD</a>
       </div>
     </div>
     <div class="card" style="width: 18rem;">
       <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Dif-hard_icon.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">JUGADORES</h5>
-        <p class="card-text">¿Quién dijo "La suerte está echada"?. Jueguitos de dados.</p>
-        <a (click)="seleccion('jugadores')" class="btn btn-primary">Juegos Abstractos</a>
+        <p class="card-text">¿Cuántos sois? Vale... creo que tenemos algo.</p>
+        <a (click)="seleccion('jugadores')" class="btn btn-primary">BUSCAR POR JUGADORES</a>
       </div>
     </div>
   </div>
 <br>
-///////////////////////////////
-<br>
-//////////////////////////////
 <br><br>
 
 <div *ngIf="filtro=='tipo'" class="container">

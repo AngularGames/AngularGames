@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { productoAlmacen } from '../../models/productoAlmacen';
 import { AlmacenService } from '../../services/almacen/almacen.service';
+import { Stock } from '../../models/stock';
 
 @Component({
   selector: 'app-pagina-almacen',
@@ -19,6 +20,21 @@ export class PaginaAlmacenComponent {
   }
 
   almacenDB:productoAlmacen[];
+  stock:boolean=false
+  nombreJuego:string;
+  cantidad:number;
+
+  cambiarStock(){
+    this.stock=!this.stock
+    console.log(this.stock)
+  }
+
+  addStock(nombre:string, cantidad:number){
+    let stock:Stock= new Stock(this.nombreJuego,this.cantidad)
+    console.log(this.nombreJuego)
+    console.log(this.cantidad)
+    this.almacen.agregarStock(stock)
+  }
 
 
 

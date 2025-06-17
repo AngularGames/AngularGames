@@ -3,9 +3,6 @@
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="todos">JUEGOS</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/producto">Producto</a>
-  </li>
 <li class="nav-item">
   <li><a class="nav-link" href="/busqueda">BUSCAR POR</a></li>
 <li class="nav-item">
@@ -15,8 +12,8 @@
     <a class="nav-link" href="/almacen">ALMACEN</a>
   </li>
 
-  <li style="align-self: flex-end;" class="nav-item">
-    BUSCAR <input type="search">
+  <li class="nav">
+     <input style="vertical-align: middle;" type="text" [(ngModel)]="juegoBuscar" placeholder="Busca un juego"><a style="align-self: center;" href="/producto/{{juegoBuscar}}">BUSCAR</a>
   </li>
 
 </ul>
