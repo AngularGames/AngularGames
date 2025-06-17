@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,16 +14,20 @@ export class UsuarioService {
   usuario:string
   respuesta
 
+
   validarUsuario(password:string,usuario:string):Observable<boolean>{
       this.http.get<boolean>(`${this.url}/usuario/validar?usuario=${usuario},?password=${password}`)
        .subscribe(data=>this.respuesta=data)
        console.log(this.respuesta)
        return this.respuesta
-       
-  }
-
-  nuevoUsuario(){
 
   }
 
+  nuevoUsuario(usuario:Usuario):Observable<Usuario>{
+    this.http.post<Usuario>(`${this.url}/usuario/registro`,usuario)
+    .subscribe(data=>this.respuesta=data)
+    console.log(this.respuesta)
+    return this.respuesta
+
+}
 }

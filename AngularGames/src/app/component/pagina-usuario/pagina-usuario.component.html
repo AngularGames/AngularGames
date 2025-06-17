@@ -1,22 +1,32 @@
 <div class="login-container">
   <h2>Iniciar Sesion</h2>
-  <form (ngSunmit)="onSubmit()" #loginForm="ngForm">
-    <input
-    type="text"
-    name="userName"
-    [(ngModel)]="userName"
-    placeholder="Usuario"
-    required/>
-    <input
-    type="password"
-    name="password"
-    [(ngModel)]="password"
-    placeholder="Contraseña"
-    required/>
-    <button type="submit" (click)="onSubmit()">Ingresar</button>
-    </form>
 
+<<<<<<< HEAD
+    <input type="text" name="userName" [(ngModel)]="userName" placeholder="Usuario" required/>
+    <input type="password" name="password" [(ngModel)]="password" placeholder="Contraseña" required/>
+     <button (click) ="validarUsuario()">Ingresar</button>
+</div>
+    <!-- <p **ngIf="error"
+    class="error">{{error}}</p> -->
+    <br><br>
+    <h2>Registrate</h2>
+
+  <div>
+
+
+      <input type="text" name="nombre" [(ngModel)]="nombre" placeholder="Nombre" required/>
+      <input type="text" name="apellido" [(ngModel)]="apellido" placeholder="Apellidos" required/>
+      <input type="text" name="nombreUsuario" [(ngModel)]="nombreUsuario" placeholder="Usuario" required/>
+      <input type="text" name="password" [(ngModel)]="password" placeholder="Contraseña" required/>
+      <input type="text" name="correo" [(ngModel)]="correo" placeholder="Correo" required/>
+      <input type="text" name="direccion" [(ngModel)]="direccion" placeholder="Direccion" />
+      <input type="number" name="telefono" [(ngModel)]="telefono" placeholder="Telefono" />
+
+      <button (click)="nuevoUsuario()">Registrate</button>
+
+=======
     <p *ngIf="error"
     class="error">{{error}}</p>
+>>>>>>> 3aeb0f5ddb19e7dd0d2e233b3d660f4173885e41
 
 </div>
