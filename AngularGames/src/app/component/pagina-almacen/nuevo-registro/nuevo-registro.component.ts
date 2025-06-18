@@ -21,8 +21,8 @@ export class NuevoRegistroComponent {
   idAlmacen:number;
   nombre:string;
   tipoDeJuego:string;
-  jmin:string;
-  jmax:string;
+  jmin:number;
+  jmax:number;
   dificultad:number;
   descripcion:string;
   precio:number;

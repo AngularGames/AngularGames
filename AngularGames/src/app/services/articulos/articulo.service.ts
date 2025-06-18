@@ -29,7 +29,8 @@ export class ArticuloService {
 
   }
 
-  filtrarJugadores(jmin:string,jmax:string):Observable<Juego[]>{
+  filtrarJugadores(jmin:number,jmax:number):Observable<Juego[]>{
+    console.log("entran ",jmin," y ",jmax," en el service del front")
     return this.http.get<Juego[]>(`${this.url}/articulos/buscar/jugadores?jmin=${jmin}&jmax=${jmax}`);
   }
 

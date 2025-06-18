@@ -146,13 +146,41 @@
 </div>
 <div *ngIf="filtro=='jugadores'" class="container">
   <div>
+  <div>
   <label for="jugadoresMin" class="form-label">Jugadores Minimos {{jugadoresMin}}</label>
-<input type="range" [(ngModel)]="jugadoresMin" class="form-range" min="1" max="8" step="1" id="jugadoresMin">
+<input type="range" [(ngModel)]="jugadoresMin" (change)="jugadores()" class="form-range" min="1" max="{{jugadoresMax}}" step="1" id="jugadoresMin">
   </div>
   <div>
-    <label for="jugadoresMax" class="form-label">Jugadores Max {{jugadoresMin}}</label>
-  <input type="range" [(ngModel)]="jugadoresMax" class="form-range" min="jugadoresMin" max="8" step="1" id="jugadoresMax">
+    <label for="jugadoresMax" class="form-label">Jugadores Max {{jugadoresMax}}</label>
+  <input type="range" [(ngModel)]="jugadoresMax" (change)="jugadores()" class="form-range" min="{{jugadoresMin}}" max="10" step="1" id="jugadoresMax">
     </div>
+  </div>
+    <div>
+    <button class="btn btn-primary" [routerLink]="['filtro/jugadores']" (click)="filtrar(jugadoresMin,jugadoresMax)">FILTRAR</button>
+    </div>
+    <div *ngIf="filtroJugadores">
+      <div class="container">
+        <div class="row row-cols-auto">
+          <div  *ngFor="let item of juegosPorJugadores"  class="col-auto ms-md-auto">
+            <div   class="card mb-5" style="width: 18rem;">
+                    <img src="{{item.imagen}}" style="object-fit: cover;" class="img-thumbnail" alt="...">
+                    <div class="card-body">
+                      <h3 class="card-title" style="text-align: center;">{{item.nombre}}</h3>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">{{item.tipo}}</li>
+                      <li class="list-group-item">de {{item.jugadoresMin}} a {{item.jugadoresMax}} jugadores</li>
+                      <li class="list-group-item">una <b>dificultad de {{item.dificultad}}</b> sobre 5</li>
+                    </ul>
+                    <div class="carf-body" style="align-self: center; text-align: center;">
+                      <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a [routerLink]="['/producto',item.nombre]" class="btn btn-primary">Pagina de {{item.nombre}}</a>
+                      </div>
+                    </div>
+            </div>
+          </div>
+        </div>
+          </div>
+  </div>
 
 
 

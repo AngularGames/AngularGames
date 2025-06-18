@@ -19,7 +19,7 @@ constructor(@InjectRepository(Juego) private juegoRepository:Repository<Juego>){
 
   }
 
-  async filtrarJugadores(jmin:string,jmax:string):Promise<Juego[]>{
+  async filtrarJugadores(jmin:number,jmax:number):Promise<Juego[]>{
     const resultado:Juego[]= await this.juegoRepository.findBy({
       jugadoresMin:MoreThanOrEqual(jmin),
       jugadoresMax:LessThanOrEqual(jmax)}
