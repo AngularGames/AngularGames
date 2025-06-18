@@ -84,6 +84,7 @@ mostrarCarrito(){
 ConfirmarCarrito(){
   this.numpedido+=1
   this.pagado=true
+  setTimeout(()=>this.pagado=false,3000)
 
 }
 

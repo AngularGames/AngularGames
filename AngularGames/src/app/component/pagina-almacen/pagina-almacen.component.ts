@@ -19,7 +19,7 @@ export class PaginaAlmacenComponent {
   }
 
   ngOnInit(){
-    
+
     this.almacen.listaAlmacen().subscribe(data=>this.almacenDB=data);
     this.almacen.listaAlmacen().subscribe(data=>this.almacenDBBajo=data.filter(m=>m.cantidad<4));
     this.almacen.listaAlmacen().subscribe(data=>this.almacenDBMedio=data.filter(m=>m.cantidad<7&&m.cantidad>3));
@@ -46,6 +46,7 @@ export class PaginaAlmacenComponent {
     console.log(this.stock)
   }
 
+  /*
   addStock(){
     let pedidostock:Stock= new Stock(this.nombreJuego,this.cantidad)
     console.log(this.nombreJuego)
@@ -54,6 +55,17 @@ export class PaginaAlmacenComponent {
     this.mensaje="Stock fijado. Pulsa ACTUALIZAR"
     console.log(this.mensaje)
     setTimeout(() => {this.ngOnInit()},250);
+  }
+    */
+
+  guardarStock(nombre:string,cantidad:number){
+    let pedidostock:Stock= new Stock(nombre,cantidad)
+    console.log(nombre)
+    console.log(cantidad)
+    this.almacen.agregarStock(pedidostock).subscribe()
+    this.mensaje="Stock fijado. Pulsa ACTUALIZAR"
+    console.log(this.mensaje)
+    //setTimeout(() => {this.ngOnInit()},250);
   }
 
   cambioAlmacen(almacen:string){
