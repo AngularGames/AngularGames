@@ -19,27 +19,26 @@ export class PaginaAlmacenComponent {
   }
 
   ngOnInit(){
+    
     this.almacen.listaAlmacen().subscribe(data=>this.almacenDB=data);
-    this.almacen.listaAlmacen().subscribe(data=>this.almacenDBBajo=data.filter(m=>m.cantidad<7&&m.cantidad>3));
     this.almacen.listaAlmacen().subscribe(data=>this.almacenDBBajo=data.filter(m=>m.cantidad<4));
+    this.almacen.listaAlmacen().subscribe(data=>this.almacenDBMedio=data.filter(m=>m.cantidad<7&&m.cantidad>3));
 
-
-    console.log(this.almacenDB);
-    console.log(this.almacenDBBajo);
-    console.log(this.almacenDBMedio);
   }
 
   almacenDB:productoAlmacen[];
+  almacenDBBajo:productoAlmacen[];
+  almacenDBMedio:productoAlmacen[];
+
   stock:boolean=false
   nombreJuego:string;
   cantidad:number;
-  almacenDBBajo:productoAlmacen[];
-  almacenDBMedio:productoAlmacen[];
   todos:boolean=true;
   filtroBajo:boolean=false;
   filtroMedio:boolean=false;
   filtroElegido:string;
-
+  mensaje:string;
+  almacenFiltro:productoAlmacen[];
 
 
   cambiarStock(){
@@ -52,14 +51,27 @@ export class PaginaAlmacenComponent {
     console.log(this.nombreJuego)
     console.log(this.cantidad)
     this.almacen.agregarStock(pedidostock).subscribe()
+    this.mensaje="Stock fijado. Pulsa ACTUALIZAR"
+    console.log(this.mensaje)
+    setTimeout(() => {this.ngOnInit()},250);
   }
 
-  filtro(){
-    this.todos=false
-    this.filtroBajo=true
-
+  cambioAlmacen(almacen:string){
+    console.log(almacen)
+    if (almacen=="todos"){
+      this.almacenFiltro=this.almacenDB;
+    };
+    if (almacen=="filtroBajo"){
+      this.almacenFiltro=this.almacenDBBajo;
+    };
+    if (almacen=="filtroMedio"){
+      this.almacenFiltro=this.almacenDBMedio;
+    };
+    console.log(this.almacenFiltro)
   }
 
-
+  actualizar(){
+    this.ngOnInit()
+  }
 
 }

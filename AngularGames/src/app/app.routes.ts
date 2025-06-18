@@ -23,6 +23,4 @@ export const routes: Routes = [
   {path:"busqueda", component:PaginaBusquedaComponent},
 
 
-
-
 ];

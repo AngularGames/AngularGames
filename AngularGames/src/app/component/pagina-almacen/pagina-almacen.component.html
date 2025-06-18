@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col">
     Elige el juego <select [(ngModel)]="nombreJuego">
-      <option *ngFor="let item of almacenDB" value="{{item.nombre}}">{{item.nombre}}</option>
+      <option *ngFor="let item of almacenFiltro" value="{{item.nombre}}">{{item.nombre}}</option>
     </select>
     </div>
     <div class="col">
@@ -19,12 +19,13 @@
     </div>
   </div>
   </div>
-  Elige el FILTRO <select [(ngModel)]="filtroElegido" (change)="filtro()">
+  Elige el FILTRO <select [(ngModel)]="filtroElegido" selected="todos" (change)="cambioAlmacen(filtroElegido)">
+    <option value="todos"  >TODO</option>
     <option value="filtroBajo">BAJO STOCK</option>
     <option value="filtroMedio">MEDIO STOCK</option>
   </select>
 
-  <div *ngIf="todos" class="table-responsive-sm">
+  <div *ngIf="filtroElegido=='todos'">
   <table class="table">
     <thead>
       <tr><th scope="col">NOMBRE</th><th scope="col">TIPO</th><th >CANTIDAD</th><br>
@@ -44,8 +45,8 @@
     </tr>
     </tbody>
   </table>
-  <div *ngIf="filtroBajo">
-    filtrobajo
+  </div>
+  <div *ngIf="filtroElegido=='filtroBajo'">
     <table class="table">
       <thead>
         <tr><th scope="col">NOMBRE</th><th scope="col">TIPO</th><th >CANTIDAD</th><br>
@@ -65,8 +66,30 @@
       </tr>
       </tbody>
     </table>
+    </div>
+    <div *ngIf="filtroElegido=='filtroMedio'">
+      <table class="table">
+        <thead>
+          <tr><th scope="col">NOMBRE</th><th scope="col">TIPO</th><th >CANTIDAD</th><br>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of almacenDBMedio">
+          <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.nombre}}</td>
+            <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.nombre}}</td>
+            <td *ngIf="p.cantidad>7" class="table-success">{{p.nombre}}</td>
+            <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.tipo}}</td>
+            <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.tipo}}</td>
+            <td *ngIf="p.cantidad>7" class="table-success">{{p.tipo}}</td>
+            <td *ngIf="p.cantidad<=3" class="table-danger">{{p.cantidad}}</td>
+            <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" style="width:min-content;">{{p.cantidad}}</td>
+            <td *ngIf="p.cantidad>7" class="table-success">{{p.cantidad}}</td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
 
-  </div>
+
   </div>
 
 
