@@ -9,25 +9,18 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
   constructor(private http:HttpClient) {}
-  url:"http//localhost:3000"
+  urlVerificar:"http://localhost:3000/usuarios/validar"
+  urlRegistro:"http://localhost:3000/usuarios/registro"
   password:string
   usuario:string
-  respuesta
 
 
-  validarUsuario(password:string,usuario:string):Observable<boolean>{
-      this.http.get<boolean>(`${this.url}/usuario/validar?usuario=${usuario},?password=${password}`)
-       .subscribe(data=>this.respuesta=data)
-       console.log(this.respuesta)
-       return this.respuesta
-
+   validarUsuario(password:string,usuario:string):Observable<boolean>{
+     const respuesta = this.http.get<boolean>(`${this.urlVerificar}`)
+     return respuesta
   }
 
   nuevoUsuario(usuario:Usuario):Observable<Usuario>{
-    this.http.post<Usuario>(`${this.url}/usuario/registro`,usuario)
-    .subscribe(data=>this.respuesta=data)
-    console.log(this.respuesta)
-    return this.respuesta
-
+     return this.http.post<Usuario>(`${this.urlRegistro}`,usuario)
 }
 }

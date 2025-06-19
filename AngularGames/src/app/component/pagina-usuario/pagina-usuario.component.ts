@@ -1,10 +1,10 @@
-import { UsuarioDto } from './../../../../../angular-games-nest/src/Dtos/UsuarioDto';
+
 import { UsuarioService } from './../../services/usuarios/usuario.service';
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -12,38 +12,38 @@ import { CommonModule } from '@angular/common';
   imports:[FormsModule,CommonModule]
 })
 export class PaginaUsuarioComponent {
-  userName = ''
-  password = ''
-  nombre = ""
-  apellido = ""
-  nombreUsuario = ""
-  correo = ""
-  direccion = ""
-  telefono = 0
+
+
+  nombre:string
+  apellido:string
+  password:string
+  nombreUsuario:string
+  correo:string
+  direccion:string
+  telefono: number
+
+  respuestaValidacion:boolean
+  respuestaRegistro:Usuario
+  error=""
 
   constructor(private usuarioService: UsuarioService, private router: Router) {}
+
+
+
   validarUsuario() {
-    const loginData = {
-      userName: this.userName,
+    var loginData = {
+      userName: this.nombreUsuario,
       password: this.password
     }
     this.usuarioService.validarUsuario(loginData.userName,loginData.password)
-     /* .subscribe({
-        next: (response) => {
-          // Guardar token u otra info
-          localStorage.setItem('token', response.token);
-          // Navegar a otra ruta o mostrar mensaje
-          this.router.navigate(['/dashboard']);
-        },
-         error: (err) => {
-          this.error = 'Credenciales inválidas';
-        }
-      });*/
-      console.log("boton funciona")
+      .subscribe(data => {
+      console.log("component",data),
+      this.respuestaValidacion = data});
+
     }
 
     nuevoUsuario(){
-      const newUserData:UsuarioDto = {
+       const newUserData = {
         nombre: this.nombre,
         apellido: this.apellido,
         nombreUsuario:this.nombreUsuario,
@@ -51,11 +51,10 @@ export class PaginaUsuarioComponent {
         correo: this.correo,
         direccion: this.direccion,
         telefono: this.telefono
-      }
-      console.log(newUserData)
+       }
       this.usuarioService.nuevoUsuario(newUserData)
-      console.log("boton funciona")
-    }
-  }
+      .subscribe(data=> this.respuestaRegistro = data)
 
+    }
+ }
 

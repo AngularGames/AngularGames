@@ -15,9 +15,8 @@ export class UsuariosService {
     usuarioBuscado: string,
     password: string,
   ): Promise<boolean> {
-    const resultado: Usuario = await this.usuariosRepository.findOneBy({
+    const resultado: UsuarioDto = await this.usuariosRepository.findOneBy({
       nombreUsuario: usuarioBuscado,
-      //password: password,
     });
     console.log(resultado);
     if (resultado == null) {
@@ -27,7 +26,6 @@ export class UsuariosService {
         resultado.nombreUsuario == usuarioBuscado &&
         resultado.password == password
       ) {
-        //creo que es redundante
         return true;
       } else {
         return false;
