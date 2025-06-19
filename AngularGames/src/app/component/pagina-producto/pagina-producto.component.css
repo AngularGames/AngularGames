@@ -58,3 +58,16 @@
 .btn-comprar:hover {
   background-color: #007acc;
 }
+
+.container {
+
+  background-color: #003366;
+  margin: auto
+
+}
+  body{
+    background-image: url("/AngularGames/public/fondo\ web\ 2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }

@@ -1,11 +1,12 @@
   body{
-    background-image: url('/assets/fondoweb 2.jpg');
+    background-image: url("/AngularGames/public/fondo\ web\ 2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center;
   }
 
   .container-fluid{
     background-color: rgb(243, 240, 224);
+    background-image: url("/AngularGames/public/fondo\ web\ 2.jpg");
 
   }

@@ -39,8 +39,9 @@ export class NuevoRegistroComponent {
     this.articuloService.añadirArticulo(nuevoJuego).subscribe(data=>this.respuesta=data)
     console.log("esta debería ser la respuesta "+this.respuesta)
     const nuevoAlmacen= new productoAlmacen(this.nombre,"juego",5);
-    console.log(nuevoAlmacen)
+    console.log("esto es lo que enviamos al almacen ",nuevoAlmacen)
     this.almacenService.agregarAlmacen(nuevoAlmacen).subscribe(data=>this.respuesta=data)
+    console.log("respuesta a guardar juego ",this.respuesta)
 
   }
 

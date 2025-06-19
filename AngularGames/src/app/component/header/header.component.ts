@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ArticuloService } from '../../services/articulos/articulo.service';
+import { PaginapruebasComponent } from '../paginapruebas/paginapruebas.component';
 
 @Component({
   selector: 'app-header',
@@ -12,14 +13,22 @@ import { ArticuloService } from '../../services/articulos/articulo.service';
 })
 export class HeaderComponent {
 
-  constructor(private articuloService:ArticuloService){}
+  constructor(
+    private router:Router,
+    private articuloService:ArticuloService,
+
+  ){}
 
   juegoBuscar:string
 
-
+  /*
+  ngOnInit(){
+    this.router.navigate(["todos"])
+  }
+*/
   buscarJuego(juego:string){
     this.articuloService.elegirJuego(juego);
-    
+
   }
 
 }
