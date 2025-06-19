@@ -2,12 +2,38 @@ body{
   background-color: #0c355c;}
 
 .nav {
-  background-color: rgb(231, 225, 215);
+  background-color: #005959;
+  padding: 3px;
+
 }
 .nav-item{
   color: beige;
 }
 
+.nav-link{
+  color: #FFD12B;
+  text-decoration-color: #ebebeb;
+}
+
 a{
-  color: #ff1010;
+  color: #FFD12B;
+}
+a:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+button {
+  background-color: #005959;
+  border-radius: 10px; /* Redondea los bordes */
+  border: none; /* Elimina el borde */
+  box-shadow:#0c355c; /* Elimina la sombra */
+  color: rgb(190, 28, 28); /* Cambia el color del texto a blanco */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s ease-in-out; /* Agrega una transición suave */
+}
+
+button:hover {
+  background-color: #007777; /* Cambia el color al pasar el cursor */
 }

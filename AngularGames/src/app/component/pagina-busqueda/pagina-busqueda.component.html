@@ -1,187 +1,221 @@
 <div class="container">
   <div class="row row-cols-auto">
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/D4_-_game-icons.svg/768px-D4_-_game-icons.svg.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">TIPO</h5>
-        <p class="card-text">¿Quieres un juego de un tipo concreto? Te ofrecemos unas cuantas opciones</p>
-        <a (click)="seleccion('tipo')" class="btn btn-primary">BUSCAR POR TIPO</a>
+    <div class="col-md-4">
+      <div class="card mb-5" style="width: 18rem;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/D4_-_game-icons.svg/768px-D4_-_game-icons.svg.png" style="object-fit: cover;" class="img-thumbnail" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-align: center;">TIPO</h5>
+          <p class="card-text">¿Quieres un juego de un tipo concreto? Te ofrecemos unas cuantas opciones</p>
+          <a (click)="seleccion('tipo')" class="btn btn-primary">BUSCAR POR TIPO</a>
+        </div>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Noun_Project_people_icon_3376085.svg/768px-Noun_Project_people_icon_3376085.svg.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">DIFICULTAD</h5>
-        <p class="card-text">¿Buscas algo fácil? ¿Quieres un reto? Elige tu dificultad</p>
-        <a (click)="seleccion('dificultad')" class="btn btn-primary">BUSCAR POR DIFICULTAD</a>
+    <div class="col-md-4">
+      <div class="card mb-5" style="width: 18rem;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Dif-hard_icon.png" style="object-fit:contain; object-position: center;" class="img-thumbnail" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">DIFICULTAD</h5>
+          <p class="card-text">¿Buscas algo fácil? ¿Quieres un reto? Elige tu dificultad</p>
+          <a (click)="seleccion('dificultad')" class="btn btn-primary">BUSCAR POR DIFICULTAD</a>
+        </div>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Dif-hard_icon.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">JUGADORES</h5>
-        <p class="card-text">¿Cuántos sois? Vale... creo que tenemos algo.</p>
-        <a (click)="seleccion('jugadores')" class="btn btn-primary">BUSCAR POR JUGADORES</a>
+    <div class="col-md-4">
+      <div class="card mb-5" style="width: 18rem;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Noun_Project_people_icon_3376085.svg/768px-Noun_Project_people_icon_3376085.svg.png" style="object-fit: cover;" class="img-thumbnail" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">JUGADORES</h5>
+          <p class="card-text">¿Cuántos sois? Vale... creo que tenemos algo.</p>
+          <a (click)="seleccion('jugadores')" class="btn btn-primary">BUSCAR POR JUGADORES</a>
+        </div>
       </div>
     </div>
   </div>
-<br>
-<br><br>
 
-<div *ngIf="filtro=='tipo'" class="container">
-  <div class="row row-cols-auto">
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Tak_Endgame.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">ABSTRACTO</h5>
-        <p class="card-text">Juegos poco temáticos pero muy estratégicos.</p>
-        <a [routerLink]="['/filtro/tipo','abstracto']" class="btn btn-primary">Juegos Abstractos</a>
+
+  <br><br>
+
+
+  <div *ngIf="filtro=='tipo'" class="container">
+    <div class="row row-cols-auto">
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Tak_Endgame.jpg" class="img-thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">ABSTRACTO</h5>
+            <p class="card-text">Juegos poco temáticos pero muy estratégicos.</p>
+            <a [routerLink]="['/filtro/tipo','abstracto']" class="btn btn-primary">Juegos Abstractos</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Game%2C_cards_%28AM_1999.143.34-1%29.jpg/960px-Game%2C_cards_%28AM_1999.143.34-1%29.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">CARTAS</h5>
-        <p class="card-text">Cartones con dibujos y números. Lo mejor del mundo.</p>
-        <a [routerLink]="['/filtro/tipo','cartas']" class="btn btn-primary">Juegos de Cartas</a>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Game%2C_cards_%28AM_1999.143.34-1%29.jpg/960px-Game%2C_cards_%28AM_1999.143.34-1%29.jpg" class="img-thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">CARTAS</h5>
+            <p class="card-text">Cartones con dibujos y números. Lo mejor del mundo.</p>
+            <a [routerLink]="['/filtro/tipo','cartas']" class="btn btn-primary">Juegos de Cartas</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Dice_-_1-2-4-5-6.jpg/960px-Dice_-_1-2-4-5-6.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">DADOS</h5>
-        <p class="card-text">¿Quién dijo "La suerte está echada"?. Jueguitos de dados.</p>
-        <a [routerLink]="['/filtro/tipo','dados']" class="btn btn-primary">Juegos de Dados</a>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Dice_-_1-2-4-5-6.jpg/960px-Dice_-_1-2-4-5-6.jpg" class="img-thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">DADOS</h5>
+            <p class="card-text">¿Quién dijo "La suerte está echada"?. Jueguitos de dados.</p>
+            <a [routerLink]="['/filtro/tipo','dados']" class="btn btn-primary">Juegos de Dados</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Monopoly-_Go_Green_Edition_-_DPLA_-_03e1dfbb805a415d73e077ace9d18118_%28page_7%29.jpg/960px-Monopoly-_Go_Green_Edition_-_DPLA_-_03e1dfbb805a415d73e077ace9d18118_%28page_7%29.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">ECONOMICO</h5>
-        <p class="card-text">Arruínate también en la ficción.</p>
-        <a [routerLink]="['/filtro/tipo','economico']" class="btn btn-primary">Juegos de Economicos</a>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Monopoly-_Go_Green_Edition_-_DPLA_-_03e1dfbb805a415d73e077ace9d18118_%28page_7%29.jpg/960px-Monopoly-_Go_Green_Edition_-_DPLA_-_03e1dfbb805a415d73e077ace9d18118_%28page_7%29.jpg" class="img-thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">ECONOMICO</h5>
+            <p class="card-text">Arruínate también en la ficción.</p>
+            <a [routerLink]="['/filtro/tipo','economico']" class="btn btn-primary">Juegos de Economicos</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/TSR%27s_Divine_Right_Strategy_Game.jpg/960px-TSR%27s_Divine_Right_Strategy_Game.jpg?20150407163020" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">ESTRATEGIA</h5>
-        <p class="card-text">Piensa tu estrategia y supera a los demás.</p>
-        <a [routerLink]="['/filtro/tipo','estrategia']" class="btn btn-primary">Juegos de Estrategia</a>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/TSR%27s_Divine_Right_Strategy_Game.jpg/960px-TSR%27s_Divine_Right_Strategy_Game.jpg?20150407163020" class="img-thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">ESTRATEGIA</h5>
+            <p class="card-text">Piensa tu estrategia y supera a los demás.</p>
+            <a [routerLink]="['/filtro/tipo','estrategia']" class="btn btn-primary">Juegos de Estrategia</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Terra_Mystica_-_detail.jpg/960px-Terra_Mystica_-_detail.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">EURO</h5>
-        <p class="card-text">¿Seguro que quieres poner ese Meeple ahí para conseguir esa madera?. Ok, pero no se puede hacer vuelta atrás que nos conocemos.</p>
-        <a [routerLink]="['/filtro/tipo','euro']" class="btn btn-primary">Juegos Euro</a>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Terra_Mystica_-_detail.jpg/960px-Terra_Mystica_-_detail.jpg" class="img-thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">EURO</h5>
+            <p class="card-text">¿Seguro que quieres poner ese Meeple ahí para conseguir esa madera?. Ok, pero no se puede hacer vuelta atrás que nos conocemos.</p>
+            <a [routerLink]="['/filtro/tipo','euro']" class="btn btn-primary">Juegos Euro</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Family_playing_board_game.jpg/960px-Family_playing_board_game.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">FAMILIAR</h5>
-        <p class="card-text">Juega con tus parientes, amigos que no suelen jugar, niños... todos caben.</p>
-        <a [routerLink]="['/filtro/tipo','familiar']" class="btn btn-primary">Juegos Familiares</a>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Family_playing_board_game.jpg/960px-Family_playing_board_game.jpg" class="img-thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">FAMILIAR</h5>
+            <p class="card-text">Juega con tus parientes, amigos que no suelen jugar, niños... todos caben.</p>
+            <a [routerLink]="['/filtro/tipo','familiar']" class="btn btn-primary">Juegos Familiares</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/People_playing_board_game_card_game_in_circle.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">FILLER</h5>
-        <p class="card-text">Rápidos, sencillos, faciles de explicar... Lo mejor mientras esperas a esa persona que llega tarde.</p>
-        <a [routerLink]="['/filtro/tipo','filler']" class="btn btn-primary">Juegos de Filler</a>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/People_playing_board_game_card_game_in_circle.jpg" class="img-thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">FILLER</h5>
+            <p class="card-text">Rápidos, sencillos, faciles de explicar... Lo mejor mientras esperas a esa persona que llega tarde.</p>
+            <a [routerLink]="['/filtro/tipo','filler']" class="btn btn-primary">Juegos de Filler</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Fan_Expo_2014_-_Cards_Against_Humanity_%289669655370%29.jpg/960px-Fan_Expo_2014_-_Cards_Against_Humanity_%289669655370%29.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">PARTY</h5>
-        <p class="card-text">Hay vida más allá del Party y Trivial.</p>
-        <a [routerLink]="['/filtro/tipo','party']" class="btn btn-primary">Juegos Party</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div *ngIf="filtro=='dificultad'" class="container">
-  <div class="row row-cols-auto">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h2 style="color: aqua;" class="card-title">Facilillo</h2>
-        <p class="card-text">Juegos poco temáticos pero muy estratégicos.</p>
-        <a [routerLink]="['/filtro/tipo','abstracto']" class="btn btn-primary">Juegos Abstractos</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Game%2C_cards_%28AM_1999.143.34-1%29.jpg/960px-Game%2C_cards_%28AM_1999.143.34-1%29.jpg" class="card-img-top" alt="...">-->
-      <div class="card-body">
-        <h2 style="color: rgb(154, 221, 55);" class="card-title">Fácil</h2>
-        <p class="card-text">Cartones con dibujos y números. Lo mejor del mundo.</p>
-        <a [routerLink]="['/filtro/tipo','cartas']" class="btn btn-primary">Juegos de Cartas</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h2 style="color: yellow;" class="card-title">Medio</h2>
-        <p class="card-text">¿Quién dijo "La suerte está echada"?. Jueguitos de dados.</p>
-        <a [routerLink]="['/filtro/tipo','dados']" class="btn btn-primary">Juegos de Dados</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h2 style="color: orange;" class="card-title">Durillo</h2>
-        <p class="card-text">Arruínate también en la ficción.</p>
-        <a [routerLink]="['/filtro/tipo','economico']" class="btn btn-primary">Juegos de Economicos</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h2 style="color: crimson;" class="card-title">Duro</h2>
-        <p class="card-text">Piensa tu estrategia y supera a los demás.</p>
-        <a [routerLink]="['/filtro/tipo','estrategia']" class="btn btn-primary">Juegos de Estrategia</a>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Fan_Expo_2014_-_Cards_Against_Humanity_%289669655370%29.jpg/960px-Fan_Expo_2014_-_Cards_Against_Humanity_%289669655370%29.jpg" class="img-thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">PARTY</h5>
+            <p class="card-text">Hay vida más allá del Party y Trivial.</p>
+            <a [routerLink]="['/filtro/tipo','party']" class="btn btn-primary">Juegos Party</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div *ngIf="filtro=='jugadores'" class="container">
-  <div>
-  <div>
-  <label for="jugadoresMin" class="form-label">Jugadores Minimos {{jugadoresMin}}</label>
-<input type="range" [(ngModel)]="jugadoresMin" (change)="jugadores()" class="form-range" min="1" max="{{jugadoresMax}}" step="1" id="jugadoresMin">
-  </div>
-  <div>
-    <label for="jugadoresMax" class="form-label">Jugadores Max {{jugadoresMax}}</label>
-  <input type="range" [(ngModel)]="jugadoresMax" (change)="jugadores()" class="form-range" min="{{jugadoresMin}}" max="10" step="1" id="jugadoresMax">
+  <div *ngIf="filtro=='dificultad'" class="container">
+    <div class="row row-cols-auto">
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <div class="card-body">
+            <h2 style="background-color: aquamarine;" class="card-title">Facilillo</h2>
+            <p class="card-text">Jueguitos para todos</p>
+            <a [routerLink]="['/filtro/tipo','abstracto']" class="btn btn-primary">Juegos Abstractos</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Game%2C_cards_%28AM_1999.143.34-1%29.jpg/960px-Game%2C_cards_%28AM_1999.143.34-1%29.jpg" class="card-img-top" alt="...">-->
+          <div class="card-body">
+            <h2 style="background-color: rgb(104, 243, 111);" class="card-title">Fácil</h2>
+            <p class="card-text">Juegos fáciles y sencillos</p>
+            <a [routerLink]="['/filtro/tipo','cartas']" class="btn btn-primary">Juegos de Cartas</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <div class="card-body">
+            <h2 style="background-color: yellow;" class="card-title">Medio</h2>
+            <p class="card-text">La cosa se complica; pero no mucho</p>
+            <a [routerLink]="['/filtro/tipo','dados']" class="btn btn-primary">Juegos de Dados</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <div class="card-body">
+            <h2 style="background-color: orange;" class="card-title">Durillo</h2>
+            <p class="card-text">Vas a tener que romperte la cabeza</p>
+            <a [routerLink]="['/filtro/tipo','economico']" class="btn btn-primary">Juegos de Economicos</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto ms-md-auto">
+        <div class="card mb-5" style="width: 18rem;">
+          <div class="card-body">
+            <h2 style="background-color: crimson;" class="card-title">Duro</h2>
+            <p class="card-text">¿Te sobran unas horitas para jugar?</p>
+            <a [routerLink]="['/filtro/tipo','estrategia']" class="btn btn-primary">Juegos de Estrategia</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <div *ngIf="filtro=='jugadores'" class="container">
     <div>
-    <button class="btn btn-primary" [routerLink]="['filtro/jugadores']" (click)="filtrar(jugadoresMin,jugadoresMax)">FILTRAR</button>
+      <div>
+        <label for="jugadoresMin" class="form-label">Jugadores Minimos {{jugadoresMin}}</label>
+        <input type="range" [(ngModel)]="jugadoresMin" (change)="jugadores()" class="form-range" min="1" max="{{jugadoresMax}}" step="1" id="jugadoresMin">
+      </div>
+      <div>
+        <label for="jugadoresMax" class="form-label">Jugadores Max {{jugadoresMax}}</label>
+        <input type="range" [(ngModel)]="jugadoresMax" (change)="jugadores()" class="form-range" min="{{jugadoresMin}}" max="10" step="1" id="jugadoresMax">
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-primary" [routerLink]="['filtro/jugadores']" (click)="filtrar(jugadoresMin,jugadoresMax)">FILTRAR</button>
     </div>
     <div *ngIf="filtroJugadores">
       <div class="container">
         <div class="row row-cols-auto">
-          <div  *ngFor="let item of juegosPorJugadores"  class="col-auto ms-md-auto">
-            <div   class="card mb-5" style="width: 18rem;">
-                    <img src="{{item.imagen}}" style="object-fit: cover;" class="img-thumbnail" alt="...">
-                    <div class="card-body">
-                      <h3 class="card-title" style="text-align: center;">{{item.nombre}}</h3>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">{{item.tipo}}</li>
-                      <li class="list-group-item">de {{item.jugadoresMin}} a {{item.jugadoresMax}} jugadores</li>
-                      <li class="list-group-item">una <b>dificultad de {{item.dificultad}}</b> sobre 5</li>
-                    </ul>
-                    <div class="carf-body" style="align-self: center; text-align: center;">
-                      <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a [routerLink]="['/producto',item.nombre]" class="btn btn-primary">Pagina de {{item.nombre}}</a>
-                      </div>
-                    </div>
+          <div *ngFor="let item of juegosPorJugadores" class="col-auto ms-md-auto">
+            <div class="card mb-5" style="width: 18rem;">
+              <img src="{{item.imagen}}" style="object-fit: cover;" class="img-thumbnail" alt="...">
+              <div class="card-body">
+                <h3 class="card-title" style="text-align: center;">{{item.nombre}}</h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{item.tipo}}</li>
+                <li class="list-group-item">de {{item.jugadoresMin}} a {{item.jugadoresMax}} jugadores</li>
+                <li class="list-group-item">una <b>dificultad de {{item.dificultad}}</b> sobre 5</li>
+              </ul>
+              <div class="carf-body" style="align-self: center; text-align: center;">
+                <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a [routerLink]="['/producto',item.nombre]" class="btn btn-primary">Pagina de {{item.nombre}}</a>
+              </div>
             </div>
           </div>
         </div>
-          </div>
+      </div>
+    </div>
   </div>
-
-
-
-
+  <router-outlet></router-outlet>
+</div>

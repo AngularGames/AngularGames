@@ -34,3 +34,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  background-color: #333; /* Gris oscuro */
+  color: #fff; /* Texto blanco para contraste */
+}
+
+body.mat-typography {
+  background-image: "/AngularGames/public/fondo web 2.jpg";
+  background-color: #008282; /* Azul oscuro */
+  color: aliceblue
+  ;
+}

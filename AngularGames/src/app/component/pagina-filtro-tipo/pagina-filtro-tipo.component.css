@@ -1,0 +1,90 @@
+/* Fondo de la página */
+body {
+  background-color:#0b2e44;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #eaeaea; /* Texto claro para contraste */
+}
+
+/* Contenedor principal */
+.container {
+  padding: 20px;
+  background-color: transparent;
+}
+
+/* Estilo para las tarjetas */
+.card {
+  background-color: #dbd8c8;
+  color: #000000; /* Texto negro */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra suave */
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Elevar la tarjeta al pasar el cursor */
+}
+
+.card-body {
+  text-align: center;
+
+}
+
+.carf-body{
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.list-group-item {
+  background-color: #c9c5b69c;
+  color: #000000; /* Texto negro */
+  border: none;
+}
+
+/* Estilo para las imágenes */
+.img-thumbnail {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho de la tarjeta */
+  height: 400px; /* Altura fija para todas las imágenes */
+  aspect-ratio: 1/1;
+  object-fit:cover; /* Ajusta la imagen para cubrir el espacio */
+  object-position: top;
+  border: none;
+  border-radius: 10px;
+}
+
+
+/* Estilo para el botón "go-to-top" */
+.go-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #005f99; /* Azul oscuro */
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Media query para diseño responsivo */
+@media (max-width: 768px) {
+  .row-cols-auto {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Dos columnas en pantallas pequeñas */
+  }
+}
+
+@media (min-width: 769px) {
+  .row-cols-auto {
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas medianas y grandes */
+  }
+}
+
+body.mat-typography {
+  background-color: #0b2e44; /* Azul oscuro */
+}

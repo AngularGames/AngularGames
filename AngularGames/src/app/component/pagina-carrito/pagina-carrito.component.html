@@ -1,49 +1,52 @@
-        <div class="producto-container">
-          <div>
-            <p>Pedido: {{numpedido}}</p>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>NUMERO PEDIDO</th>
-                  <th>NOMBRE ARTICULO</th>
-                  <th>CANTIDAD</th>
-                  <th>PRECIO</th>
-                  <th>BORRAR</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr scope="row" *ngFor="let item of listaCompra">
-                  <td>{{item.numPedido}}</td>
-                  <td>{{item.nombreArticulo}}</td>
-                  <td>{{item.cantidad}}</td>
-                  <td>{{item.precio}}</td>
-                  <td><button (click)="borrarDeLista(item.nombreArticulo)"> - </button></td>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th>IMPORTE TOTAL</th>
-                  <th></th>
-
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>{{importeTotal}}</td>
-                  <td></td>
-
-                </tr>
-              </tbody>
-              </table>
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-lg-auto">
-              <button class="btn-comprar" (click)="ConfirmarCarrito()">PAGAR</button><br>
-                  </div>
-                </div>
-              </div>
-            <div *ngIf="pagado" class="alert alert-success"  role="alert">
-              Pedido recibido. Gracias por su compra
-            </div>
+<div class="container">
+  <div class="card beige-card">
+    <div class="card-body">
+      <h5 class="card-title">Carrito de Compra</h5>
+      <p>Pedido: {{numpedido}}</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>NUMERO PEDIDO</th>
+            <th>NOMBRE ARTICULO</th>
+            <th>CANTIDAD</th>
+            <th>PRECIO</th>
+            <th>BORRAR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr scope="row" *ngFor="let item of listaCompra">
+            <td>{{item.numPedido}}</td>
+            <td>{{item.nombreArticulo}}</td>
+            <td>{{item.cantidad}}</td>
+            <td>{{item.precio}}</td>
+            <td><button class="btn btn-danger" (click)="borrarDeLista(item.nombreArticulo)"> - </button></td>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>IMPORTE TOTAL</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{importeTotal}}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-auto">
+            <button class="btn btn-success" (click)="ConfirmarCarrito()">PAGAR</button><br>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="pagado" class="alert alert-success" role="alert">
+        Pedido recibido. Gracias por su compra
+      </div>
+    </div>
+  </div>
+</div>
