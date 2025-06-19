@@ -4,23 +4,9 @@
 
 <br>
 
-  <button routerLink="/nuevoProducto">NUEVO PRODUCTO</button><button (click)="cambiarStock()">STOCK</button>
-  <div *ngIf="stock">
-    <div class="grid-container">
-    <div class="row">
-      <div class="col">
-    Elige el juego <select [(ngModel)]="nombreJuego">
-      <option *ngFor="let item of almacenFiltro" value="{{item.nombre}}">{{item.nombre}}</option>
-    </select>
-    </div>
-    <div class="col">
-    <!--Cantidad de Stock <input type="number" [(ngModel)]="cantidad"><button (click)="addStock()">FIJAR STOCK</button><button (click)="ngOnInit()">Actualizar</button> -->
-    </div>
-    </div>
-  </div>
-  </div>
-  Elige el FILTRO <select [(ngModel)]="filtroElegido" selected="todos" (change)="cambioAlmacen(filtroElegido)">
-    <option value="todos"  >TODO</option>
+  <button routerLink="/nuevoProducto">NUEVO PRODUCTO</button>
+  Elige el FILTRO <select [(ngModel)]="filtroElegido" (change)="cambioAlmacen(filtroElegido)">
+    <option [selected]="true" value="todos"  >TODO</option>
     <option value="filtroBajo">BAJO STOCK</option>
     <option value="filtroMedio">MEDIO STOCK</option>
   </select>
