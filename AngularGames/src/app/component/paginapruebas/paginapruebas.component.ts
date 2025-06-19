@@ -1,19 +1,23 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { PaginaProductoComponent } from '../pagina-producto/pagina-producto.component';
 import { Juego } from '../../models/Juego';
 import { ArticuloService } from '../../services/articulos/articulo.service';
 import { PaginaAlmacenComponent } from "../pagina-almacen/pagina-almacen.component";
-
+import { Body } from '@nestjs/common';
+import {MatIconModule} from '@angular/material/icon'
 @Component({
   selector: 'app-paginapruebas',
-  imports: [RouterModule, CommonModule, FormsModule],
+  imports: [RouterModule, CommonModule, FormsModule, MatIconModule],
   templateUrl: './paginapruebas.component.html',
   styleUrl: './paginapruebas.component.css'
 })
 export class PaginapruebasComponent {
+showTopButton: any;
+
+
 
   constructor(
     private articuloService:ArticuloService,
@@ -22,6 +26,7 @@ export class PaginapruebasComponent {
     this.articuloService.CargarListaJuegos().subscribe(data=>this.juegosCargados=data)
   }
 
+  botonArriba
   juegoElegido:string;
   productoBuscar:string;
   resultado:Juego;
@@ -33,15 +38,17 @@ export class PaginapruebasComponent {
      this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.resultado=data);
      this.visible=true;
      return this.resultado;
-
   }
-/*
-  seleccionado(nombre:string){
 
-    this.juegoElegido=nombre
-
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.showTopButton = window.scrollY > 350;
   }
-*/
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
 }
 
 

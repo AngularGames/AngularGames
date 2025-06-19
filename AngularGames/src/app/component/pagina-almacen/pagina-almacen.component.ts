@@ -1,19 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { productoAlmacen } from '../../models/productoAlmacen';
 import { Stock } from '../../models/Stock';
 import { AlmacenService } from '../../services/almacen/almacen.service';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-pagina-almacen',
-  imports: [CommonModule,FormsModule,RouterModule],
+  imports: [CommonModule,FormsModule,RouterModule, MatIconModule],
   templateUrl: './pagina-almacen.component.html',
   styleUrl: './pagina-almacen.component.css'
 })
 export class PaginaAlmacenComponent {
+  showTopButton: boolean;
 
   constructor( private almacen:AlmacenService){
   }
@@ -85,5 +87,15 @@ export class PaginaAlmacenComponent {
   actualizar(){
     this.ngOnInit()
   }
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.showTopButton = window.scrollY > 350;
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
 
 }

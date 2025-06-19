@@ -24,7 +24,9 @@
       </div>
     </div>
   </div>
-
+  <button mat-icon-button class="go-to-top" *ngIf="showTopButton" (click)="scrollToTop()">
+    <mat-icon>arrow_upward</mat-icon>
+  </button>
 <router-outlet></router-outlet>
 
 
