@@ -2,5 +2,12 @@ body{
   background-color: #0c355c;}
 
 .nav {
-  background-color: rgb(206, 145, 53);
+  background-color: rgb(231, 225, 215);
+}
+.nav-item{
+  color: beige;
+}
+
+a{
+  color: #ff1010;
 }

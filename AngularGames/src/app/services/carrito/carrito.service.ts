@@ -28,6 +28,7 @@ return this.http.get<Carrito[]>(`${this.url}/carrito/mostrar/${numpedido}`)
 }
 
 numeroDeCarrito():Observable<number>{
+  console.log("pedido num carrito en service front")
   return this.http.get<number>(`${this.url}/carrito/numeroPedido`);
 
 }

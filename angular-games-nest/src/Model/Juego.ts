@@ -9,9 +9,9 @@ export class Juego{
     @Column()
     tipo:string;
     @Column()
-    jugadoresMin:string;
+    jugadoresMin:number;
     @Column()
-    jugadoresMax:string;
+    jugadoresMax:number;
     @Column()
     dificultad:number;
     @Column()
@@ -23,7 +23,7 @@ export class Juego{
 
 
   
-  constructor(idArticulo?:number,nombre?:string,tipo?:string,jugadoresMin?:string,jugadoresMax?:string,dificultad?:number,descripcion?:string,precio?:number,imagen?:string){
+  constructor(idArticulo?:number,nombre?:string,tipo?:string,jugadoresMin?:number,jugadoresMax?:number,dificultad?:number,descripcion?:string,precio?:number,imagen?:string){
   
     this.idArticulo=idArticulo;
     this.nombre=nombre;

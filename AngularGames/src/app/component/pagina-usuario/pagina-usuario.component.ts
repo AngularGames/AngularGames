@@ -26,6 +26,7 @@ export class PaginaUsuarioComponent {
   respuestaRegistro:Usuario
   error=""
 
+
   constructor(private usuarioService: UsuarioService, private router: Router) {}
 
 

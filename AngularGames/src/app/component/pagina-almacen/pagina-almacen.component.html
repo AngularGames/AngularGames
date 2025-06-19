@@ -1,11 +1,22 @@
-<p>pagina-almacen works!</p>
+<div style="text-align: center;">
 <h1>Almacén</h1>
-<h3>Inventario de Angular Games</h3><br>
-  <a routerLink="/nuevoProducto">NUEVO PRODUCTO</a>
-  <div class="table-responsive-md">
+<h3>Inventario de Angular Games</h3>
+
+<br>
+
+  <button routerLink="/nuevoProducto">NUEVO PRODUCTO</button>
+  Elige el FILTRO <select [(ngModel)]="filtroElegido" (change)="cambioAlmacen(filtroElegido)">
+    <option [selected]="true" value="todos"  >TODO</option>
+    <option value="filtroBajo">BAJO STOCK</option>
+    <option value="filtroMedio">MEDIO STOCK</option>
+  </select>
+  <button (click)="actualizar()">CONFIRMAR STOCK</button>
+
+
+  <div *ngIf="filtroElegido=='todos'">
   <table class="table">
     <thead>
-      <tr><th scope="col">ID ALMACEN</th><th scope="col">NOMBRE</th><th scope="col">TIPO</th><th >CANTIDAD</th><br>
+      <tr><th scope="col">NOMBRE</th><th scope="col">TIPO</th><th >CANTIDAD</th><br>
       </tr>
     </thead>
     <tbody>
@@ -16,12 +27,58 @@
         <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.tipo}}</td>
         <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.tipo}}</td>
         <td *ngIf="p.cantidad>7" class="table-success">{{p.tipo}}</td>
-        <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.cantidad}}</td>
-        <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.cantidad}}</td>
-        <td *ngIf="p.cantidad>7" class="table-success">{{p.cantidad}}</td>
+        <td *ngIf="p.cantidad<=3" class="table-danger"><input type="number" [(ngModel)]="p.cantidad" (change)="guardarStock(p.nombre,p.cantidad)"></td>
+        <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" style="width:min-content;"><input type="number" [(ngModel)]="p.cantidad" (change)="guardarStock(p.nombre,p.cantidad)"></td>
+        <td *ngIf="p.cantidad>7" class="table-success"><input type="number" [(ngModel)]="p.cantidad" (change)="guardarStock(p.nombre,p.cantidad)"></td>
     </tr>
     </tbody>
   </table>
+  </div>
+  <div *ngIf="filtroElegido=='filtroBajo'">
+    <table class="table">
+      <thead>
+        <tr><th scope="col">NOMBRE</th><th scope="col">TIPO</th><th >CANTIDAD</th><br>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of almacenDBBajo">
+        <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.nombre}}</td>
+          <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.nombre}}</td>
+          <td *ngIf="p.cantidad>7" class="table-success">{{p.nombre}}</td>
+          <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.tipo}}</td>
+          <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.tipo}}</td>
+          <td *ngIf="p.cantidad>7" class="table-success">{{p.tipo}}</td>
+          <td *ngIf="p.cantidad<=3" class="table-danger"><input type="number" [(ngModel)]="p.cantidad" (change)="guardarStock(p.nombre,p.cantidad)"></td>
+          <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" style="width:min-content;"><input type="number" [(ngModel)]="p.cantidad" (change)="guardarStock(p.nombre,p.cantidad)"></td>
+          <td *ngIf="p.cantidad>7" class="table-success"><input type="number" [(ngModel)]="p.cantidad" (change)="guardarStock(p.nombre,p.cantidad)"></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div *ngIf="filtroElegido=='filtroMedio'">
+      <table class="table">
+        <thead>
+          <tr><th scope="col">NOMBRE</th><th scope="col">TIPO</th><th >CANTIDAD</th><br>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of almacenDBMedio">
+          <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.nombre}}</td>
+            <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.nombre}}</td>
+            <td *ngIf="p.cantidad>7" class="table-success">{{p.nombre}}</td>
+            <td *ngIf="p.cantidad<=3" class="table-danger" >{{p.tipo}}</td>
+            <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" >{{p.tipo}}</td>
+            <td *ngIf="p.cantidad>7" class="table-success">{{p.tipo}}</td>
+            <td *ngIf="p.cantidad<=3" class="table-danger"><input type="number" [(ngModel)]="p.cantidad" (change)="guardarStock(p.nombre,p.cantidad)"></td>
+            <td *ngIf="p.cantidad>3&&p.cantidad<=7" class="table-warning" style="width:min-content;"><input type="number" [(ngModel)]="p.cantidad" (change)="guardarStock(p.nombre,p.cantidad)"></td>
+            <td *ngIf="p.cantidad>7" class="table-success"><input type="number" [(ngModel)]="p.cantidad" (change)="guardarStock(p.nombre,p.cantidad)"></td>
+              </tr>
+        </tbody>
+      </table>
+      <button (click)="actualizar()">CONFIRMAR STOCK</button>
+      </div>
+
+
   </div>
 
 

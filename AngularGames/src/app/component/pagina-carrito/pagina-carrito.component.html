@@ -1,1 +1,45 @@
 <p>pagina-carrito works!</p>
+
+        <div class="producto-container">
+          <div>
+            <p>Pedido: {{numpedido}}</p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>NUMERO PEDIDO</th>
+                  <th>NOMBRE ARTICULO</th>
+                  <th>CANTIDAD</th>
+                  <th>PRECIO</th>
+                  <th>BORRAR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr scope="row" *ngFor="let item of listaCompra">
+                  <td>{{item.numPedido}}</td>
+                  <td>{{item.nombreArticulo}}</td>
+                  <td>{{item.cantidad}}</td>
+                  <td>{{item.precio}}</td>
+                  <td><button (click)="borrarDeLista(item.nombreArticulo)"> - </button></td>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>IMPORTE TOTAL</th>
+                  <th></th>
+
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>{{importeTotal}}</td>
+                  <td></td>
+
+                </tr>
+              </tbody>
+              <button class="btn-comprar"  (click)="ConfirmarCarrito()">PAGAR</button><br>
+            </table>
+            <div *ngIf="pagado" class="alert alert-success" role="alert">
+              Pedido recibido. Gracias por su compra
+            </div>

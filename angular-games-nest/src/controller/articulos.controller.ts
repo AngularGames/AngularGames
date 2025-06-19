@@ -36,7 +36,8 @@ async buscarTipo(@Param("tipo") tipo:string):Promise<Juego[]>{
 };
 
 @Get("/buscar/jugadores")
-async buscarJugadores(@Query("jmin") jmin:string,@Query("jmax") jmax:string):Promise<Juego[]>{
+async buscarJugadores(@Query("jmin") jmin:number,@Query("jmax") jmax:number):Promise<Juego[]>{
+  console.log("han entrado en el controller")
   return await this.articulosService.filtrarJugadores(jmin,jmax);
 
 };

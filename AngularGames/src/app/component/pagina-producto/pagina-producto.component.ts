@@ -32,7 +32,7 @@ select:string;
 articulo:Juego;
 productoBuscar:string;
 unidades:number;
-numpedido:number=1
+numpedido:number;
 listaCompra:Carrito[];
 importeTotal:number
 carrito:boolean=false
@@ -65,14 +65,11 @@ stockProducto(nombre:string){
 
 
  agregarAlCarrito(){
-// Antonio. Todo lo hace UN CLICK POR DETRÁS. No sé cómo hacerlo. timer? meter todo en una función y cuando esté entonces que haga el resto? no sé
   let total:number=this.unidades*this.articulo.precio
   let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
-  this.carritoService.agregarAlCarrito(pedido).subscribe();
-  this.almacenService.consultarStock(this.articulo.nombre).subscribe(data=>
-  this.stockArticulo=data)
-  this.mostrarCarrito()
-
+  //this.listaCompra.push(pedido)
+  this.carritoService.agregarAlCarrito(pedido).subscribe(data=>this.mostrarCarrito());
+  //setTimeout(()=>this.mostrarCarrito(),1000)
 }
 
 mostrarCarrito(){
@@ -80,17 +77,18 @@ mostrarCarrito(){
   this.carrito=true
   this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.listaCompra=data)
   this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.importeTotal=(data.map(m=>m.precio)).reduce((a,b)=>a+b,0))
+  this.almacenService.consultarStock(this.articulo.nombre).subscribe(data=>this.stockArticulo=data)
+
 }
 
 ConfirmarCarrito(){
-
   this.pagado=true
+  setTimeout(()=>this.pagado=false,3000)
 
 }
 
 borrarDeLista(nombre:string){
   this.carritoService.eliminarDelCarrito(nombre).subscribe()
-  this.mostrarCarrito();
 }
 
 }
