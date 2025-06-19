@@ -52,6 +52,7 @@ async mostrarCarrito(@Param("pedido") pedido:number):Promise<CarritoDto[]>{
 
 @Get("numeroPedido")
 async numeroDePedido():Promise<number>{
+  console.log("el back ha recibido el pedido del numero de carrito")
   let pedido:CarritoDto[] = await this.carritoService.numeroDeCarrito();
   let numeroPedido:number = Math.max(...pedido.map(m=>m.numPedido));
   console.log("el numero de pedido del controller es "+ numeroPedido)

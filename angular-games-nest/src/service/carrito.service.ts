@@ -30,6 +30,7 @@ async mostrarCarrito(numPedido:number):Promise<CarritoDto[]>{
 }
 
 async numeroDeCarrito():Promise<CarritoDto[]>{
+  console.log("el pedido del numero ha entrado en carrito service back");
   return await this.carritoRepository.find();
 }
 
