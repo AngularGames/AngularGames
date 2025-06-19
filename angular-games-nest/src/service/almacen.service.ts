@@ -12,6 +12,7 @@ constructor(@InjectRepository(productoAlmacen) private almacenRepository:Reposit
 
 
 async agregarProducto(producto:productoAlmacenDto):Promise<boolean>{
+    console.log(producto)
     console.log("ha entrado en almacen serv back "+producto.nombre)
     const resultado = await this.almacenRepository.save(producto);
     if(resultado) return true

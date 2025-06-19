@@ -41,7 +41,7 @@ export class AlmacenController {
       return this.almacenService.mostrarInventario();
     }
 @Post("agregar")
-    async agregarProducto(@Body("producto") producto:any, @Res() response:Response){
+    async agregarProducto(@Body() producto:any, @Res() response:Response){
       console.log("lo que entra es "+producto.nombre)
       const respuesta = await this.almacenService.agregarProducto(producto);
       console.log(respuesta)

@@ -28,6 +28,7 @@ export class AlmacenService {
 
   agregarAlmacen(nuevoJuego:productoAlmacen):Observable<any>{
     console.log(`este juego ${nuevoJuego.nombre} entra en almacen service front`)
+    console.log("enviamos ",nuevoJuego)
     return this.http.post<productoAlmacen>(`${this.url}/almacen/agregar`,nuevoJuego)
 
   }
