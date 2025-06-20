@@ -45,7 +45,10 @@ ConfirmarCarrito(){
 }
 
 borrarDeLista(nombre:string){
-  this.carritoService.eliminarDelCarrito(nombre).subscribe()
+  this.carritoService.eliminarDelCarrito(nombre).subscribe(data=>{
+    this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.listaCompra=data);
+    this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.importeTotal=(data.map(m=>m.precio)).reduce((a,b)=>a+b,0));
+  })
 }
 
 

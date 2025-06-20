@@ -67,7 +67,6 @@ export class PaginaAlmacenComponent {
     this.almacen.agregarStock(pedidostock).subscribe()
     this.mensaje="Stock fijado. Pulsa ACTUALIZAR"
     console.log(this.mensaje)
-    //setTimeout(() => {this.ngOnInit()},250);
   }
 
   cambioAlmacen(almacen:string){
