@@ -43,7 +43,7 @@ ConfirmarCarrito(){
   let pedido:Carrito = new Carrito(this.numpedido+1,null,null,null)
   this.carritoService.agregarAlCarrito(pedido).subscribe();
   setTimeout(()=>this.pagado=false,3000)
-
+  setTimeout(()=>this.ngOnInit(),3000)
 }
 
 borrarDeLista(nombre:string){
