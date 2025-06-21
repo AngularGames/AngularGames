@@ -9,6 +9,8 @@ import { Usuario } from '../../models/usuario';
 @Component({
   selector: 'app-login',
   templateUrl: "./pagina-usuario.component.html",
+  styleUrl: './pagina-usuario.component.css',
+
   imports:[FormsModule,CommonModule]
 })
 export class PaginaUsuarioComponent {

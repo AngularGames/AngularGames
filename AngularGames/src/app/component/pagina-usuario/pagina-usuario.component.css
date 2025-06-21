@@ -1,44 +1,33 @@
 /* Estilos generales */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #333; /* Gris oscuro */
-  color: #fff; /* Texto blanco para contraste */
+  background-color: #333;
+  color: #fff;
 }
 
 .container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-}
-
-/* Estilos para la tarjeta */
-.card {
-  background-color: #444; /* Gris más claro */
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #008989;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
 }
 
 .card-header {
-  background-color: #555; /* Gris aún más claro */
-  color: #FFD12B; /* Amarillo */
+  background-color: #005959;
+  color: #FFD12B;
   text-align: center;
   padding: 10px;
-  border-bottom: 1px solid #666;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
 .card-body {
   padding: 20px;
-  background-color: #005959;
-}
-.card-body > div {
-  display: flex;
-  justify-content: center;
+  background-color: #006262; /* Color #008989 */
 }
 
-/* Estilos para los formularios */
 .form-group {
   margin-bottom: 15px;
 }
@@ -54,34 +43,33 @@ label {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #666; /* Gris claro */
   color: #fff;
 }
 
-/* Estilos para los botones */
 .btn-primary {
-  background-color: #005959; /* Verde azulado */
+  background-color: #008282; /* Verde */
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
 }
 
 .btn-primary:hover {
-  background-color: #007777; /* Verde azulado más oscuro */
+  background-color: #218838;
 }
 
-/* Estilos para mensajes de error y éxito */
-.error {
-  color: #FF5B5B; /* Rojo */
+.success {
+  color: #5BFF5B;
   text-align: center;
   margin-top: 10px;
 }
 
-.success {
-  color: #5BFF5B; /* Verde */
+.error {
+  color: #FF5B5B;
   text-align: center;
   margin-top: 10px;
 }

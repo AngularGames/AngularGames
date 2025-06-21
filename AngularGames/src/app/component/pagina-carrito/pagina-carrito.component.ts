@@ -26,9 +26,11 @@ export class PaginaCarritoComponent {
 
   ngOnInit(){
       console.log("se inicia y pedimos el numero de pedido")
-      this.carritoService.numeroDeCarrito().subscribe(data=>{this.numpedido=data})
-      setTimeout(()=>this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.listaCompra=data),500);
-      setTimeout(()=>this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.importeTotal=(data.map(m=>m.precio)).reduce((a,b)=>a+b,0)),500)
+      this.carritoService.numeroDeCarrito().subscribe(data=>{
+        this.numpedido=data;
+        this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.listaCompra=data);
+        this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>this.importeTotal=(data.map(m=>m.precio)).reduce((a,b)=>a+b,0));
+      })
       this.listaCompra=this.paginaProducto.listaCompra
       console.log(this.listaCompra)
 

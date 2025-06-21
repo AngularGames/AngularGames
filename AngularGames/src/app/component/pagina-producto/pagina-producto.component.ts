@@ -37,7 +37,7 @@ listaCompra:Carrito[];
 importeTotal:number
 carrito:boolean=false
 stockArticulo:number;
-pagado:boolean=false;
+added:boolean=false;
 
 ngOnInit(){
   const nombreJuego:string = this.route.snapshot.paramMap.get('nombre');
@@ -67,9 +67,7 @@ stockProducto(nombre:string){
  agregarAlCarrito(){
   let total:number=this.unidades*this.articulo.precio
   let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
-  //this.listaCompra.push(pedido)
-  this.carritoService.agregarAlCarrito(pedido).subscribe(data=>this.mostrarCarrito());
-  //setTimeout(()=>this.mostrarCarrito(),1000)
+  this.carritoService.agregarAlCarrito(pedido).subscribe(data=>this.addedCarrito());
 }
 
 mostrarCarrito(){
@@ -81,9 +79,9 @@ mostrarCarrito(){
 
 }
 
-ConfirmarCarrito(){
-  this.pagado=true
-  setTimeout(()=>this.pagado=false,3000)
+addedCarrito(){
+  this.added=true
+  setTimeout(()=>this.added=false,2000)
 
 }
 

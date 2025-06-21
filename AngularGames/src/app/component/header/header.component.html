@@ -1,26 +1,30 @@
-<h1>CABECERA DE ANGULAR GAMES</h1>
-<ul class="nav">
-  <li class="nav-item">
-    <button><a class="nav-link " aria-current="page" href="todos">JUEGOS</a></button>
-  </li>
-<li class="nav-item">
-  <button><a class="nav-link" href="/busqueda">BUSCAR POR</a></button>
-</li>
-<li class="nav-item">
-  <button><a class="nav-link" href="/usuarios">USUARIOS</a></button>
-  </li>
-  <li class="nav-item">
-    <button><a class="nav-link" href="/almacen">ALMACEN</a></button>
-  </li>
+<div>
+  <img src="https://iili.io/FzC3DDN.png" style="height: 50%;">
+</div>
+<div>
+  <ul class="nav">
+    <li class="nav-item">
+      <button><a class="nav-link" aria-current="page" href="todos">JUEGOS</a></button>
+    </li>
+    <li class="nav-item">
+      <button><a class="nav-link" href="/busqueda">BUSCAR POR</a></button>
+    </li>
+    <li class="nav-item">
+      <button><a class="nav-link" href="/usuarios">USUARIOS</a></button>
+    </li>
+    <li class="nav-item">
+      <button><a class="nav-link" href="/almacen">ALMACEN</a></button>
+    </li>
     <li class="nav-item">
       <button><a class="nav-link" href="/carrito">CARRITO</a></button>
-  </li>
+    </li>
+    <li class="nav-item search-container">
+      <input class="barraBuscar" type="text" [(ngModel)]="juegoBuscar" placeholder="Busca un juego">
+      <a href="/producto/{{juegoBuscar}}">BUSCAR</a>
+    </li>
 
+  </ul>
+</div>
 
-  <li class="nav-item" style="align-self: center">
-     <input class="barraBuscar" style="vertical-align: middle;" type="text" [(ngModel)]="juegoBuscar" placeholder="Busca un juego"><a style="align-self: center;" href="/producto/{{juegoBuscar}}">BUSCAR</a>
-  </li>
-
-</ul>
 <br>
 <router-outlet></router-outlet>

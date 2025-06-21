@@ -1,17 +1,20 @@
 <div class="container">
   <h1>Almacén</h1>
-  <h3>Inventario de Angular Games</h3>
-
+  <h3>Inventario de Angular Games</h3><br>
+<div>
+  <button routerLink="/nuevoProducto" class="btn btn-primary">NUEVO PRODUCTO</button>
+</div><br>
+  <h3>FILTRAR POR CANTIDAD DE STOCK</h3>
   <div class="controls">
-    <button routerLink="/nuevoProducto" class="btn btn-primary">NUEVO PRODUCTO</button>
+    <div>
+    </div>
     <div class="filter-select">
-      Elige el FILTRO
-      <select [(ngModel)]="filtroElegido" (change)="cambioAlmacen(filtroElegido)" class="form-control">
+     <select [(ngModel)]="filtroElegido" (change)="cambioAlmacen(filtroElegido)" class="form-control">
         <option [selected]="true" value="todos">TODO</option>
         <option value="filtroBajo">BAJO STOCK</option>
         <option value="filtroMedio">MEDIO STOCK</option>
       </select>
-    </div>
+    </div><br>
     <button (click)="actualizar()" class="btn btn-secondary">CONFIRMAR STOCK</button>
   </div>
 

@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  background-image: url("assets/fondoangular2.png");
+  background-repeat: repeat;
+  /* Otros estilos para el body */
+  font-family: Arial, sans-serif;
+  color: #333;
+}
 
 :root {
   --bs-blue: #0d6efd;
@@ -32,17 +34,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-body {
-  background-color: #333; /* Gris oscuro */
-  color: #fff; /* Texto blanco para contraste */
-}
-
-body.mat-typography {
-  background-image: "/AngularGames/public/fondo web 2.jpg";
-  background-color: #008282; /* Azul oscuro */
-  color: aliceblue
-  ;
-}

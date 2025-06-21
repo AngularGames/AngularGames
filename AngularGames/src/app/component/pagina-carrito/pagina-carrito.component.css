@@ -1,3 +1,85 @@
-.btn-comprar{
-  align-self: center;
+/* Estilos generales */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Estilos para la tarjeta */
+.card {
+  background-color: #dbd8c8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #008282;
+  color: #FFD12B;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #666;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Estilos para la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #666;
+}
+
+.table th {
+  background-color: #005959;
+  color: #FFD12B;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #118a8a;
+}
+
+/* Estilos para los botones */
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: #005959;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Estilos para mensajes de éxito */
+.alert-success {
+  background-color: #008282;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
 }

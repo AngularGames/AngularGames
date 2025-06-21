@@ -92,3 +92,12 @@ body {
 body.mat-typography {
   background-color: #0b2e44; /* Azul oscuro */
 }
+
+.btn-primary{
+
+  background-color: #005959;
+  color:#ffd12b
+
+}
+
+

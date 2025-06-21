@@ -1,5 +1,6 @@
 /* Contenedor principal */
 .producto-container {
+  color: #c4ad47;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,6 +10,7 @@
   /* Eliminar o comentar el fondo y la sombra específicos */
   background-color: #005959;
   border-radius: 10px;
+  box-shadow: 3px 3px 9px rgb(0, 0, 0);
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
 }
 
@@ -16,7 +18,7 @@
 .producto-imagen img {
   max-width: 300px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.267);
 }
 
 /* Detalles del producto */
@@ -25,6 +27,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  color: #ffffff;
 }
 
 .producto-detalles h1 {
@@ -34,7 +37,7 @@
 
 .producto-descripcion {
   font-size: 1rem;
-  color: #eaeaea; /* Texto claro para contraste */
+  color: #dadada; /* Texto claro para contraste */
   line-height: 1.5;
 }
 
@@ -49,6 +52,7 @@
   background-color: #124e4eb4; /* Verde azulado, consistente con otras páginas */
   color: white;
   border: none;
+  margin-left: 10px;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 5px;
@@ -66,10 +70,4 @@
   background-color: #003366;
   margin: auto
 }
-
-body{
-  background-image: url("/AngularGames/public/fondo web 2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
+*/
