@@ -39,7 +39,7 @@ importeTotal:number
 carrito:boolean=false
 stockArticulo:number;
 added:boolean=false;
-mensaje:string
+error:boolean=false
 
 ngOnInit(){
   const nombreJuego:string = this.route.snapshot.paramMap.get('nombre');
@@ -72,9 +72,11 @@ stockProducto(nombre:string){
   let pedido:Carrito = new Carrito(this.numpedido,this.articulo.nombre,this.unidades,total)
   this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>{
     if (data.find(m=>m.nombreArticulo==pedido.nombreArticulo)){
-      this.carritoService.cambiarUnidades(pedido).subscribe(data=>{this.addedCarrito(),this.ngOnInit(),this.mensaje=data,alert(this.mensaje)});
+      // NO HACE ESTA LÍNEA NO SÉ POR QUÉ
+      this.carritoService.cambiarUnidades(pedido).subscribe(data=>{this.almacenService.consultarStock(this.articulo.nombre).subscribe(data=>
+        this.stockArticulo=data),this.addedCarrito(),this.ngOnInit()});
     }else{
-      this.carritoService.agregarAlCarrito(pedido).subscribe(data=>{this.addedCarrito(),this.ngOnInit(),(this.mensaje="añadido",data),alert(this.mensaje)});
+      this.carritoService.agregarAlCarrito(pedido).subscribe(data=>{this.ngOnInit(),this.addedCarrito()});
     }
   }
 
@@ -95,6 +97,13 @@ addedCarrito(){
   setTimeout(()=>this.added=false,2000)
 
 }
+
+errorCarrito(){
+  this.error=true
+  setTimeout(()=>this.added=false,2000)
+
+}
+
 
 borrarDeLista(nombre:string){
   this.carritoService.eliminarDelCarrito(nombre).subscribe()
