@@ -48,6 +48,7 @@ async agregarProducto(producto:productoAlmacenDto):Promise<boolean>{
        }
 
        reducirStock(producto:string,pedido:number){
+        console.log("reducimos el stock de ",producto," en ",pedido)
         this.almacenRepository.decrement({nombre:producto},"cantidad",pedido)
        }
 

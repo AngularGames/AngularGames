@@ -9,6 +9,7 @@ import { PaginaFiltroComponent } from './component/pagina-filtro/pagina-filtro.c
 import { PaginaFiltroTipoComponent } from './component/pagina-filtro-tipo/pagina-filtro-tipo.component';
 import { PaginaBusquedaComponent } from './component/pagina-busqueda/pagina-busqueda.component';
 import { PaginaCarritoComponent } from './component/pagina-carrito/pagina-carrito.component';
+import { PaginaErrorComponent } from './component/pagina-error/pagina-error.component';
 
 export const routes: Routes = [
   {path:"almacen", component:PaginaAlmacenComponent},
@@ -23,5 +24,6 @@ export const routes: Routes = [
   {path:"filtro/jugadores", component:PaginaFiltroComponent},
   {path:"busqueda", component:PaginaBusquedaComponent},
   {path:"carrito", component:PaginaCarritoComponent},
+  {path:"error", component:PaginaErrorComponent},
 
 ];

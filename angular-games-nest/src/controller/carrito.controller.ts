@@ -13,6 +13,7 @@ import { AlmacenService } from 'src/service/almacen.service';
 import { CarritoService } from 'src/service/carrito.service';
 import { Response } from 'express';
 import { max } from 'rxjs';
+import { UpdateResult } from 'typeorm';
 
 @Controller('carrito')
 export class CarritoController {
@@ -23,8 +24,6 @@ export class CarritoController {
 
 @Post("agregarCarrito")
 async agregarAlCarrito(@Body() pedido:CarritoDto, @Res() response:Response){
-  console.log("este pedido ha entrado"+pedido);
-  console.log(pedido.cantidad,pedido.nombreArticulo,pedido.precio);
   let stock:number = await this.almacenService.consultarStockArticulo(pedido.nombreArticulo);
   if(pedido.cantidad>stock){
     console.log("no hay stock)")
@@ -37,7 +36,7 @@ async agregarAlCarrito(@Body() pedido:CarritoDto, @Res() response:Response){
     if (respuesta){
       return response.status(202).json(respuesta);
     }else{
-      return response.status(408).send();
+      return response.status(408).send("ERROR");
     }
   }
 }
@@ -65,5 +64,21 @@ borrarDelCarrito(@Param("nombre") nombre:string):Promise<boolean>{
 return this.carritoService.eliminarDelCarrito(nombre);
 }
 
+@Patch('unidades')
+async cambiarUnidades(@Body() pedido:CarritoDto, @Res() response:Response){
+  console.log("ha entrado el ",pedido," en el controller")
+  let stock:number = await this.almacenService.consultarStockArticulo(pedido.nombreArticulo);
+  if(pedido.cantidad>stock){
+    console.log("no hay stock)");
+    return response.status(408).send(" NO hay stock suficiente");
+    }else{
+    console.log("hay stock")
+    this.carritoService.cambiarUnidades(pedido)
+    this.almacenService.reducirStock(pedido.nombreArticulo,pedido.cantidad);
 
+    return response.status(202).send("hay stock suficiente");
+
+    }
+
+}
 }

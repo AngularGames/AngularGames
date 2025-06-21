@@ -27,6 +27,7 @@ export class HeaderComponent {
   }
 */
   buscarJuego(juego:string){
+    
     this.articuloService.elegirJuego(juego);
 
   }

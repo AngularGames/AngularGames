@@ -1,7 +1,7 @@
+import { Carrito } from './../Model/Carrito';
 import { Injectable } from '@nestjs/common';
-import { Carrito } from 'src/Model/Carrito';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult, Repository } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { CarritoDto } from 'src/Dtos/CarritoDto';
 
 @Injectable()
@@ -18,7 +18,6 @@ async agregarAlCarrito(pedido:CarritoDto):Promise<CarritoDto>{
 }
 
 async eliminarDelCarrito(nombre:string):Promise<boolean>{
-  // Deberia de borrar el articulo en el que hace clicl
   console.log("service back nombre juego borrar es "+nombre)
   const respuesta:DeleteResult = await this.carritoRepository.delete({nombreArticulo:nombre});
   return respuesta.affected>0
@@ -26,6 +25,7 @@ async eliminarDelCarrito(nombre:string):Promise<boolean>{
 }
 
 async mostrarCarrito(numPedido:number):Promise<CarritoDto[]>{
+  
   return await this.carritoRepository.findBy({numPedido:numPedido});
 }
 
@@ -34,6 +34,12 @@ async numeroDeCarrito():Promise<CarritoDto[]>{
   return await this.carritoRepository.find();
 }
 
-
+async cambiarUnidades(pedido:CarritoDto):Promise<UpdateResult>{
+  console.log("aumenta en ",pedido.cantidad," el stock en backservice");
+  console.log("aumenta el precio de la factura ",pedido.precio," euros")
+   await this.carritoRepository.increment({nombreArticulo:pedido.nombreArticulo},"cantidad",pedido.cantidad);
+   return await this.carritoRepository.increment({nombreArticulo:pedido.nombreArticulo},"precio",pedido.precio);
+    
+}
 
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Carrito } from '../../models/Carrito';
-import { Observable } from 'rxjs';
+import { find, map, Observable } from 'rxjs';
 import { CarritoDto } from '../../../../../angular-games-nest/src/Dtos/CarritoDto';
 
 @Injectable({
@@ -20,7 +20,6 @@ numeroPedido:any;
 agregarAlCarrito(pedido:Carrito){
   return this.http.post(`${this.url}/carrito/agregarCarrito`,pedido)
 
-
 }
 
 mostrarCarrito(numpedido:number):Observable<Carrito[]>{
@@ -37,7 +36,11 @@ eliminarDelCarrito(nombre:string):Observable<any>{
   console.log("este es el nombre para borrar del carrito "+nombre)
   return this.http.delete(`${this.url}/carrito/eliminarCarrito/${nombre}`)
 
+}
 
+cambiarUnidades(pedido:Carrito):Observable<any>{
+  console.log("ha entrado este pedido para actualizar ",pedido)
+  return this.http.patch(`${this.url}/carrito/unidades/`,pedido)
 }
 
 }
