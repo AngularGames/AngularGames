@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos horizontalmente */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 80%;
+  background-color: #005959;
+  color: #ffd12b;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+}
+
+.col-auto {
+  margin: 10px; /* Añade un margen alrededor de cada tarjeta */
+}
+
+.card {
+  width: 18rem;
+  margin-bottom: 20px;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.list-group-item {
+  text-align: center;
+}
+
+.go-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ccc;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.go-to-top:hover {
+  opacity: 1;
+}

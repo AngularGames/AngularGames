@@ -7,15 +7,17 @@ export class Usuario {
   correo: string;
   direccion: string;
   telefono: number;
+  roles:string;
 
   constructor(
-    nombre: string,
-    apellido: string,
-    nombreUsuario: string,
-    password: string,
-    correo: string,
-    direccion: string,
-    telefono: number
+    nombre?: string,
+    apellido?: string,
+    nombreUsuario?: string,
+    password?: string,
+    correo?: string,
+    direccion?: string,
+    telefono?: number,
+    roles?:string,
   ) {
     this.nombre = nombre;
     this.apellido = apellido;
@@ -24,5 +26,6 @@ export class Usuario {
     this.correo = correo;
     this.direccion = direccion;
     this.telefono = telefono;
+    this.roles=roles;
   }
 }

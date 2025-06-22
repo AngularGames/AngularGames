@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { Usuario } from 'src/Model/Usuario';
 import { DeleteResult, Repository } from 'typeorm';
 import { UsuarioDto } from 'src/Dtos/UsuarioDto';
+import { Login } from 'src/Model/Login';
 
 @Injectable()
 export class UsuariosService {
@@ -11,27 +12,15 @@ export class UsuariosService {
     private usuariosRepository: Repository<Usuario>,
   ) {}
   
-  async validarUsuario(
-    usuarioBuscado: string,
-    password: string,
-  ): Promise<boolean> {
-    const resultado: UsuarioDto = await this.usuariosRepository.findOneBy({
-      nombreUsuario: usuarioBuscado,
+  async validarUsuario(login:Login):Promise<UsuarioDto>{
+    const resultado: Usuario = await this.usuariosRepository.findOneBy({
+      nombreUsuario:login.userName
     });
-    console.log(resultado);
-    if (resultado == null) {
-      return false;
-    } else {
-      if (
-        resultado.nombreUsuario == usuarioBuscado &&
-        resultado.password == password
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    }
+    console.log("resultado de la busquedafindby",resultado)
+    if(resultado.nombreUsuario==login.userName && resultado.password==login.password) return resultado;
+    else return null
   }
+
     nuevoUsuario(usuario: UsuarioDto): Promise<UsuarioDto> {
     return this.usuariosRepository.save(usuario);
   }

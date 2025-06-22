@@ -13,7 +13,10 @@ async function bootstrap() {
 .build();
 const document = SwaggerModule.createDocument(app, config);
 SwaggerModule.setup('ayuda/api', app, document);
-  app.enableCors()
+  app.enableCors({
+    origin: 'http://localhost:4200',
+    credentials: true
+  })
 
   new ValidationPipe({
     whitelist: false, // Si lo ponemos a true, SOLO LOS CAMPOS CONDECORADOR SE TIENEN EN CUENTA. El resto son OBVIADOS

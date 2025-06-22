@@ -7,12 +7,14 @@ import {
   Patch,
   Post,
   Query,
+  Req,
   Res,
 } from '@nestjs/common';
 import { productoAlmacen } from 'src/Model/productoAlmacen';
 import { AlmacenService } from 'src/service/almacen.service';
 import { Response } from 'express';
 import { StockDto } from 'src/Dtos/StockDto';
+import { Request } from 'express';
 
 @Controller('almacen')
 export class AlmacenController {
@@ -58,6 +60,15 @@ export class AlmacenController {
       if(respuesta){
         return response.status(202).json(respuesta)
       } else return response.status(419).send()
+    }
+    @Get("mostrar")
+    async mostrarAlmacen(@Req() req:Request){
+     
+      const admin:string=req.cookies["user"];
+      console.log("cookie "+admin)
+      if(admin) return true
+      else return false
+
     }
   }
 

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Usuario } from '../../models/usuario';
+import { Login } from '../../models/Login';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,7 @@ export class PaginaUsuarioComponent {
   direccion:string
   telefono: number
 
-  respuestaValidacion:boolean
+  respuestaValidacion:string
   respuestaRegistro:Usuario
   error=""
 
@@ -34,14 +35,14 @@ export class PaginaUsuarioComponent {
 
 
   validarUsuario() {
-    var loginData = {
+    var loginData:Login = {
       userName: this.nombreUsuario,
-      password: this.password
-    }
-    this.usuarioService.validarUsuario(loginData.userName,loginData.password)
-      .subscribe(data => {
-      console.log("component",data),
-      this.respuestaValidacion = data});
+      password: this.password,
+      roles:""
+    };
+    console.log("logindata de componente ",loginData)
+    this.usuarioService.validarUsuario(loginData).subscribe(data=>console.log(data));
+
 
     }
 
@@ -53,8 +54,9 @@ export class PaginaUsuarioComponent {
         password:this.password,
         correo: this.correo,
         direccion: this.direccion,
-        telefono: this.telefono
-       }
+        telefono: this.telefono,
+        roles:"usuario"
+       };
       this.usuarioService.nuevoUsuario(newUserData)
       .subscribe(data=> this.respuestaRegistro = data)
 

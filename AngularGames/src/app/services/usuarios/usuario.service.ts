@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../../models/usuario';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { Login } from '../../models/Login';
 
 
 @Injectable({
@@ -9,15 +10,21 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
   constructor(private http:HttpClient) {}
-  urlVerificar:"http://localhost:3000/usuarios/validar"
-  urlRegistro:"http://localhost:3000/usuarios/registro"
+   urlVerificar="http://localhost:3000/usuarios/validar"
+   urlRegistro="http://localhost:3000/usuarios/registro"
   password:string
   usuario:string
 
 
-   validarUsuario(password:string,usuario:string):Observable<boolean>{
-     const respuesta = this.http.get<boolean>(`${this.urlVerificar}`)
-     return respuesta
+    validarUsuario(login:Login):Observable<string>{
+    console.log("entra ",login," en usuariosService front")
+     let respuesta = this.http.post<Login>(`${this.urlVerificar}`,login);
+     console.log(respuesta)
+     let rol = respuesta.pipe(map(m=>m.roles));
+     console.log("este es el rol ",rol)
+     return rol
+
+
   }
 
   nuevoUsuario(usuario:Usuario):Observable<Usuario>{

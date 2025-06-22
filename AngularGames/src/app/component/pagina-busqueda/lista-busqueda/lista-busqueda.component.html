@@ -1,4 +1,3 @@
-<p>lista-busqueda works!</p>
 <div class="container">
   <div class="row row-cols-auto">
     <div  *ngFor="let item of juegosFiltrados"  class="col-auto ms-md-auto">
@@ -20,6 +19,12 @@
       </div>
     </div>
   </div>
+
+<div *ngIf="error" class="container">
+  <h1> Ups... no hemos podido encontrar lo que buscabas.</h1><br>
+  <h3>Por favor, comprueba que has escrito la primera con mayúscula y que el nombre es correcto</h3>
+</div>
+
   <button mat-icon-button class="go-to-top" *ngIf="showTopButton" (click)="scrollToTop()">
     <mat-icon>arrow_upward</mat-icon>
   </button>

@@ -26,6 +26,9 @@ export class ListaBusquedaComponent {
 
     this.articulosService.CargarListaJuegos().subscribe(data=>{
       this.juegosFiltrados=data.filter(m=>m.nombre==nombreJuego);
+      if(this.juegosFiltrados.length==0){
+        this.error=true;
+      }
     })
 
 /*
@@ -42,7 +45,8 @@ export class ListaBusquedaComponent {
   resultado:Juego;
   visible:boolean=false;
   juegosCargados:Juego[]=[];
-  juegosFiltrados:Juego[]=[]
+  juegosFiltrados:Juego[]=[];
+  error:boolean;
 
 
 

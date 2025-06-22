@@ -3,17 +3,26 @@ import { UsuariosService } from '../service/usuarios.service';
 import { Response } from 'express';
 import { Usuario } from 'src/Model/Usuario';
 import { UsuarioDto } from 'src/Dtos/UsuarioDto';
+import { Login } from 'src/Model/Login';
+import { map } from 'rxjs';
 @Controller('usuarios')
 export class UsuariosController {
   constructor(private readonly usuariosService: UsuariosService) {}
 
   @Post('validar')
-  async validarUsuario(@Body() body: { usuario: string; password: string },@Res() response: Response){
-    const resultado: boolean = await this.usuariosService.validarUsuario(
-    body.usuario,body.password
-    );
-    if (resultado) {
-      response.status(200).send('USUARIO CORRECTO');
+  async validarUsuario(@Body() login:Login,@Res() response: Response){
+
+    console.log("al controller le dan esto ",login)
+    let resultado:UsuarioDto = await this.usuariosService.validarUsuario(login);
+    console.log("el controller recive del serviceBACK ",resultado)
+      if (resultado) {
+      response.cookie("user",resultado.roles,{
+        httpOnly:true,
+        maxAge:24*60*60*1000,
+        secure:false
+      });
+      console.log("esta es la cookie ",response.cookie)
+      return response.json(resultado)
     } else {
       response.status(409).send('ERROR: USUARIO O CONTRASEÑA INCORRECTO');
     } 

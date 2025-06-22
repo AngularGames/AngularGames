@@ -40,6 +40,10 @@ export class AlmacenService {
     return this.http.post<Stock>(`${this.url}/almacen/stock`,stock,{headers:heads})
     //this.http.patch(`${this.url}/almacen/stock?articulo=${stock.nombre}&cantidad=${stock.cantidad}`,stock)
   }
+
+  mostrarAlmacen(){
+    return this.http.get(`${this.url}/almacen/mostrar`)
+  }
 }
 
 

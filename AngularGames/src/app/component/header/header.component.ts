@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ArticuloService } from '../../services/articulos/articulo.service';
 import { PaginapruebasComponent } from '../paginapruebas/paginapruebas.component';
+import { UsuarioService } from '../../services/usuarios/usuario.service';
 
 @Component({
   selector: 'app-header',
@@ -16,10 +17,19 @@ export class HeaderComponent {
   constructor(
     private router:Router,
     private articuloService:ArticuloService,
+    private usuarioService:UsuarioService,
 
-  ){}
+  ){
+
+    // La idea es cargar el header pidiendo mostrar almacen.
+    // No lo hace hasta que tengamos la cookie y entonces cambia la variable admin a true o a admin
+    // y ya muestra el almacen.
+    // Bueno, hay qeu cambiarlo para que haga eso
+
+    }
 
   juegoBuscar:string
+  admin:string="usuario"
 
   /*
   ngOnInit(){
@@ -27,7 +37,7 @@ export class HeaderComponent {
   }
 */
   buscarJuego(juego:string){
-    
+
     this.articuloService.elegirJuego(juego);
 
   }
