@@ -37,9 +37,10 @@ async numeroDeCarrito():Promise<CarritoDto[]>{
 async cambiarUnidades(pedido:CarritoDto):Promise<UpdateResult>{
   console.log("aumenta en ",pedido.cantidad," el stock en backservice");
   console.log("aumenta el precio de la factura ",pedido.precio," euros")
-   await this.carritoRepository.increment({nombreArticulo:pedido.nombreArticulo},"cantidad",pedido.cantidad);
-   return await this.carritoRepository.increment({nombreArticulo:pedido.nombreArticulo},"precio",pedido.precio);
+   let cantidad = await this.carritoRepository.increment({nombreArticulo:pedido.nombreArticulo},"cantidad",pedido.cantidad);
+   let precio = await this.carritoRepository.increment({nombreArticulo:pedido.nombreArticulo},"precio",pedido.precio);
+   return cantidad
+   }
     
 }
 
-}

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Carrito } from '../../models/Carrito';
 import { find, map, Observable } from 'rxjs';
 import { CarritoDto } from '../../../../../angular-games-nest/src/Dtos/CarritoDto';
+import { UpdateResult } from 'typeorm';
 
 @Injectable({
   providedIn: 'root'

@@ -8,7 +8,6 @@ import { AlmacenService } from '../../services/almacen/almacen.service';
 import { Carrito } from '../../models/Carrito';
 import { CarritoService } from '../../services/carrito/carrito.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-pagina-producto',
@@ -40,6 +39,7 @@ carrito:boolean=false
 stockArticulo:number;
 added:boolean=false;
 error:boolean=false
+mensajeUpdate:string;
 
 ngOnInit(){
   const nombreJuego:string = this.route.snapshot.paramMap.get('nombre');
@@ -73,8 +73,13 @@ stockProducto(nombre:string){
   this.carritoService.mostrarCarrito(this.numpedido).subscribe(data=>{
     if (data.find(m=>m.nombreArticulo==pedido.nombreArticulo)){
       // NO HACE ESTA LÍNEA NO SÉ POR QUÉ
-      this.carritoService.cambiarUnidades(pedido).subscribe(data=>{this.almacenService.consultarStock(this.articulo.nombre).subscribe(data=>
-        this.stockArticulo=data),this.addedCarrito(),this.ngOnInit()});
+      this.carritoService.cambiarUnidades(pedido).subscribe(  (response: any) => {
+        console.log(response.mensaje); // Accede al mensaje dentro del objeto JSON
+        this.addedCarrito()
+      },
+      (error) => {
+        this.errorCarrito()
+      });
     }else{
       this.carritoService.agregarAlCarrito(pedido).subscribe(data=>{this.ngOnInit(),this.addedCarrito()});
     }
@@ -100,7 +105,7 @@ addedCarrito(){
 
 errorCarrito(){
   this.error=true
-  setTimeout(()=>this.added=false,2000)
+  setTimeout(()=>this.error=false,4000)
 
 }
 

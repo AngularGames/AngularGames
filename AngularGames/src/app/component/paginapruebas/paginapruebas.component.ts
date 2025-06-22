@@ -2,11 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { PaginaProductoComponent } from '../pagina-producto/pagina-producto.component';
 import { Juego } from '../../models/Juego';
 import { ArticuloService } from '../../services/articulos/articulo.service';
-import { PaginaAlmacenComponent } from "../pagina-almacen/pagina-almacen.component";
-import { Body } from '@nestjs/common';
 import {MatIconModule} from '@angular/material/icon'
 @Component({
   selector: 'app-paginapruebas',
@@ -20,10 +17,10 @@ showTopButton: any;
 
 
   constructor(
-    private articuloService:ArticuloService,
+    private articulosService:ArticuloService,
     //private paginaProducto:PaginaProductoComponent,
   ){
-    this.articuloService.CargarListaJuegos().subscribe(data=>this.juegosCargados=data)
+    this.articulosService.CargarListaJuegos().subscribe(data=>this.juegosCargados=data)
   }
 
   botonArriba
@@ -35,7 +32,7 @@ showTopButton: any;
 
 
   buscarProducto(productoBuscar:string):Juego{
-     this.articuloService.elegirJuego(productoBuscar).subscribe(data=>this.resultado=data);
+     this.articulosService.elegirJuego(productoBuscar).subscribe(data=>this.resultado=data);
      this.visible=true;
      return this.resultado;
   }

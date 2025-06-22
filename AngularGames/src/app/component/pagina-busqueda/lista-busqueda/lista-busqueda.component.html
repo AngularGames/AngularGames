@@ -1,0 +1,28 @@
+<p>lista-busqueda works!</p>
+<div class="container">
+  <div class="row row-cols-auto">
+    <div  *ngFor="let item of juegosFiltrados"  class="col-auto ms-md-auto">
+      <div   class="card mb-5" style="width: 18rem;">
+              <img src="{{item.imagen}}" style="object-fit: cover;" class="img-thumbnail" alt="...">
+              <div class="card-body">
+                <h3 class="card-title" style="text-align: center;">{{item.nombre}}</h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{item.tipo}}</li>
+                <li class="list-group-item">de {{item.jugadoresMin}} a {{item.jugadoresMax}} jugadores</li>
+                <li class="list-group-item">una <b>dificultad de {{item.dificultad}}</b> sobre 5</li>
+              </ul>
+              <div class="carf-body" style="align-self: center; text-align: center;">
+                <a>PRECIO: <b>{{item.precio | currency:'EUR'}}</b></a><br><a [routerLink]="['/producto',item.nombre]" class="btn btn-primary">Pagina de {{item.nombre}}</a>
+
+                </div>
+              </div>
+      </div>
+    </div>
+  </div>
+  <button mat-icon-button class="go-to-top" *ngIf="showTopButton" (click)="scrollToTop()">
+    <mat-icon>arrow_upward</mat-icon>
+  </button>
+<router-outlet></router-outlet>
+
+

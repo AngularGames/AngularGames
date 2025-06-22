@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PaginaErrorComponent } from './pagina-error.component';
+import { ListaBusquedaComponent } from './lista-busqueda.component';
 
-describe('PaginaErrorComponent', () => {
-  let component: PaginaErrorComponent;
-  let fixture: ComponentFixture<PaginaErrorComponent>;
+describe('ListaBusquedaComponent', () => {
+  let component: ListaBusquedaComponent;
+  let fixture: ComponentFixture<ListaBusquedaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PaginaErrorComponent]
+      imports: [ListaBusquedaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PaginaErrorComponent);
+    fixture = TestBed.createComponent(ListaBusquedaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

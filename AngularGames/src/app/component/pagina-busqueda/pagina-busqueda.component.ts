@@ -1,18 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ArticuloService } from '../../services/articulos/articulo.service';
 import { Juego } from '../../models/Juego';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-pagina-busqueda',
-  imports: [RouterModule,FormsModule,CommonModule],
+  imports: [RouterModule,FormsModule,CommonModule,MatIconModule],
   templateUrl: './pagina-busqueda.component.html',
   styleUrl: './pagina-busqueda.component.css'
 })
 export class PaginaBusquedaComponent {
   constructor(private articulosService:ArticuloService){
+    this.articulosService.CargarListaJuegos().subscribe(data=>this.juegosCargados=data)
 
   }
 
@@ -21,6 +23,12 @@ export class PaginaBusquedaComponent {
   jugadoresMax:number=4;
   filtroJugadores:boolean=false
   juegosPorJugadores:Juego[]=[];
+  showTopButton: any;
+  juegosCargados:Juego[]=[];
+
+  buscarJuego(nombre:string){
+    this.juegosCargados.map(j=>j.nombre==nombre)
+    }
 
   seleccion(seleccion:string){
     this.filtro=seleccion;
@@ -40,5 +48,15 @@ export class PaginaBusquedaComponent {
     this.articulosService.filtrarJugadores(jmin,jmax).subscribe(data=>this.juegosPorJugadores=data)
 
   }
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.showTopButton = window.scrollY > 350;
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
 
 }

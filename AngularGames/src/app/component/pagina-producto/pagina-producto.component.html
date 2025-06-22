@@ -77,6 +77,10 @@
           <div *ngIf="added" class="alert alert-success" role="alert">
             Pedido añadido. Consulte su carrito
           </div>
+          <div *ngIf="error" class="alert alert-danger" role="alert">
+            No queda suficiente Stock
+          </div>
+
           <a href="carrito"><button class="btn-comprar">Consultar Carrito</button></a>
 
 

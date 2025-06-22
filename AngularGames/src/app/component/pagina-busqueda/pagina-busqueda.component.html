@@ -181,13 +181,13 @@
     </div>
   </div>
   <div *ngIf="filtro=='jugadores'" class="container">
-    <div>
-      <div>
-        <label for="jugadoresMin" class="form-label">Jugadores Minimos {{jugadoresMin}}</label>
+    <div class="card">
+      <div class="">
+        <div for="jugadoresMin" class="jugadores-body">Jugadores Minimos {{jugadoresMin}}</div>
         <input type="range" [(ngModel)]="jugadoresMin" (change)="jugadores()" class="form-range" min="1" max="{{jugadoresMax}}" step="1" id="jugadoresMin">
       </div>
-      <div>
-        <label for="jugadoresMax" class="form-label">Jugadores Max {{jugadoresMax}}</label>
+      <div class="">
+        <div for="jugadoresMax" class="jugadores-body">Jugadores Max {{jugadoresMax}}</div>
         <input type="range" [(ngModel)]="jugadoresMax" (change)="jugadores()" class="form-range" min="{{jugadoresMin}}" max="10" step="1" id="jugadoresMax">
       </div>
     </div>
@@ -217,5 +217,9 @@
       </div>
     </div>
   </div>
-  <router-outlet></router-outlet>
 </div>
+  <button mat-icon-button class="go-to-top" *ngIf="showTopButton" (click)="scrollToTop()">
+    <mat-icon>arrow_upward</mat-icon>
+  </button>
+
+  <router-outlet></router-outlet>

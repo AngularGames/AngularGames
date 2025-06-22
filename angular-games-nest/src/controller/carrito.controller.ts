@@ -36,7 +36,7 @@ async agregarAlCarrito(@Body() pedido:CarritoDto, @Res() response:Response){
     if (respuesta){
       return response.status(202).json(respuesta);
     }else{
-      return response.status(408).send("ERROR");
+      return response.status(418).json({});
     }
   }
 }
@@ -70,13 +70,15 @@ async cambiarUnidades(@Body() pedido:CarritoDto, @Res() response:Response){
   let stock:number = await this.almacenService.consultarStockArticulo(pedido.nombreArticulo);
   if(pedido.cantidad>stock){
     console.log("no hay stock)");
-    return response.status(408).send(" NO hay stock suficiente");
+    return response.status(418).json({mensaje:"No hay stock suficiente"})
     }else{
     console.log("hay stock")
-    this.carritoService.cambiarUnidades(pedido)
-    this.almacenService.reducirStock(pedido.nombreArticulo,pedido.cantidad);
+    let carritoCambiado = await this.carritoService.cambiarUnidades(pedido)
+    let almacenActualizado = this.almacenService.reducirStock(pedido.nombreArticulo,pedido.cantidad);
 
-    return response.status(202).send("hay stock suficiente");
+    if(carritoCambiado){
+    return response.status(202).json({mensaje:"Pedido Actualizado"});
+    }
 
     }
 
