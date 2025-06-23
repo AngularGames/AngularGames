@@ -62,7 +62,7 @@ export class AlmacenController {
       } else return response.status(419).send()
     }
     @Get("mostrar")
-    async mostrarAlmacen(@Req() req:Request){
+     mostrarAlmacen(@Req() req:Request){
      
       const admin:string=req.cookies["user"];
       console.log("cookie "+admin)

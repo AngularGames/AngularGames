@@ -10,6 +10,7 @@ import { PaginaFiltroTipoComponent } from './component/pagina-filtro-tipo/pagina
 import { PaginaBusquedaComponent } from './component/pagina-busqueda/pagina-busqueda.component';
 import { PaginaCarritoComponent } from './component/pagina-carrito/pagina-carrito.component';
 import { ListaBusquedaComponent } from './component/pagina-busqueda/lista-busqueda/lista-busqueda.component';
+import { UsuarioBienvenidaComponent } from './component/usuario-bienvenida/usuario-bienvenida.component';
 
 export const routes: Routes = [
   {path:"almacen", component:PaginaAlmacenComponent},
@@ -25,5 +26,6 @@ export const routes: Routes = [
   {path:"busqueda", component:PaginaBusquedaComponent},
   {path:"busqueda/juego/:nombre", component:ListaBusquedaComponent},
   {path:"carrito", component:PaginaCarritoComponent},
+  {path:"usuBienvenida", component:UsuarioBienvenidaComponent},
 
 ];

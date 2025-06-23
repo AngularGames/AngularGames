@@ -41,7 +41,15 @@ export class PaginaUsuarioComponent {
       roles:""
     };
     console.log("logindata de componente ",loginData)
-    this.usuarioService.validarUsuario(loginData).subscribe(data=>console.log(data));
+    this.usuarioService.validarUsuario(loginData).subscribe(data=>{
+      console.log(data);
+      this.respuestaValidacion=data;
+      if(this.respuestaValidacion=="usuario"){
+        return console.log("BIENVENIDO ",loginData.userName)
+      }else if(this.respuestaValidacion=="admin"){
+        return console.log("hola, ",loginData.userName)}
+        else return console.log("no te conozco")
+    });
 
 
     }

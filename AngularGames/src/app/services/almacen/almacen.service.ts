@@ -38,11 +38,10 @@ export class AlmacenService {
     let heads = new HttpHeaders()
     heads=heads.set("Content-Type","application/json")
     return this.http.post<Stock>(`${this.url}/almacen/stock`,stock,{headers:heads})
-    //this.http.patch(`${this.url}/almacen/stock?articulo=${stock.nombre}&cantidad=${stock.cantidad}`,stock)
   }
 
   mostrarAlmacen(){
-    return this.http.get(`${this.url}/almacen/mostrar`)
+    return this.http.get<boolean>(`${this.url}/almacen/mostrar`,{withCredentials:true})
   }
 }
 
