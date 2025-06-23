@@ -26,8 +26,15 @@ export class PaginaBusquedaComponent {
   showTopButton: any;
   juegosCargados:Juego[]=[];
 
+  capitalizeFirstLetter(text: string): string {
+    if (!text) return '';
+    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+  }
+
   buscarJuego(nombre:string){
-    this.juegosCargados.map(j=>j.nombre==nombre)
+    const terminoFormateado = this.capitalizeFirstLetter(nombre);
+    console.log(terminoFormateado); // Para probar que funciona
+    this.juegosCargados.map(j=>j.nombre==terminoFormateado)
     }
 
   seleccion(seleccion:string){
