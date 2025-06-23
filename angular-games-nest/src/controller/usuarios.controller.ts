@@ -21,7 +21,6 @@ export class UsuariosController {
         maxAge:24*60*60*1000,
         secure:false
       });
-      console.log("esta es la cookie ",response.cookie)
       return response.json(resultado)
     } else {
       response.status(409).send('ERROR: USUARIO O CONTRASEÑA INCORRECTO');

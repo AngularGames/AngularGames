@@ -1,3 +1,4 @@
+import { AlmacenService } from './../../services/almacen/almacen.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -18,9 +19,12 @@ export class HeaderComponent {
     private router:Router,
     private articuloService:ArticuloService,
     private usuarioService:UsuarioService,
+    private almacenService:AlmacenService,
 
   ){
 
+
+    this.almacenService.mostrarAlmacen().subscribe(data=>this.admin=data)
     // La idea es cargar el header pidiendo mostrar almacen.
     // No lo hace hasta que tengamos la cookie y entonces cambia la variable admin a true o a admin
     // y ya muestra el almacen.
@@ -29,7 +33,7 @@ export class HeaderComponent {
     }
 
   juegoBuscar:string
-  admin:string="usuario"
+  admin:boolean=false;
 
   /*
   ngOnInit(){
@@ -42,4 +46,6 @@ export class HeaderComponent {
 
   }
 
+
 }
+
