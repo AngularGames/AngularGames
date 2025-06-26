@@ -30,19 +30,18 @@ export class NuevoRegistroComponent {
 
   juego:Juego;
   respuesta:string;
+  confirmar:boolean=false;
 
 
   guardarRegistro(){
-      console.log("entramos en guardar registro")
     const nuevoJuego=new Juego(this.nombre,this.tipoDeJuego,this.jmin,this.jmax,this.dificultad,this.descripcion,this.precio,this.imagen)
-      console.log(nuevoJuego)
     this.articuloService.añadirArticulo(nuevoJuego).subscribe(data=>this.respuesta=data)
-      console.log("esta debería ser la respuesta "+this.respuesta)
     const nuevoAlmacen= new productoAlmacen(this.nombre,"juego",5);
-      console.log("esto es lo que enviamos al almacen ",nuevoAlmacen)
     this.almacenService.agregarAlmacen(nuevoAlmacen).subscribe(data=>{
-            console.log("respuesta a guardar juego ",this.respuesta)
-      this.respuesta=data})
+      this.respuesta=data;
+      this.confirmar=true;
+      setTimeout(()=>this.confirmar=false,2000)
+    })
 
   }
 
