@@ -25,10 +25,15 @@ export class PaginaBusquedaComponent {
   juegosPorJugadores:Juego[]=[];
   showTopButton: any;
   juegosCargados:Juego[]=[];
+  terminoFormateado:string=""
 
-  capitalizeFirstLetter(text: string): string {
-    if (!text) return '';
-    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+
+  capitalizeFirstLetter(text:string):string{
+   // if (!text) return '';
+   let resultado:string = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+   console.log(resultado)
+      return resultado
+
   }
 
   buscarJuego(nombre:string){
